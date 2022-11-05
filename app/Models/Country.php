@@ -14,6 +14,10 @@ class Country extends Model
     {
         return new Attribute(get: fn () => $this->translations->first()->name ?? '-');
     }
+    public function activeKey(): Attribute
+    {
+        return new Attribute(get: fn () => $this->active ? 'Active' : 'In-Active');
+    }
 
     public function translations()
     {
