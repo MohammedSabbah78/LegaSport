@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
@@ -55,6 +56,8 @@ Route::group([
         // Route::resource('admins', AdminController::class);
         Route::resource('languages', LanguageController::class);
         Route::resource('admins', AdminController::class);
+        Route::resource('ads', AdController::class);
+
 
 
         /*
