@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
@@ -14,7 +15,8 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RolePermissionController;
-use App\Models\OnBoardingScreen;
+use App\Http\Controllers\SportController;
+use App\Http\Controllers\SportTranslationController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
@@ -55,6 +57,24 @@ Route::group([
         // Route::resource('admins', AdminController::class);
         Route::resource('languages', LanguageController::class);
         Route::resource('admins', AdminController::class);
+        Route::resource('ads', AdController::class);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Sport Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('sports', [SportController::class, 'index'])->name('sports.index');
+        Route::get('sports/create', [SportController::class, 'create'])->name('sports.create');
+        Route::post('sports', [SportController::class, 'store'])->name('sports.store');
+        Route::delete('sports/{sport}', [SportController::class, 'destroy'])->name('sports.destroy');
+
+        Route::get('sports/translation/{language}', [SportTranslationController::class, 'showByLanguage'])->name('sport-translations.showByLanguage');
+        Route::get('sports/{sport}/translation/create', [SportTranslationController::class, 'create'])->name('sport-translations.create');
+        Route::post('sports/{sport}/translation', [SportTranslationController::class, 'store'])->name('sport-translations.store');
+        Route::get('sports/translations/{sportTranslation}/edit', [SportTranslationController::class, 'edit'])->name('sport-translations.edit');
+        Route::put('sports/translations/{sportTranslation}', [SportTranslationController::class, 'update'])->name('sport-translations.update');
+        Route::delete('sports/translations/{sportTranslation}', [SportTranslationController::class, 'destroy'])->name('sport-translations.destroy');
 
 
         /*
@@ -73,6 +93,9 @@ Route::group([
         Route::get('countries/translations/{country_translation}/edit', [CountryTranslationController::class, 'edit'])->name('country-translations.edit');
         Route::put('countries/translations/{country_translation}', [CountryTranslationController::class, 'update'])->name('country-translations.update');
         Route::delete('countries/translations/{country_translation}', [CountryTranslationController::class, 'destroy'])->name('country-translations.destroy');
+
+
+
 
         /*
         |--------------------------------------------------------------------------
