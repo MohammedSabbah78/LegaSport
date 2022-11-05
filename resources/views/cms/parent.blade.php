@@ -498,6 +498,56 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </ul>
                                 </div>
                             </li>
+
+                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle">
+                                    <span class="svg-icon menu-icon">
+                                        <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                            viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path
+                                                    d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z"
+                                                    fill="#000000" fill-rule="nonzero" />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                    <span class="menu-text">{{__('cms.sport')}}</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item menu-item-parent" aria-haspopup="true">
+                                            <span class="menu-link">
+                                                <span class="menu-text">{{__('cms.sport')}}</span>
+                                            </span>
+                                        </li>
+                                        {{-- @can('Create-Language') --}}
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{route('sports.create')}}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">{{__('cms.create')}}</span>
+                                            </a>
+                                        </li>
+                                        {{-- @endcan --}}
+                                        {{-- @can('Read-Languages') --}}
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{route('sports.index')}}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">{{__('cms.index')}}</span>
+                                            </a>
+                                        </li>
+                                        {{-- @endcan --}}
+                                    </ul>
+                                </div>
+                            </li>
 							{{-- @canany(['Create-Country','Read-Countries','Create-City','Read-Cities']) --}}
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.location_management')}}</h4>
@@ -558,6 +608,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</ul>
 								</div>
 							</li>
+
 							{{-- @endcanany --}}
 							{{-- @canany(['Create-City','Read-Cities']) --}}
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -613,7 +664,11 @@ License: You must have a valid license purchased only from themeforest(the above
 									</ul>
 								</div>
 							</li>
+
+
 							{{-- @endcanany --}}
+
+
 							{{-- @endcanany --}}
 						</ul>
 
