@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ControllersService;
+use App\Models\City;
 use App\Models\CityTranslation;
+use App\Models\Country;
+use App\Models\Language;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CityTranslationController extends Controller
 {
@@ -22,9 +27,12 @@ class CityTranslationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(City $city)
     {
-        //
+        $languages = Language::whereDoesntHave('cityTranslations', function ($query) use ($city) {
+            $query->where('city_id', '=', $city->id);
+        })->get();
+        return response()->view('cms.cities.create', ['languages' => $languages, 'city' => $city]);
     }
 
     /**
@@ -33,9 +41,43 @@ class CityTranslationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, City $city)
     {
         //
+        $validator = Validator($request->all(), [
+            'language' => 'required|numeric|exists:languages,id',
+            'name' => 'required|string|min:3|max:30',
+        ]);
+
+        if (!$validator->fails()) {
+            $cityTranslation = new CityTranslation();
+            $cityTranslation->name = $request->input('name');
+            $cityTranslation->language_id = $request->input('language');
+            $cityTranslation->city_id = $city->id;
+            $isSaved = $cityTranslation->save();
+            return ControllersService::generateProcessResponse($isSaved, 'CREATE');
+        } else {
+            return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Country  $country
+     * @return \Illuminate\Http\Response
+     */
+    public function showByCountry(Language $language, Country $country)
+    {
+        //
+        if (auth('admin')->check()) {
+            $cities = CityTranslation::whereHas('city', function ($query) use ($country) {
+                $query->where('country_id', '=', $country->id);
+            })->where('language_id', '=', $language->id)
+                ->get();
+            return response()->json(['cities' => $cities]);
+        } else {
+        }
     }
 
     /**
@@ -58,6 +100,8 @@ class CityTranslationController extends Controller
     public function edit(CityTranslation $cityTranslation)
     {
         //
+        $languages = Language::all();
+        return response()->view('cms.cities.edit', ['city' => $cityTranslation, 'languages' => $languages]);
     }
 
     /**
@@ -70,6 +114,19 @@ class CityTranslationController extends Controller
     public function update(Request $request, CityTranslation $cityTranslation)
     {
         //
+        $validator = Validator($request->all(), [
+            'language' => 'required|numeric|exists:languages,id',
+            'name' => 'required|string|min:3|max:30',
+        ]);
+
+        if (!$validator->fails()) {
+            $cityTranslation->name = $request->input('name');
+            $cityTranslation->language_id = $request->input('language');
+            $isSaved = $cityTranslation->save();
+            return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
+        } else {
+            return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
+        }
     }
 
     /**
@@ -80,6 +137,18 @@ class CityTranslationController extends Controller
      */
     public function destroy(CityTranslation $cityTranslation)
     {
-        //
+
+        $count = CityTranslation::where('city_id', $cityTranslation->city_id)->count();
+        if ($count != 1) {
+            $deleted = $cityTranslation->delete();
+
+            return ControllersService::generateProcessResponse($deleted, 'DELETE');
+        }
+        $deleted = false;
+
+        return response()->json(
+            ['status' => $deleted, 'message' => 'you can\'t delete,it have one translation'],
+            Response::HTTP_BAD_REQUEST
+        );
     }
 }

@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('on_boarding_screens', function (Blueprint $table) {
             $table->id();
+            $table->integer('ordering_screen');
+            $table->foreignId('country_id')->constrained()->cascadeOnDelete();
+            $table->string('image')->nullable();
             $table->boolean('active')->default(true);
-            $table->decimal('latitude')->nullable();
-            $table->decimal('longitude')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        Schema::dropIfExists('on_boarding_screens');
     }
 };

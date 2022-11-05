@@ -2,8 +2,19 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\CityTranslationController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CountryTranslationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\OnBoardingScreenController;
+use App\Http\Controllers\OnBoardingScreenTranslationController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RolePermissionController;
+use App\Models\OnBoardingScreen;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
@@ -79,6 +90,38 @@ Route::group([
         Route::get('cities/translations/{city_translation}/edit', [CityTranslationController::class, 'edit'])->name('city-translations.edit');
         Route::put('cities/translations/{city_translation}', [CityTranslationController::class, 'update'])->name('city-translations.update');
         Route::delete('cities/translations/{city_translation}', [CityTranslationController::class, 'destroy'])->name('city-translations.destroy');
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Cities Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('on-boarding-screens', [OnBoardingScreenController::class, 'index'])->name('on-boarding-screens.index');
+        Route::get('on-boarding-screens/create', [OnBoardingScreenController::class, 'create'])->name('on-boarding-screens.create');
+        Route::post('on-boarding-screens', [OnBoardingScreenController::class, 'store'])->name('on-boarding-screens.store');
+        Route::delete('on-boarding-screens/{onBoardingScreen}', [OnBoardingScreenController::class, 'destroy'])->name('on-boarding-screens.destroy');
+
+        Route::get('on-boarding-screens/translation/{language}', [OnBoardingScreenTranslationController::class, 'showByLanguage'])->name('on-boarding-screen-translations.showByLanguage');
+        Route::get('on-boarding-screens/{onBoardingScreen}/translation/create', [OnBoardingScreenTranslationController::class, 'create'])->name('on-boarding-screen-translations.create');
+        Route::post('on-boarding-screens/{onBoardingScreen}/translation', [OnBoardingScreenTranslationController::class, 'store'])->name('on-boarding-screen-translations.store');
+        Route::get('on-boarding-screens/translations/{onBoardingScreenTranslation}/edit', [OnBoardingScreenTranslationController::class, 'edit'])->name('on-boarding-screen-translations.edit');
+        Route::put('on-boarding-screens/translations/{onBoardingScreenTranslation}', [OnBoardingScreenTranslationController::class, 'update'])->name('on-boarding-screen-translations.update');
+        Route::delete('on-boarding-screens/translations/{onBoardingScreenTranslation}', [OnBoardingScreenTranslationController::class, 'destroy'])->name('on-boarding-screen-translations.destroy');
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Roles & Permissions Routes
+        |--------------------------------------------------------------------------
+        */
+
+        Route::resource('roles', RoleController::class);
+        Route::resource('permissions', PermissionController::class);
+        Route::resource('permissions/role', RolePermissionController::class);
     });
 });
 

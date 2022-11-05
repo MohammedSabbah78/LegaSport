@@ -143,7 +143,427 @@ License: You must have a valid license purchased only from themeforest(the above
 						data-menu-dropdown-timeout="500">
 						<!--begin::Menu Nav-->
 						<ul class="menu-nav">
+							<li class="menu-item menu-item-active" aria-haspopup="true">
+								<a href="{{route('cms.dashboard')}}" class="menu-link">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+										<svg xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<polygon points="0 0 24 0 24 24 0 24" />
+												<path
+													d="M12.9336061,16.072447 L19.36,10.9564761 L19.5181585,10.8312381 C20.1676248,10.3169571 20.2772143,9.3735535 19.7629333,8.72408713 C19.6917232,8.63415859 19.6104327,8.55269514 19.5206557,8.48129411 L12.9336854,3.24257445 C12.3871201,2.80788259 11.6128799,2.80788259 11.0663146,3.24257445 L4.47482784,8.48488609 C3.82645598,9.00054628 3.71887192,9.94418071 4.23453211,10.5925526 C4.30500305,10.6811601 4.38527899,10.7615046 4.47382636,10.8320511 L4.63,10.9564761 L11.0659024,16.0730648 C11.6126744,16.5077525 12.3871218,16.5074963 12.9336061,16.072447 Z"
+													fill="#000000" fill-rule="nonzero" />
+												<path
+													d="M11.0563554,18.6706981 L5.33593024,14.122919 C4.94553994,13.8125559 4.37746707,13.8774308 4.06710397,14.2678211 C4.06471678,14.2708238 4.06234874,14.2738418 4.06,14.2768747 L4.06,14.2768747 C3.75257288,14.6738539 3.82516916,15.244888 4.22214834,15.5523151 C4.22358765,15.5534297 4.2250303,15.55454 4.22647627,15.555646 L11.0872776,20.8031356 C11.6250734,21.2144692 12.371757,21.2145375 12.909628,20.8033023 L19.7677785,15.559828 C20.1693192,15.2528257 20.2459576,14.6784381 19.9389553,14.2768974 C19.9376429,14.2751809 19.9363245,14.2734691 19.935,14.2717619 L19.935,14.2717619 C19.6266937,13.8743807 19.0546209,13.8021712 18.6572397,14.1104775 C18.654352,14.112718 18.6514778,14.1149757 18.6486172,14.1172508 L12.9235044,18.6705218 C12.377022,19.1051477 11.6029199,19.1052208 11.0563554,18.6706981 Z"
+													fill="#000000" opacity="0.3" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.dashboard')}}</span>
+								</a>
+							</li>
+							{{--
+							@canany(['Read-Admins','Create-Admin','Read-Users','Create-User','Create-Store','Read-Stores'])
+							--}}
+							<li class="menu-section">
+								<h4 class="menu-text">{{__('cms.hr')}}</h4>
+								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+							</li>
+							{{-- @canany(['Read-Admins','Create-Admin']) --}}
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Shield-user.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z"
+													fill="#000000" opacity="0.3" />
+												<path
+													d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z"
+													fill="#000000" opacity="0.3" />
+												<path
+													d="M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 C14.5228466,17 11.463736,17 7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z"
+													fill="#000000" opacity="0.3" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
 
+									<span class="menu-text">{{__('cms.admins')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.admins')}}</span>
+											</span>
+										</li>
+										{{-- @can('Create-Admin') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('admins.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.create')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+										{{-- @can('Read-Admins') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('admins.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+									</ul>
+								</div>
+							</li>
+							{{-- @endcanany --}}
+
+							{{-- @canany(['Read-Roles','Create-Role','Read-Permissions']) --}}
+							<li class="menu-section">
+								<h4 class="menu-text">{{__('cms.roles_permissions')}}</h4>
+								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+							</li>
+							{{-- @canany(['Read-Roles','Create-Role']) --}}
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Communication\Shield-thunder.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z"
+													fill="#000000" opacity="0.3" />
+												<polygon fill="#000000" opacity="0.3"
+													points="11.3333333 18 16 11.4 13.6666667 11.4 13.6666667 7 9 13.6 11.3333333 13.6" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.roles')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.roles')}}</span>
+											</span>
+										</li>
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('roles.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.create')}}</span>
+											</a>
+										</li>
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('roles.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							{{-- @endcanany --}}
+							{{-- @canany(['Read-Permissions']) --}}
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\General\Clipboard.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M8,3 L8,3.5 C8,4.32842712 8.67157288,5 9.5,5 L14.5,5 C15.3284271,5 16,4.32842712 16,3.5 L16,3 L18,3 C19.1045695,3 20,3.8954305 20,5 L20,21 C20,22.1045695 19.1045695,23 18,23 L6,23 C4.8954305,23 4,22.1045695 4,21 L4,5 C4,3.8954305 4.8954305,3 6,3 L8,3 Z"
+													fill="#000000" opacity="0.3" />
+												<path
+													d="M11,2 C11,1.44771525 11.4477153,1 12,1 C12.5522847,1 13,1.44771525 13,2 L14.5,2 C14.7761424,2 15,2.22385763 15,2.5 L15,3.5 C15,3.77614237 14.7761424,4 14.5,4 L9.5,4 C9.22385763,4 9,3.77614237 9,3.5 L9,2.5 C9,2.22385763 9.22385763,2 9.5,2 L11,2 Z"
+													fill="#000000" />
+												<rect fill="#000000" opacity="0.3" x="7" y="10" width="5" height="2"
+													rx="1" />
+												<rect fill="#000000" opacity="0.3" x="7" y="14" width="9" height="2"
+													rx="1" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.permissions')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.permissions')}}</span>
+											</span>
+										</li>
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('permissions.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							{{-- @endcanany --}}
+							{{--
+							@canany(['Create-Language','Read-Languages','Create-FAQ','Read-FAQs','Read-StoreBranches',
+							'Create-StoreBranch', 'Read-HearAbout', 'Create-HearAbout',
+							'Read-Payments', 'Create-Payment', 'Read-Plans', 'Create-Plan','Read-StoreCategories',
+							'Create-StoreCategory', 'Read-Days', 'Create-Days',
+							'Create-Job', 'Read-Jobs', 'Create-Delivary', 'Read-Delivares', 'Create-PromoCode',
+							'Read-PromoCodes', 'Create-Ads', 'Read-Ads']) --}}
+							<li class="menu-section">
+								<h4 class="menu-text">{{__('cms.content_management')}}</h4>
+								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+							</li>
+							{{-- @canany(['Create-Language','Read-Languages']) --}}
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z"
+													fill="#000000" fill-rule="nonzero" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.languages')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.languages')}}</span>
+											</span>
+										</li>
+										{{-- @can('Create-Language') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('languages.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.create')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+										{{-- @can('Read-Languages') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('languages.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+									</ul>
+								</div>
+							</li>
+							{{-- @endcanany --}}
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Map\Marker1.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z"
+													fill="#000000" fill-rule="nonzero" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.on_boarding')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.on_boarding')}}</span>
+											</span>
+										</li>
+										{{-- @can('Create-Language') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('on-boarding-screens.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.create')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+										{{-- @can('Read-Languages') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('on-boarding-screens.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+									</ul>
+								</div>
+							</li>
+							{{-- @canany(['Create-Country','Read-Countries','Create-City','Read-Cities']) --}}
+							<li class="menu-section">
+								<h4 class="menu-text">{{__('cms.location_management')}}</h4>
+								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+							</li>
+							{{-- @canany(['Create-Country','Read-Countries']) --}}
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Building.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M13.5,21 L13.5,18 C13.5,17.4477153 13.0522847,17 12.5,17 L11.5,17 C10.9477153,17 10.5,17.4477153 10.5,18 L10.5,21 L5,21 L5,4 C5,2.8954305 5.8954305,2 7,2 L17,2 C18.1045695,2 19,2.8954305 19,4 L19,21 L13.5,21 Z M9,4 C8.44771525,4 8,4.44771525 8,5 L8,6 C8,6.55228475 8.44771525,7 9,7 L10,7 C10.5522847,7 11,6.55228475 11,6 L11,5 C11,4.44771525 10.5522847,4 10,4 L9,4 Z M14,4 C13.4477153,4 13,4.44771525 13,5 L13,6 C13,6.55228475 13.4477153,7 14,7 L15,7 C15.5522847,7 16,6.55228475 16,6 L16,5 C16,4.44771525 15.5522847,4 15,4 L14,4 Z M9,8 C8.44771525,8 8,8.44771525 8,9 L8,10 C8,10.5522847 8.44771525,11 9,11 L10,11 C10.5522847,11 11,10.5522847 11,10 L11,9 C11,8.44771525 10.5522847,8 10,8 L9,8 Z M9,12 C8.44771525,12 8,12.4477153 8,13 L8,14 C8,14.5522847 8.44771525,15 9,15 L10,15 C10.5522847,15 11,14.5522847 11,14 L11,13 C11,12.4477153 10.5522847,12 10,12 L9,12 Z M14,12 C13.4477153,12 13,12.4477153 13,13 L13,14 C13,14.5522847 13.4477153,15 14,15 L15,15 C15.5522847,15 16,14.5522847 16,14 L16,13 C16,12.4477153 15.5522847,12 15,12 L14,12 Z"
+													fill="#000000" />
+												<rect fill="#FFFFFF" x="13" y="8" width="3" height="3" rx="1" />
+												<path
+													d="M4,21 L20,21 C20.5522847,21 21,21.4477153 21,22 L21,22.4 C21,22.7313708 20.7313708,23 20.4,23 L3.6,23 C3.26862915,23 3,22.7313708 3,22.4 L3,22 C3,21.4477153 3.44771525,21 4,21 Z"
+													fill="#000000" opacity="0.3" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.countries')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.countries')}}</span>
+											</span>
+										</li>
+										{{-- @can('Create-Country') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('countries.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.create')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+										{{-- @can('Read-Countries') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('countries.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+									</ul>
+								</div>
+							</li>
+							{{-- @endcanany --}}
+							{{-- @canany(['Create-City','Read-Cities']) --}}
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Home-heart.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 C2.99998155,19.0000663 2.99998155,19.0000652 2.99998155,19.0000642 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z"
+													fill="#000000" opacity="0.3" />
+												<path
+													d="M13.8,12 C13.1562,12 12.4033,12.7298529 12,13.2 C11.5967,12.7298529 10.8438,12 10.2,12 C9.0604,12 8.4,12.8888719 8.4,14.0201635 C8.4,15.2733878 9.6,16.6 12,18 C14.4,16.6 15.6,15.3 15.6,14.1 C15.6,12.9687084 14.9396,12 13.8,12 Z"
+													fill="#000000" opacity="0.3" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.cities')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.cities')}}</span>
+											</span>
+										</li>
+										{{-- @can('Create-City') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('cities.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.create')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+										{{-- @can('Read-Cities') --}}
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('cities.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+										{{-- @endcan --}}
+									</ul>
+								</div>
+							</li>
+							{{-- @endcanany --}}
+							{{-- @endcanany --}}
 						</ul>
 
 						<!--end::Menu Nav-->

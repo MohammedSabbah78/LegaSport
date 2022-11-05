@@ -27,5 +27,8 @@ class Language extends Model
     {
         return $this->hasMany(CityTranslation::class, 'language_id', 'id');
     }
-
+    public function onBoardingScreenTranslations()
+    {
+        return $this->hasMany(OnBoardingScreenTranslation::class, 'language_id', 'id');
+    }
 }

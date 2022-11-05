@@ -36,7 +36,6 @@
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
                         <th class="pl-0" style="min-width: 100px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.country')}}</th>
-                        <th style="min-width: 150px">{{__('cms.regions')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
                         @canany(['Update-City','Delete-City'])
@@ -57,11 +56,10 @@
                                 ?? ''}}</a>
                         </td>
                         <td>
-                            <span class="label label-lg label-light-info label-inline">{{$city->country->name ?? '-'}}</span>
+                            <span class="label label-lg label-light-info label-inline">{{$city->country->name ??
+                                '-'}}</span>
                         </td>
-                        <td>
-                            <span class="label label-lg label-light-info label-inline">{{$city->regions_count}}</span>
-                        </td>
+
                         <td>
                             <a href="#" data-toggle="modal" data-target="#city_{{$city->id}}_translations"
                                 class="btn btn-light-primary font-weight-bolder font-size-sm">({{$city->translations_count}})</a>

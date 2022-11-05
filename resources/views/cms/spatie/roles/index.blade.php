@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.admins'))
-@section('main-page',__('cms.hr'))
-@section('sub-page',__('cms.admins'))
+@section('page-name',__('cms.roles'))
+@section('main-page',__('cms.roles_permissions'))
+@section('sub-page',__('cms.roles'))
 @section('page-name-small',__('cms.index'))
 
 @section('styles')
@@ -15,15 +15,12 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">{{__('cms.admins')}}</span>
-            <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
+            <span class="card-label font-weight-bolder text-dark">{{__('cms.roles')}}</span>
+            <span class="text-muted mt-3 font-weight-bold font-size-sm">Manage Roles</span>
         </h3>
         <div class="card-toolbar">
-            <a href="{{route('admins.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm mr-2">{{__('cms.create')}}</a>
-            {{-- <a href="{{route('pdf.admin')}}" target="_blanck"
-                class="btn btn-info font-weight-bolder font-size-sm mr-2">{{__('cms.export_report')}}</a> --}}
-
+            <a href="{{route('roles.create')}}"
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
     </div>
     <!--end::Header-->
@@ -34,44 +31,30 @@
             <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_2">
                 <thead>
                     <tr class="text-uppercase">
-                        <th style="min-width: 120px">{{__('cms.full_name')}}</th>
-                        <th style="min-width: 150px">{{__('cms.user_name')}}</th>
-                        <th style="min-width: 150px">{{__('cms.email')}}</th>
-                        <th style="min-width: 150px">{{__('cms.verified')}}</th>
-                        <th style="min-width: 130px">{{__('cms.account_status')}}</th>
+                        <th style="min-width: 150px">{{__('cms.name')}}</th>
+                        {{-- <th style="min-width: 120px">Auth Type</th> --}}
+                        <th style="min-width: 80px">{{__('cms.permissions')}}</th>
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($admins as $admin)
+                    @foreach ($roles as $role)
                     <tr>
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$admin->name}}</a>
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$role->name}}</a>
                         </td>
-                        <td>
-                            <span
-                                class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$admin->user_name}}</span>
+                        {{-- <td class="pl-0">
+                            <span href="#"
+                                class="text-dark-50 font-weight-bolder text-hover-primary font-size-lg">{{ucfirst($role->guard_name)}}</span>
+                        </td> --}}
+                        <td class="pr-0">
+                            <a href="{{route('role.show',$role->id)}}"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$role->permissions_count}})
+                                Permission/s</a>
                         </td>
-                        <td>
-                            <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{$admin->email}}</span>
-                        </td>
-                        <td>
-                            <span
-                                class="text-daاللrk-75 font-weight-bolder d-block font-size-lg">{{$admin->email_verifier_at
-                                ?? '-'}}</span>
-                            <span class="text-muted font-weight-bold">{{!is_null($admin->email_verifier_at) ?
-                                __('cms.verified')
-                                : __('cms.not_verified')}}</span>
-                        </td>
-                        <td>
-                            <span
-                                class="label label-lg @if($admin->active) label-light-success @else label-light-danger @endif label-inline">{{$admin->active_key}}</span>
-                        </td>
-
                         <td class="pr-0 text-right">
-                            @can('Update-Admin')
-                            <a href="{{route('admins.edit',$admin->id)}}"
+                            <a href="{{route('roles.edit',$role->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -91,10 +74,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
-
-                            @if($admin->id != auth('admin')->id())
-                            <a href="#" onclick="performDestroy('{{$admin->id}}', this)"
+                            <a href="#" onclick="performDestroy('{{$role->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -113,10 +93,10 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endif
                         </td>
                     </tr>
                     @endforeach
+                </tbody>
             </table>
         </div>
         <!--end::Table-->
@@ -130,7 +110,7 @@
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
     function performDestroy(id,reference) {
-        confirmDestroy('/cms/admin/admins', id, reference);
+        confirmDestroy('/cms/admin/roles', id, reference);
     }
 </script>
 @endsection

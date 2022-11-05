@@ -20,7 +20,7 @@
         </h3>
         {{-- @can('Create-Country') --}}
         <div class="card-toolbar">
-            <a href="{{route('countries.create')}}"
+            <a href="{{route('on-boarding-screens.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         {{-- @endcan --}}
@@ -35,16 +35,16 @@
                     <tr class="text-uppercase">
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
                         <th class="pl-0" style="min-width: 100px">{{__('cms.name')}}</th>
-                        <th style="min-width: 150px">{{__('cms.cities')}}</th>
+                        <th style="min-width: 150px">{{__('cms.ads')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
-                        @canany(['Update-Country','Delete-Country'])
+                        {{-- @canany(['Update-Country','Delete-Country']) --}}
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        @endcanany
+                        {{-- @endcanany --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $country)
+                    @foreach ($data as $onBoarding)
                     <tr>
                         {{-- <td class="pl-0">
                             <a href="#"
@@ -52,17 +52,17 @@
                         </td> --}}
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$country->translations->first()?->name
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$onBoarding->name
                                 ?? ''}}</a>
                         </td>
                         <td>
-                            <span class="label label-lg label-light-info label-inline">{{$country->cities_count}}</span>
+                            <span class="label label-lg label-light-info label-inline">{{$onBoarding->ads_count}}</span>
                         </td>
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#country_{{$country->id}}_translations"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$country->translations_count}})</a>
-                            <div class="modal fade" id="country_{{$country->id}}_translations" tabindex="-1"
-                                role="dialog" aria-labelledby="country_{{$country->id}}_translations"
+                            <a href="#" data-toggle="modal" data-target="#boarding_{{$onBoarding->id}}_translations"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$onBoarding->translations_count}})</a>
+                            <div class="modal fade" id="boarding_{{$onBoarding->id}}_translations" tabindex="-1"
+                                role="dialog" aria-labelledby="boarding_{{$onBoarding->id}}_translations"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
@@ -82,11 +82,11 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($country->translations as $translation)
+                                                    @foreach ($onBoarding->translations as $translation)
                                                     <tr>
                                                         <td>
                                                             <span
-                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->name}}</span>
+                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->title}}</span>
                                                         </td>
                                                         <td>
                                                             <span
@@ -94,7 +94,7 @@
                                                         </td>
                                                         <td class="pr-0 text-right">
                                                             {{-- @can('Update-Country') --}}
-                                                            <a href="{{route('country-translations.edit',$translation->id)}}"
+                                                            <a href="{{route('on-boarding-screen-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -160,11 +160,11 @@
                         </td>
                         <td>
                             <span
-                                class="label label-lg @if($country->active) label-light-success @else label-light-warning @endif label-inline">{{$country->active_key}}</span>
+                                class="label label-lg @if($onBoarding->active) label-light-success @else label-light-warning @endif label-inline">{{$onBoarding->active_key}}</span>
                         </td>
                         <td class="pr-0 text-right">
-                            @can('Create-Country')
-                            <a href="{{route('country-translations.create',$country->id)}}"
+                            {{-- @can('Create-Country') --}}
+                            <a href="{{route('on-boarding-screen-translations.create',$onBoarding->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg-->
@@ -181,9 +181,9 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
-                            @can('Delete-Country')
-                            <a href="#" onclick="performCountryDestroy('{{$country->id}}', this)"
+                            {{-- @endcan --}}
+                            {{-- @can('Delete-Country') --}}
+                            <a href="#" onclick="performCountryDestroy('{{$onBoarding->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -202,7 +202,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
+                            {{-- @endcan --}}
                         </td>
                     </tr>
                     @endforeach
@@ -219,10 +219,10 @@
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
     function performCountryDestroy(id,reference) {
-        confirmDestroy('/cms/admin/countries', id, reference);
+        confirmDestroy('/cms/admin/on-boarding-screens', id, reference);
     }
     function performTranslationDestroy(id,reference) {
-        confirmDestroy('/cms/admin/countries/translations', id, reference);
+        confirmDestroy('/cms/admin/on-boarding-screens/translations', id, reference);
     }
 </script>
 @endsection
