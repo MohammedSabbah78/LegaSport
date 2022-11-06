@@ -353,6 +353,11 @@ return [
     'this_info_for_sub_sub_categories' => 'هذه معلومات جميع الأصناف الفرعية للفرعية بالنظام',
     'store_report' => 'تقرير المتاجر',
     'this_info_for_stores' => 'هذه معلومات جميع المتاجر بالنظام',
+    'sport' => 'الرياضة',
+    'new_password_confirmation' => 'تأكيد كلمة المرور الجديدة ',
+
+
+
 
 
 

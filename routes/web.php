@@ -44,10 +44,10 @@ Route::group([
         Route::post('login', [AuthController::class, 'login']);
     });
     Route::middleware('guest')->group(function () {
-        Route::get('/forgot-password', [ResetPasswordController::class, 'requestPasswordReset'])->name('password.request');
-        Route::post('/forgot-password', [ResetPasswordController::class, 'sendResetEmail'])->name('password.email');
-        Route::get('/reset-password/{token}', [ResetPasswordController::class, 'resetPassword'])->name('password.reset');
-        Route::post('/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('password.update');
+        Route::get('forgot-password', [ResetPasswordController::class, 'showForgotpassword'])->name('password.forgot');
+        Route::post('forgot-password', [ResetPasswordcontroller::class, 'sendResetEmail']);
+        Route::get('reset-password/{token}', [ResetPasswordcontroller::class, 'showResetPassword'])->name('password.reset');
+        Route::post('reset-password', [ResetPasswordcontroller::class, 'resetPassword']);
     });
 
     Route::prefix('cms/admin/')->middleware('auth:admin')->group(function () {
@@ -145,6 +145,14 @@ Route::group([
         Route::resource('roles', RoleController::class);
         Route::resource('permissions', PermissionController::class);
         Route::resource('permissions/role', RolePermissionController::class);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Edit password Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('change-password', [AuthController::class, 'editPassword'])->name('edit-password');
+        Route::post('update-password', [AuthController::class, 'updatePassword'])->name('auth.update-password');
     });
 });
 
