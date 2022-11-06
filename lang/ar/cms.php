@@ -355,6 +355,8 @@ return [
     'this_info_for_stores' => 'هذه معلومات جميع المتاجر بالنظام',
     'sport' => 'الرياضة',
     'new_password_confirmation' => 'تأكيد كلمة المرور الجديدة ',
+    'on_boarding' => 'الواجهات',
+
 
 
 

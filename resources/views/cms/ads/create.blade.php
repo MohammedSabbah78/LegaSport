@@ -56,7 +56,7 @@
                     </div>
 
                    <div class="form-group row mt-4">
-                    <label class="col-3 col-form-label">{{__('cms.OnBoardingScreen')}}:</label>
+                    <label class="col-3 col-form-label">{{__('cms.on_boarding')}}:</label>
                     <div class="col-lg-4 col-md-9 col-sm-12">
                         <div class="dropdown bootstrap-select form-control dropup">
                             <select class="form-control selectpicker" data-size="7" id="on_boarding_screen_id" title="{{__('cms.select_hint')}}"
@@ -66,7 +66,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <span class="form-text text-muted">{{__('cms.OnBoardingScreen')}} {{__('cms.OnBoardingScreen')}}</span>
+                        <span class="form-text text-muted">{{__('cms.on_boarding')}}</span>
                     </div>
                 </div>
 

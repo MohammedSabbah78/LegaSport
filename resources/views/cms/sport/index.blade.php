@@ -51,8 +51,7 @@
                                 class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$country->id}}</a>
                         </td> --}}
                         <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$sport->image ?? ''}}</a>
+                            <a><img width="60" height="60" src="#"></a>
                         </td>
                         <td class="pl-0">
                             <a href="#"

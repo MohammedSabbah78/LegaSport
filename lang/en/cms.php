@@ -361,6 +361,8 @@ return [
     'this_info_for_stores' => 'This Informations For All Stores In System',
     'sport' => 'Sport',
     'new_password_confirmation' => 'Confirm New Password',
+    'on_boarding' => 'On Boarding',
+    
 
 
 ];

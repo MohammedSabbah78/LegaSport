@@ -35,7 +35,7 @@
                 <thead>
                     <tr class="text-uppercase">
                         <th style="min-width: 120px">{{__('cms.image')}}</th>
-                        <th style="min-width: 150px">{{__('cms.on_boarding_screen_id')}}</th>
+                        <th style="min-width: 150px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
                     </tr>
