@@ -93,7 +93,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									placeholder="{{__('cms.email')}}" id="email" name="email"
 									autocomplete="off" />
 								@endif
-								
+
 							</div>
 							<div class="form-group mb-5">
 								<input class="form-control h-auto form-control-solid py-4 px-8" type="password"
@@ -124,11 +124,11 @@ License: You must have a valid license purchased only from themeforest(the above
 						<form class="form" id="kt_login_forgot_form">
 							<div class="form-group mb-10">
 								<input class="form-control form-control-solid h-auto py-4 px-8" type="text"
-									placeholder="{{__('cms.email')}}" name="email" autocomplete="off" />
+									placeholder="{{__('cms.email')}}" name="email" id="email_link" autocomplete="off" />
 							</div>
 							<div class="form-group d-flex flex-wrap flex-center mt-10">
-								<button id="kt_login_forgot_submit"
-									class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">{{__('cms.request')}}</button>
+								<button type="button" onclick="performForgotpassword()"
+                                    class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-2">{{__('cms.request')}}</button>
 								<button id="kt_login_forgot_cancel"
 									class="btn btn-light-primary font-weight-bold px-9 py-4 my-3 mx-2">{{__('cms.cancel')}}</button>
 							</div>
@@ -158,7 +158,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								: "#ffffff" } }, "gray" : { "gray-100" : "#F3F6F9" , "gray-200" : "#EBEDF3" , "gray-300"
 								: "#E4E6EF" , "gray-400" : "#D1D3E0" , "gray-500" : "#B5B5C3" , "gray-600" : "#7E8299"
 								, "gray-700" : "#5E6278" , "gray-800" : "#3F4254" , "gray-900" : "#181C32" }
-								}, "font-family" : "Poppins" }; 
+								}, "font-family" : "Poppins" };
 	</script>
 	<!--end::Global Config-->
 	<!--begin::Global Theme Bundle(used by all pages)-->
@@ -195,15 +195,21 @@ License: You must have a valid license purchased only from themeforest(the above
 	      });
 	    }
 
-		function performForgotPassword(guard){
-			axios.post('/forgot-password', {
-				email: document.getElementById('reset_email').value,
-		    }).then(function (response) {
-		        toastr.success(response.data.message)
-		    }).catch(function (error) {
-		        toastr.error(error.response.data.message)
-		    });
-		}
+		function performForgotpassword(){
+                axios.post('/forgot-password', {
+                    email: document.getElementById('email_link').value,
+
+                })
+                .then(function (response) {
+                    console.log(response);
+                    toastr.success(response.data.message);
+                    // window.location.href = '/cms/admin'
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    toastr.error(error.response.data.message);
+                });
+            }
 	</script>
 </body>
 <!--end::Body-->

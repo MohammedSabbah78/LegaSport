@@ -25,7 +25,7 @@
                             <div class="symbol-label"
                              style="background-image:url('{{asset(Storage::url(auth()->user()->logo))}}')"></div>
                         @endif
-                  
+
                         <i class="symbol-badge bg-success"></i>
                     </div>
                     
@@ -141,7 +141,7 @@
                         </a>
                     </div>
 
-                  
+
                     <div class="navi-item mb-2">
                         <a href="{{route('stores.day',auth()->user()->id)}}"
                             class="navi-link py-4 @if(request()->routeIs('cms.profile.day-work')) active @endif">
