@@ -4,7 +4,6 @@
 @section('main-page',__('cms.content_management'))
 @section('sub-page',__('cms.countries'))
 @section('page-name-small',__('cms.update'))
-
 @section('styles')
 
 @endsection
@@ -21,6 +20,10 @@
                     <div class="example-tools justify-content-center">
                         <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
                         <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
+
+
+
+
                     </div>
                 </div> --}}
             </div>
@@ -35,7 +38,8 @@
                                 <select class="form-control selectpicker" data-size="7" id="language"
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     @foreach ($languages as $language)
-                                        <option value="{{$language->id}}" @selected($country->language_id == $language->id)>{{$language->name}}</option>
+                                    <option value="{{$language->id}}" @selected($country->language_id ==
+                                        $language->id)>{{$language->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -47,7 +51,8 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" value="{{$country->name}}"/>
+                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}"
+                                value="{{$country->name}}" />
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
