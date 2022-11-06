@@ -46,12 +46,23 @@ class CountryController extends Controller
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'name' => 'required|string|min:3|max:30',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
             'active' => 'required|boolean',
+            'image' => 'required|image|mimes:jpg,png',
+
         ]);
 
         if (!$validator->fails()) {
             $country = new Country();
             $country->active = $request->input('active');
+            $country->latitude = $request->input('latitude');
+            $country->longitude = $request->input('longitude');
+            if ($request->hasFile('image')) {
+                $imageName = time() . '_' . str_replace(' ', '', $country->name) . '.' . $request->file('image')->extension();
+                $request->file('image')->storePubliclyAs('countries', $imageName, ['disk' => 'public']);
+                $country->image = 'countries/' . $imageName;
+            }
             $isSaved = $country->save();
             $isSaved ? $country->translations()->create([
                 'name' => $request->input('name'),

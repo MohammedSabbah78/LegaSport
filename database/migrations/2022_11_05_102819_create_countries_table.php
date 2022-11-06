@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
             $table->boolean('active')->default(true);
             $table->decimal('latitude')->nullable();
             $table->decimal('longitude')->nullable();

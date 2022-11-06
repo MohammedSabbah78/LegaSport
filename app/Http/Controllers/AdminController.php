@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminSendNewPasswordEmail;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 use Spatie\Permission\Models\Role;
+use Str;
 
 class AdminController extends Controller
 {
@@ -53,10 +56,16 @@ class AdminController extends Controller
             $admin->name = $request->get('name');
             $admin->user_name = $request->get('user_name');
             $admin->email = $request->get('email');
-            $admin->password = Hash::make(12345);
+            $randomPassword = Str::random(10);
+
+            $admin->password = Hash::make($randomPassword);
             $admin->active = $request->get('active');
-            $admin->assignRole(Role::findById($request->get('role_id')));
             $isSaved = $admin->save();
+
+            if ($isSaved) {
+                $admin->assignRole(Role::findById($request->get('role_id')));
+                Mail::to($admin)->send(new AdminSendNewPasswordEmail($admin, $randomPassword));
+            }
             return response()->json(['message' => $isSaved ?  __('cms.create_success') : __('cms.create_failed')], $isSaved ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST);
         } else {
             return response()->json(['message' => $validator->getMessageBag()->first()], Response::HTTP_BAD_REQUEST);

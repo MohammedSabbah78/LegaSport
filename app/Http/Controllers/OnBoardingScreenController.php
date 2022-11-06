@@ -46,7 +46,7 @@ class OnBoardingScreenController extends Controller
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'country_id' => 'required|numeric|exists:countries,id',
-            'ordering' => 'required|numeric|min:1',
+            'ordering' => 'required|numeric|min:1|unique:on_boarding_screens,ordering_screen',
             'title' => 'required|string|min:3|max:30',
             'body' => 'required|string|min:3|max:255',
             'image' => 'required|image|mimes:jpg,png',

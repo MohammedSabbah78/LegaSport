@@ -99,6 +99,26 @@
 @section('scripts')
 <script>
     function performStore(){
+
+
+        let timerInterval
+                Swal.fire({
+                title: 'Saved New Admin!',
+                // timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                },
+                willClose: () => {
+                }
+                }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+                }
+                })
+
+
         let data = {
             role_id: document.getElementById('role_id').value,
             name: document.getElementById('name').value,
@@ -107,6 +127,7 @@
             active: document.getElementById('active').checked,
         }
         store('/cms/admin/admins',data);
+        window.location.href='/cms/admin/admins';
     }
 </script>
 @endsection

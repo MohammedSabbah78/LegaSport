@@ -347,8 +347,6 @@ return [
     'sub_category_report' => 'تقرير الأصناف الفرعية',
     'this_info_for_sub_categories' => 'هذه معلومات جميع الأصناف الفرعية بالنظام',
 
-
-
     'sub_sub_category_report' => 'تقرير الأصناف الفرعية للفرعية',
     'this_info_for_sub_sub_categories' => 'هذه معلومات جميع الأصناف الفرعية للفرعية بالنظام',
     'store_report' => 'تقرير المتاجر',
@@ -356,6 +354,8 @@ return [
     'sport' => 'الرياضة',
     'new_password_confirmation' => 'تأكيد كلمة المرور الجديدة ',
     'on_boarding' => 'الواجهات',
+    'body' => 'الوصف',
+    'ordering' => 'الترتيب',
 
 
 

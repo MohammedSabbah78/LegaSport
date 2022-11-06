@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('country_id')->constrained()->cascadeOnDelete();
             $table->boolean('active')->default(true);
+            $table->decimal('latitude')->nullable();
+            $table->decimal('longitude')->nullable();
             $table->timestamps();
         });
     }

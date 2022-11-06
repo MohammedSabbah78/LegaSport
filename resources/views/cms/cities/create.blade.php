@@ -67,6 +67,22 @@
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.longitude')}}:</label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <input type="text" class="form-control" id="longitude"
+                                placeholder="{{__('cms.longitude')}}" />
+                            <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.longitude')}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.latitude')}}:</label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <input type="text" class="form-control" id="latitude"
+                                placeholder="{{__('cms.latitude')}}" />
+                            <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.latitude')}}</span>
+                        </div>
+                    </div>
                     <div class="separator separator-dashed my-10"></div>
                     <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
                     <div class="form-group row">
@@ -113,12 +129,16 @@
             // $('#name').val('');
             // $('#info').val('');
         }else {
-        $   ('#name').attr('disabled',false);
+        $ ('#name').attr('disabled',false);
+        $ ('#latitude').attr('disabled',false);
+        $ ('#longitude').attr('disabled',false);
         }
     });
 
     function controlFormInputs(disabled) {
         $('#name').attr('disabled',disabled);
+        $('#latitude').attr('disabled',disabled);
+        $('#longitude').attr('disabled',disabled);
         $('#country').attr('disabled',disabled);
     }
 
@@ -161,6 +181,8 @@
         let data = {
             language: document.getElementById('language').value,
             name: document.getElementById('name').value,
+            latitude: document.getElementById('latitude').value,
+            longitude: document.getElementById('longitude').value,
             active: document.getElementById('active').checked,
         }
 

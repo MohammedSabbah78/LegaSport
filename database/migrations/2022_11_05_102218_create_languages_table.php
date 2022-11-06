@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
             $table->string('name', 45);
             $table->string('code', 10);
             $table->unique(['name', 'code']);

@@ -50,12 +50,16 @@ class CityController extends Controller
             'country' => 'required|numeric|exists:countries,id',
             'name' => 'required|string|min:3|max:30',
             'active' => 'required|boolean',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
         ]);
 
         if (!$validator->fails()) {
             $city = new City();
             $city->active = $request->input('active');
             $city->country_id = $request->input('country');
+            $city->latitude = $request->input('latitude');
+            $city->longitude = $request->input('longitude');
             $isSaved = $city->save();
             $isSaved ? $city->translations()->create([
                 'name' => $request->input('name'),

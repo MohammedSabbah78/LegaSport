@@ -362,7 +362,7 @@ return [
     'sport' => 'Sport',
     'new_password_confirmation' => 'Confirm New Password',
     'on_boarding' => 'On Boarding',
-    
-
+    'body' => 'Body',
+    'ordering' => 'Ordering',
 
 ];

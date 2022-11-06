@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         Role::create(['name' => 'Human Resources Admin', 'guard_name' => 'admin']);
         Role::create(['name' => 'Client Services Admin', 'guard_name' => 'admin']);
         Role::create(['name' => 'Content Management Admin', 'guard_name' => 'admin']);
-        
+
         //     Permission::create(['name' => 'Create-Role', 'guard_name' => 'admin']);
         //     Permission::create(['name' => 'Read-Roles', 'guard_name' => 'admin']);
         //     Permission::create(['name' => 'Update-Role', 'guard_name' => 'admin']);
