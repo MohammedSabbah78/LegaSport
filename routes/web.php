@@ -9,6 +9,8 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CountryTranslationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\NationalityController;
+use App\Http\Controllers\NationalityTranslationController;
 use App\Http\Controllers\OnBoardingScreenController;
 use App\Http\Controllers\OnBoardingScreenTranslationController;
 use App\Http\Controllers\PermissionController;
@@ -77,6 +79,27 @@ Route::group([
         Route::delete('sports/translations/{sportTranslation}', [SportTranslationController::class, 'destroy'])->name('sport-translations.destroy');
 
 
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Nationalities Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('nationalities', [NationalityController::class, 'index'])->name('nationalities.index');
+        Route::get('nationalities/create', [NationalityController::class, 'create'])->name('nationalities.create');
+        Route::post('nationalities', [NationalityController::class, 'store'])->name('nationalities.store');
+        Route::delete('nationalities/{nationality}', [NationalityController::class, 'destroy'])->name('nationalities.destroy');
+
+        Route::get('nationalities/translation/{language}', [NationalityTranslationController::class, 'showByLanguage'])->name('nationality-translations.showByLanguage');
+        Route::get('nationalities/{nationality}/translation/create', [NationalityTranslationController::class, 'create'])->name('nationality-translations.create');
+        Route::post('nationalities/{nationality}/translation', [NationalityTranslationController::class, 'store'])->name('nationality-translations.store');
+        Route::get('nationalities/translations/{nationalityTranslation}/edit', [NationalityTranslationController::class, 'edit'])->name('nationality-translations.edit');
+        Route::put('nationalities/translations/{nationalityTranslation}', [NationalityTranslationController::class, 'update'])->name('nationality-translations.update');
+        Route::delete('nationalities/translations/{nationalityTranslation}', [NationalityTranslationController::class, 'destroy'])->name('nationality-translations.destroy');
+
+
+
         /*
         |--------------------------------------------------------------------------
         | Countries Routes
@@ -124,6 +147,7 @@ Route::group([
         */
         Route::get('on-boarding-screens', [OnBoardingScreenController::class, 'index'])->name('on-boarding-screens.index');
         Route::get('on-boarding-screens/create', [OnBoardingScreenController::class, 'create'])->name('on-boarding-screens.create');
+        Route::get('on-boarding-screens/{onBoardingScreen}/edit', [OnBoardingScreenController::class, 'edit'])->name('on-boarding-screens.edit');
         Route::post('on-boarding-screens', [OnBoardingScreenController::class, 'store'])->name('on-boarding-screens.store');
         Route::delete('on-boarding-screens/{onBoardingScreen}', [OnBoardingScreenController::class, 'destroy'])->name('on-boarding-screens.destroy');
 

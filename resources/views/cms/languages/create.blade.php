@@ -17,12 +17,6 @@
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
                 <h3 class="card-title"></h3>
-                {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
             </div>
             <!--begin::Form-->
             <form id="create-form">
@@ -44,7 +38,7 @@
                     <div class="separator separator-dashed my-10"></div>
                     <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
                     <div class="form-group row">
-                        <label class="col-3 col-form-label">{{__('cms.rtl')}}</label>
+                        <label class="col-3 col-form-label">{{__('cms.IS_RTL')}}</label>
                         <div class="col-3">
                             <span class="switch switch-outline switch-icon switch-success">
                                 <label>

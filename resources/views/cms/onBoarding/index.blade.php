@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.countries'))
+@section('page-name',__('cms.on_boarding'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.countries'))
+@section('sub-page',__('cms.on_boarding'))
 @section('page-name-small',__('cms.index'))
 
 @section('styles')
@@ -18,12 +18,12 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.countries')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        {{-- @can('Create-Country') --}}
+        @can('Create-On-Boarding')
         <div class="card-toolbar">
             <a href="{{route('on-boarding-screens.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
-        {{-- @endcan --}}
+        @endcan
     </div>
     <!--end::Header-->
     <!--begin::Body-->
@@ -33,23 +33,26 @@
             <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_2">
                 <thead>
                     <tr class="text-uppercase">
-                        {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
+                        <th class="pl-0" style="min-width: 100px">{{__('cms.image')}}</th>
                         <th class="pl-0" style="min-width: 100px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.ads')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
-                        {{-- @canany(['Update-Country','Delete-Country']) --}}
+                        @canany(['Update-On-Boarding','Delete-On-Boarding'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($data as $onBoarding)
                     <tr>
-                        {{-- <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$country->id}}</a>
-                        </td> --}}
+                        <td class="pl-0">
+                            <div class="symbol symbol-50 symbol-light mr-4">
+                                <span class="symbol-label">
+                                    <img src="{{Storage::url($onBoarding->image)}}" class="h-75 align-self-end" alt="">
+                                </span>
+                            </div>
+                        </td>
                         <td class="pl-0">
                             <a href="#"
                                 class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$onBoarding->name
@@ -93,7 +96,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Country') --}}
+                                                            @can('Update-On-Boarding')
                                                             <a href="{{route('on-boarding-screen-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -118,8 +121,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Country') --}}
+                                                            @endcan
+                                                            @can('Delete-On-Boarding')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -143,7 +146,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -163,7 +166,7 @@
                                 class="label label-lg @if($onBoarding->active) label-light-success @else label-light-warning @endif label-inline">{{$onBoarding->active_key}}</span>
                         </td>
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Country') --}}
+                            @can('Create-On-Boarding')
                             <a href="{{route('on-boarding-screen-translations.create',$onBoarding->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -181,8 +184,29 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Country') --}}
+                            @endcan
+                            {{-- @can('Update-On-Boarding')
+                            <a href="{{route('on-boarding-screens.edit',$onBoarding->id)}}"
+                                class="btn btn-icon btn-light btn-hover-primary btn-sm">
+                                <span class="svg-icon svg-icon-md svg-icon-primary">
+                                    <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Design\Edit.svg--><svg
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <path
+                                                d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z"
+                                                fill="#000000" fill-rule="nonzero"
+                                                transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) " />
+                                            <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2"
+                                                rx="1" />
+                                        </g>
+                                    </svg>
+                                    <!--end::Svg Icon-->
+                                </span>
+                            </a>
+                            @endcan --}}
+                            @can('Delete-On-Boarding')
                             <a href="#" onclick="performCountryDestroy('{{$onBoarding->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -202,7 +226,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
                     </tr>
                     @endforeach

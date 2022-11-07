@@ -7,6 +7,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 use Spatie\Permission\Models\Role;
 use Str;
@@ -49,6 +50,8 @@ class AdminController extends Controller
             'user_name' => 'required|string|min:3|unique:admins,user_name',
             'email' => 'required|string|email|unique:admins,email',
             'active' => 'required|boolean',
+            'image' => 'required|image|mimes:jpg,png',
+
         ]);
 
         if (!$validator->fails()) {
@@ -60,6 +63,11 @@ class AdminController extends Controller
 
             $admin->password = Hash::make($randomPassword);
             $admin->active = $request->get('active');
+            if ($request->hasFile('image')) {
+                $imageName = time() . '_' . str_replace(' ', '', $admin->name) . '.' . $request->file('image')->extension();
+                $request->file('image')->storePubliclyAs('admins', $imageName, ['disk' => 'public']);
+                $admin->image = 'admins/' . $imageName;
+            }
             $isSaved = $admin->save();
 
             if ($isSaved) {
@@ -94,7 +102,6 @@ class AdminController extends Controller
         $roles = Role::where('guard_name', 'admin')->get();
         $role = $admin->roles()->first();
         return response()->view('cms.admins.edit', ['admin' => $admin, 'roles' => $roles, 'assignedRole' => $role]);
-   
     }
 
     /**
@@ -112,6 +119,8 @@ class AdminController extends Controller
             'user_name' => 'required|string|min:3|unique:admins,user_name,' . $admin->id,
             'email' => 'required|string|email|unique:admins,email,' . $admin->id,
             'active' => 'required|boolean',
+            'image' => 'nullable', 'image|mimes:jpg,png',
+
         ]);
 
         if (!$validator->fails()) {
@@ -120,6 +129,12 @@ class AdminController extends Controller
             $admin->email = $request->input('email');
             $admin->active = $request->input('active');
             $admin->syncRoles(Role::findById($request->get('role_id')));
+            if ($request->hasFile('image')) {
+                Storage::delete($admin->image);
+                $imageName = time() . '_' . str_replace(' ', '', $admin->name) . '.' . $request->file('image')->extension();
+                $request->file('image')->storePubliclyAs('admins', $imageName, ['disk' => 'public']);
+                $admin->image = 'admins/' . $imageName;
+            }
             $isSaved = $admin->save();
             return response()->json(['message' => $isSaved ?  __('cms.create_success') : __('cms.create_failed')], $isSaved ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST);
         } else {
@@ -137,6 +152,5 @@ class AdminController extends Controller
     {
         $isDeleted = $admin->delete();
         return response()->json(['message' => 'Deleted successfully'], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
-   
     }
 }

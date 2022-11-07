@@ -364,5 +364,7 @@ return [
     'on_boarding' => 'On Boarding',
     'body' => 'Body',
     'ordering' => 'Ordering',
+    'nationality' => 'Nationality',
+    'IS_RTL' => 'IS RTL',
 
 ];

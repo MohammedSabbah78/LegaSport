@@ -42,4 +42,9 @@ class Language extends Model
     {
         return $this->hasMany(SportTranslation::class, 'language_id', 'id');
     }
+
+    public function nationalityTranslations()
+    {
+        return $this->hasMany(NationalityTranslation::class, 'language_id', 'id');
+    }
 }

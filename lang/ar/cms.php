@@ -356,6 +356,8 @@ return [
     'on_boarding' => 'الواجهات',
     'body' => 'الوصف',
     'ordering' => 'الترتيب',
+    'nationality' => 'الجنسية',
+    'IS_RTL' => 'من اليمين إلى اليسار',
 
 
 

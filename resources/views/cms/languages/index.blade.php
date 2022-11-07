@@ -34,10 +34,10 @@
                 <thead>
                     <tr class="text-uppercase">
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
-                        <th class="pl-0" style="min-width: 100px">{{__('cms.name')}} (En)</th>
-                        <th style="min-width: 150px">{{__('cms.code')}} (Ar)</th>
+                        <th class="pl-0" style="min-width: 100px">{{__('cms.name')}}</th>
+                        <th style="min-width: 150px">{{__('cms.code')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
-                        <th style="min-width: 150px">{{__('cms.is_rtl')}}</th>
+                        <th style="min-width: 150px">{{__('cms.IS_RTL')}}</th>
                         @canany(['Update-Language','Delete-Language'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
                         @endcanany
@@ -67,7 +67,7 @@
                                 class="label label-lg @if($language->is_rtl) label-light-primary @else label-light-danger @endif label-inline">{{$language->is_rtl_key}}</span>
                         </td>
                         <td class="pr-0 text-right">
-                            @can('Update-City')
+                            @can('Update-Language')
                             <a href="{{route('languages.edit',$language->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -89,7 +89,7 @@
                                 </span>
                             </a>
                             @endcan
-                            @can('Delete-City')
+                            @can('Delete-Language')
                             <a href="#" onclick="performDestroy('{{$language->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
