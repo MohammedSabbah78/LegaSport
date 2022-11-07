@@ -18,12 +18,12 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.countries')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        {{-- @can('Create-Country') --}}
+        @can('Create-Country')
         <div class="card-toolbar">
             <a href="{{route('countries.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
-        {{-- @endcan --}}
+        @endcan
     </div>
     <!--end::Header-->
     <!--begin::Body-->
@@ -33,7 +33,7 @@
             <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_2">
                 <thead>
                     <tr class="text-uppercase">
-                        {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
+                        <th class="pl-0" style="min-width: 100px">{{__('cms.image')}}</th>
                         <th class="pl-0" style="min-width: 100px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.cities')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
@@ -46,10 +46,13 @@
                 <tbody>
                     @foreach ($data as $country)
                     <tr>
-                        {{-- <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$country->id}}</a>
-                        </td> --}}
+                        <td class="pl-0">
+                            <div class="symbol symbol-50 symbol-light mr-4">
+                                <span class="symbol-label">
+                                    <img src="{{Storage::url($country->image)}}" class="h-75 align-self-end" alt="">
+                                </span>
+                            </div>
+                        </td>
                         <td class="pl-0">
                             <a href="#"
                                 class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$country->translations->first()?->name
@@ -93,7 +96,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Country') --}}
+                                                            @can('Update-Country')
                                                             <a href="{{route('country-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -118,8 +121,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Country') --}}
+                                                            @endcan
+                                                            @can('Delete-Country')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -143,7 +146,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach

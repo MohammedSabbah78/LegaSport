@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.admins'))
+@section('page-name',__('cms.ads'))
 @section('main-page',__('cms.hr'))
-@section('sub-page',__('cms.admins'))
+@section('sub-page',__('cms.ads'))
 @section('page-name-small',__('cms.create'))
 
 @section('styles')
@@ -17,12 +17,6 @@
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
                 <h3 class="card-title"></h3>
-                {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
             </div>
             <!--begin::Form-->
             <form id="create-form">
@@ -32,7 +26,7 @@
                         <label class="col-3 col-form-label">{{__('cms.image')}}:</label>
                         <div class="col-9">
                             <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
-                                style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
+                                style="background-image: url({{Storage::url($admin->image)}})">
                                 <div class="image-input-wrapper"></div>
 
                                 <label
@@ -66,7 +60,8 @@
                                 <select class="form-control selectpicker" data-size="7" id="on_boarding_screen_id"
                                     title="{{__('cms.select_hint')}}" tabindex="null" data-live-search="true">
                                     @foreach ($OnBoardingScreens as $OnBoardingScreen)
-                                    <option @selected($OnBoardingScreen->id == $ad->on_boarding_screen_id) value="{{$OnBoardingScreen->id}}">{{$OnBoardingScreen->name}}</option>
+                                    <option @selected($OnBoardingScreen->id == $ad->on_boarding_screen_id)
+                                        value="{{$OnBoardingScreen->id}}">{{$OnBoardingScreen->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -111,34 +106,9 @@
 @endsection
 
 @section('scripts')
+
 <script>
     var image = new KTImageInput('kt_image_5');
-    // function performStore(id){
-    //     let data = {
-    //         language: document.getElementById('language').value,
-    //         title: document.getElementById('title').value,
-    //         body: document.getElementById('body').value,
-    //         active: document.getElementById('active').checked,
-    //     }
-    //     if(id == null) {
-    //         store('/cms/admin/countries',data);
-    //     }else {
-    //         store('/cms/admin/countries/'+id+'/translation',data);
-    //     }
-    // }
-</script>
-{{-- <script>
-    function performStore(id){
-        console.log
-     let formData = new FormData();
-        formData.append('_method','PUT');
-        formData.append('image',image.input.files[0]);
-        formData.append('on_boarding_screen_id',document.getElementById('on_boarding_screen_id').value);
-        formData.append('active',document.getElementById('active').checked ? 1:0);
-        update('/cms/admin/ads/'+id, formData, '/cms/admin/ads');
-        }
-</script> --}}
-<script>
     function performStore(id){
         let formData=new FormData ();
             formData.append('_method','PUT');

@@ -1,9 +1,9 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.cities'))
+@section('page-name',__('cms.nationality'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.cities'))
-@section('page-name-small',__('cms.update'))
+@section('sub-page',__('cms.nationality'))
+@section('page-name-small',__('cms.create'))
 
 @section('styles')
 
@@ -27,11 +27,9 @@
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">
                                 <select class="form-control selectpicker" data-size="7" id="language"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true"
-                                    disabled>
+                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     @foreach ($languages as $language)
-                                    <option value="{{$language->id}}" @selected($city->language_id ==
-                                        $language->id)>{{$language->name}}</option>
+                                    <option value="{{$language->id}}">{{$language->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -40,31 +38,16 @@
                         </div>
                     </div>
                     <div class="separator separator-dashed my-10"></div>
-                    @empty($city)
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.country')}}:<span
-                                class="text-danger">*</span></label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <div class="dropdown bootstrap-select form-control dropup">
-                                <select class="form-control selectpicker" data-size="7" id="country"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
-                                </select>
-                            </div>
-                            <span class="form-text text-muted">{{__('cms.please_select')}}
-                                {{__('cms.type')}}</span>
-                        </div>
-                    </div>
-                    @endempty
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}"
-                                value="{{$city->name}}" />
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" />
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
-                    @empty($city)
+                    @empty($nationality)
                     <div class="separator separator-dashed my-10"></div>
+
                     <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
                     <div class="form-group row">
                         <label class="col-3 col-form-label">{{__('cms.active')}}</label>
@@ -79,6 +62,7 @@
                     </div>
                     @endempty
 
+
                 </div>
                 <div class="card-footer">
                     <div class="row">
@@ -86,7 +70,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performEdit({{$city->id ?? null}})"
+                            <button type="button" onclick="performStore({{$nationality->id ?? null}})"
                                 class="btn btn-primary mr-2">{{__('cms.save')}}</button>
                             <button type="reset" class="btn btn-secondary">{{__('cms.cancel')}}</button>
                         </div>
@@ -103,27 +87,17 @@
 
 @section('scripts')
 <script>
-    function blockUI () {
-        KTApp.blockPage({
-            overlayColor: 'blue',
-            opacity: 0.1,
-            state: 'primary' // a bootstrap color
-        });
-    }
-
-    function unBlockUI () {
-        KTApp.unblockPage();
-    }
-
-</script>
-<script>
-    function performEdit(){
-        blockUI();
+    function performStore(id){
         let data = {
-            language: document.getElementById('language').value,
-            name: document.getElementById('name').value,
+        language: document.getElementById('language').value,
+        name: document.getElementById('name').value,
         }
-        update('/cms/admin/cities/translations/{{$city->id}}', data, '/cms/admin/cities');
+        if(id == null) {
+            data['active'] = document.getElementById('active').value,
+            store('/cms/admin/nationalities',data);
+        }else {
+            store('/cms/admin/nationalities/'+id+'/translation',data);
+        }
     }
 </script>
 @endsection

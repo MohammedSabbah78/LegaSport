@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.cities'))
+@section('page-name',__('cms.nationality'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.cities'))
+@section('sub-page',__('cms.nationality'))
 @section('page-name-small',__('cms.update'))
 
 @section('styles')
@@ -30,7 +30,7 @@
                                     title="Choose one of the following..." tabindex="null" data-live-search="true"
                                     disabled>
                                     @foreach ($languages as $language)
-                                    <option value="{{$language->id}}" @selected($city->language_id ==
+                                    <option value="{{$language->id}}" @selected($nationality->language_id ==
                                         $language->id)>{{$language->name}}</option>
                                     @endforeach
                                 </select>
@@ -40,30 +40,15 @@
                         </div>
                     </div>
                     <div class="separator separator-dashed my-10"></div>
-                    @empty($city)
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.country')}}:<span
-                                class="text-danger">*</span></label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <div class="dropdown bootstrap-select form-control dropup">
-                                <select class="form-control selectpicker" data-size="7" id="country"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
-                                </select>
-                            </div>
-                            <span class="form-text text-muted">{{__('cms.please_select')}}
-                                {{__('cms.type')}}</span>
-                        </div>
-                    </div>
-                    @endempty
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
+                        <div class="col-9">
                             <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}"
-                                value="{{$city->name}}" />
+                                value="{{$nationality->name}}" />
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
-                    @empty($city)
+                    @empty($nationality)
                     <div class="separator separator-dashed my-10"></div>
                     <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
                     <div class="form-group row">
@@ -71,7 +56,7 @@
                         <div class="col-3">
                             <span class="switch switch-outline switch-icon switch-success">
                                 <label>
-                                    <input type="checkbox" checked="checked" id="active">
+                                    <input type="checkbox" @checked($nationality->active) id="active">
                                     <span></span>
                                 </label>
                             </span>
@@ -86,7 +71,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performEdit({{$city->id ?? null}})"
+                            <button type="button" onclick="performEdit()"
                                 class="btn btn-primary mr-2">{{__('cms.save')}}</button>
                             <button type="reset" class="btn btn-secondary">{{__('cms.cancel')}}</button>
                         </div>
@@ -103,27 +88,12 @@
 
 @section('scripts')
 <script>
-    function blockUI () {
-        KTApp.blockPage({
-            overlayColor: 'blue',
-            opacity: 0.1,
-            state: 'primary' // a bootstrap color
-        });
-    }
-
-    function unBlockUI () {
-        KTApp.unblockPage();
-    }
-
-</script>
-<script>
     function performEdit(){
-        blockUI();
         let data = {
             language: document.getElementById('language').value,
             name: document.getElementById('name').value,
         }
-        update('/cms/admin/cities/translations/{{$city->id}}', data, '/cms/admin/cities');
+        update('/cms/admin/nationalities/translations/{{$nationality->id}}', data, '/cms/admin/nationalities');
     }
 </script>
 @endsection

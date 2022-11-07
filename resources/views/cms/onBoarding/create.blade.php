@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.countries'))
+@section('page-name',__('cms.on_boarding'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.countries'))
+@section('sub-page',__('cms.on_boarding'))
 @section('page-name-small',__('cms.create'))
 
 @section('styles')
@@ -13,17 +13,10 @@
 <!--begin::Container-->
 <div class="row">
     <div class="col-lg-12">
-        {{-- {{dd(isset($data['country']));}} --}}
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
                 <h3 class="card-title"></h3>
-                {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
             </div>
             <!--begin::Form-->
             <form id="create-form">
@@ -78,19 +71,11 @@
                         </div>
                     </div>
                     @empty($screen)
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.ordering')}}:</label>
-                        <div class="col-9">
-                            <input type="number" class="form-control" id="ordering"
-                                placeholder="{{__('cms.ordering')}}" />
-                            <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.ordering')}}</span>
-                        </div>
-                    </div>
+
                     <div class="row">
-                        <div class="form-group col-3">
-                            <label class="col-3 col-form-label">{{__('cms.image')}}:</label>
-                            <div class="col-9">
+                        <div class="form-group col-12">
+                            <label class="col-12 col-form-label">{{__('cms.image')}}:</label>
+                            <div class="col-12">
                                 <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
                                     style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
                                     <div class="image-input-wrapper"></div>
@@ -160,19 +145,7 @@
 @section('scripts')
 <script>
     var image = new KTImageInput('kt_image_5');
-    // function performStore(id){
-    //     let data = {
-    //         language: document.getElementById('language').value,
-    //         title: document.getElementById('title').value,
-    //         body: document.getElementById('body').value,
-    //         active: document.getElementById('active').checked,
-    //     }
-    //     if(id == null) {
-    //         store('/cms/admin/countries',data);
-    //     }else {
-    //         store('/cms/admin/countries/'+id+'/translation',data);
-    //     }
-    // }
+   
 </script>
 <script>
     controlFormInputs(true);
