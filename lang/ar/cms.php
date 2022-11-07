@@ -356,6 +356,10 @@ return [
     'on_boarding' => 'الواجهات',
     'body' => 'الوصف',
     'ordering' => 'الترتيب',
+    'achievements' => 'مكافئات',
+    'center' => 'العنوان',
+    'subscribtion_price' => 'سعر الاشتراك',
+
 
 
 

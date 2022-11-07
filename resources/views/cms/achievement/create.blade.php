@@ -1,9 +1,9 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.sport'))
+@section('page-name',__('cms.achievements'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.sport'))
-@section('page-name-small',__('cms.sport'))
+@section('sub-page',__('cms.achievements'))
+@section('page-name-small',__('cms.achievements'))
 
 @section('styles')
 
@@ -28,6 +28,7 @@
             <!--begin::Form-->
             <form id="create-form">
                 <div class="card-body">
+
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.language')}}:<span
                                 class="text-danger">*</span></label>
@@ -44,12 +45,14 @@
                                 {{__('cms.type')}}</span>
                         </div>
                     </div>
+
                     <div class="separator separator-dashed my-10"></div>
+
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" />
-                            <span class="form-text text-muted">{{__('cms.title')}} {{__('cms.title')}}</span>
+                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" />
+                            <span class="form-text text-muted">{{__('cms.name')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
                     <div class="separator separator-dashed my-10"></div>
@@ -99,7 +102,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performStore({{$sport->id ?? null}})"
+                            <button type="button" onclick="performStore({{$achievement->id ?? null}})"
                                 class="btn btn-primary mr-2">{{__('cms.save')}}</button>
                             <button type="reset" class="btn btn-secondary">{{__('cms.cancel')}}</button>
                         </div>
@@ -122,13 +125,20 @@
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('title',document.getElementById('title').value);
+formData.append('name',document.getElementById('name').value);
 formData.append('active',document.getElementById('active').checked ? 1:0);
 formData.append('image',image.input.files[0]);
 
 
 if(id == null) {
-    plan
+
+    store('/cms/admin/achievements',formData);
+
+    }else {
+
+    store('/cms/admin/achievements/'+id+'/translation',formData);
+
+    }
 
 }
 </script>

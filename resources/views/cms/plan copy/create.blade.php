@@ -1,9 +1,9 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.sport'))
+@section('page-name',__('cms.center'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.sport'))
-@section('page-name-small',__('cms.sport'))
+@section('sub-page',__('cms.center'))
+@section('page-name-small',__('cms.center'))
 
 @section('styles')
 
@@ -44,40 +44,71 @@
                                 {{__('cms.type')}}</span>
                         </div>
                     </div>
+
+
                     <div class="separator separator-dashed my-10"></div>
+
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" />
-                            <span class="form-text text-muted">{{__('cms.title')}} {{__('cms.title')}}</span>
+                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" />
+                            <span class="form-text text-muted">{{__('cms.name')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
-                    <div class="separator separator-dashed my-10"></div>
-                    <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
-                    <div class="form-group row">
-                        <label class="col-3 col-form-label">{{__('cms.active')}}</label>
-                        <div class="col-3">
-                            <span class="switch switch-outline switch-icon switch-success">
-                                <label>
-                                    <input type="checkbox" checked="checked" id="active">
-                                    <span></span>
-                                </label>
-                            </span>
+
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.subscribtion_price')}}:</label>
+                        <div class="col-9">
+                            <input type="number" class="form-control" id="subscribtion_price" placeholder="{{__('cms.subscribtion_price')}}" />
+                            <span class="form-text text-muted">{{__('cms.subscribtion_price')}} {{__('cms.subscribtion_price')}}</span>
                         </div>
                     </div>
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group col-3">
+
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.longitude')}}:</label>
+                        <div class="col-9">
+                            <input type="number" class="form-control" id="long"
+                                placeholder="{{__('cms.long')}}" />
+                            <span class="form-text text-muted">{{__('cms.longitude')}} {{__('cms.longitude')}}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.latitude')}}:</label>
+                        <div class="col-9">
+                            <input type="number" class="form-control" id="lat"
+                                placeholder="{{__('cms.latitude')}}" />
+                            <span class="form-text text-muted">{{__('cms.latitude')}} {{__('cms.latitude')}}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.website_title')}}:</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="url_website"
+                                placeholder="{{__('cms.website_title')}}" />
+                            <span class="form-text text-muted">{{__('cms.website_title')}} {{__('cms.website_title')}}</span>
+                        </div>
+                    </div>
+
+
+
+                   <div class="form-group row">
                         <label class="col-3 col-form-label">{{__('cms.image')}}:</label>
                         <div class="col-9">
                             <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
-                                style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
+                                style="background-image: url({{asset('assets/media/users/100_1.jpg')}})">
                                 <div class="image-input-wrapper"></div>
 
                                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
                                     data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                     <i class="fa fa-pen icon-sm text-muted"></i>
-                                    <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
-                                    <input type="hidden" name="profile_avatar_remove">
+                                    <input type="file" id="kt_image_4" name="kt_image_4" accept=".png, .jpg, .jpeg">
+                                    <input type="hidden" name="kt_image_4">
                                 </label>
 
                                 <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
@@ -92,6 +123,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="card-footer">
                     <div class="row">
@@ -99,7 +131,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performStore({{$sport->id ?? null}})"
+                            <button type="button" onclick="performStore({{$plan->id ?? null}})"
                                 class="btn btn-primary mr-2">{{__('cms.save')}}</button>
                             <button type="reset" class="btn btn-secondary">{{__('cms.cancel')}}</button>
                         </div>
@@ -115,6 +147,7 @@
 @endsection
 
 @section('scripts')
+
 <script>
     var image = new KTImageInput('kt_image_5');
 </script>
@@ -122,13 +155,19 @@
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('title',document.getElementById('title').value);
-formData.append('active',document.getElementById('active').checked ? 1:0);
+formData.append('name',document.getElementById('name').value);
+formData.append('subscribtion_price',document.getElementById('subscribtion_price').value);
+formData.append('long',document.getElementById('long').value);
+formData.append('lat',document.getElementById('lat').value);
+formData.append('url_website',document.getElementById('url_website').value);
 formData.append('image',image.input.files[0]);
 
 
 if(id == null) {
-    plan
+    store('/cms/admin/centers',formData);
+    }else {
+    store('/cms/admin/centers/'+id+'/translation',formData);
+    }
 
 }
 </script>
