@@ -51,7 +51,7 @@ class PlanController extends Controller
             'title' => 'required|string|min:3|max:30',
             'description' => 'required|string|min:3|max:30',
             'price' => 'required|numeric',
-            'max_month' => 'required|string|min:3|max:30',
+            'max_month' => 'required|string',
             'active' => 'required|boolean',
         ]);
         if (!$validator->fails()) {

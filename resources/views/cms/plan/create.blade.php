@@ -79,7 +79,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.date')}}:</label>
                         <div class="col-9">
-                            <input type="date" class="form-control" id="date" placeholder="{{__('cms.date')}}" />
+                            <input type="text" class="form-control" id="date" placeholder="{{__('cms.date')}}" />
                             <span class="form-text text-muted">{{__('cms.date')}} {{__('cms.date')}}</span>
                         </div>
                     </div>

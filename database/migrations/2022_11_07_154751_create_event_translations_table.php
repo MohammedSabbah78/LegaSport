@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('centers', function (Blueprint $table) {
+        Schema::create('event_translations', function (Blueprint $table) {
             $table->id();
-            $table->integer('subscribtion_price');
-            $table->integer('long');
-            $table->integer('lat');
-            $table->string('url_website');
-            $table->string('image');
+            $table->string('title', 50);
+            $table->string('description', 50);
+            $table->foreignId('language_id')->constrained();
+            $table->foreignId('event_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('centers');
+        Schema::dropIfExists('event_translations');
     }
 };

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('price', 50);
-            $table->string('max_month', 50);
+            $table->double('price');
+            $table->string('max_month');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
