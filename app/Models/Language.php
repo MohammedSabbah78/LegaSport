@@ -57,5 +57,8 @@ class Language extends Model
     public function centerTranslation()
     {
         return $this->hasMany(CenterTranslation::class, 'language_id', 'id');
+    public function nationalityTranslations()
+    {
+        return $this->hasMany(NationalityTranslation::class, 'language_id', 'id');
     }
 }

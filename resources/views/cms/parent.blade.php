@@ -165,14 +165,14 @@ License: You must have a valid license purchased only from themeforest(the above
 									<span class="menu-text">{{__('cms.dashboard')}}</span>
 								</a>
 							</li>
-							{{--
-							@canany(['Read-Admins','Create-Admin','Read-Users','Create-User','Create-Store','Read-Stores'])
-							--}}
+
+							@canany(['Read-Admins','Create-Admin'])
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.hr')}}</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
-							{{-- @canany(['Read-Admins','Create-Admin']) --}}
+							@endcanany
+							@canany(['Read-Admins','Create-Admin'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -207,7 +207,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.admins')}}</span>
 											</span>
 										</li>
-										{{-- @can('Create-Admin') --}}
+										@can('Create-Admin')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('admins.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -216,8 +216,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
-										{{-- @can('Read-Admins') --}}
+										@endcan
+										@can('Read-Admins')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('admins.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -226,18 +226,19 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
+										@endcan
 									</ul>
 								</div>
 							</li>
-							{{-- @endcanany --}}
+							@endcanany
 
-							{{-- @canany(['Read-Roles','Create-Role','Read-Permissions']) --}}
+							@canany(['Read-Roles','Create-Role','Read-Permissions'])
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.roles_permissions')}}</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
-							{{-- @canany(['Read-Roles','Create-Role']) --}}
+							@endcanany
+							@canany(['Read-Roles','Create-Role'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -267,6 +268,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.roles')}}</span>
 											</span>
 										</li>
+										@can('Create-Role')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('roles.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -275,6 +277,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
+										@endcan
+										@can('Read-Roles')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('roles.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -283,11 +287,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
+										@endcan
 									</ul>
 								</div>
 							</li>
-							{{-- @endcanany --}}
-							{{-- @canany(['Read-Permissions']) --}}
+							@endcanany
+							@canany(['Read-Permissions'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -333,19 +338,17 @@ License: You must have a valid license purchased only from themeforest(the above
 									</ul>
 								</div>
 							</li>
-							{{-- @endcanany --}}
-							{{--
-							@canany(['Create-Language','Read-Languages','Create-FAQ','Read-FAQs','Read-StoreBranches',
-							'Create-StoreBranch', 'Read-HearAbout', 'Create-HearAbout',
-							'Read-Payments', 'Create-Payment', 'Read-Plans', 'Create-Plan','Read-StoreCategories',
-							'Create-StoreCategory', 'Read-Days', 'Create-Days',
-							'Create-Job', 'Read-Jobs', 'Create-Delivary', 'Read-Delivares', 'Create-PromoCode',
-							'Read-PromoCodes', 'Create-Ads', 'Read-Ads']) --}}
+							@endcanany
+
+							@canany(['Create-Language','Read-Languages','Create-Ad', 'Read-Ads','Create-On-Boarding',
+							'Read-On-Boardings','Create-Sport',
+							'Read-Sports','Create-Nationality','Read-Nationalities'])
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.content_management')}}</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
-							{{-- @canany(['Create-Language','Read-Languages']) --}}
+							@endcanany
+							@canany(['Create-Language','Read-Languages'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -373,7 +376,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.languages')}}</span>
 											</span>
 										</li>
-										{{-- @can('Create-Language') --}}
+										@can('Create-Language')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('languages.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -382,8 +385,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
-										{{-- @can('Read-Languages') --}}
+										@endcan
+										@can('Read-Languages')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('languages.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -392,11 +395,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
+										@endcan
 									</ul>
 								</div>
 							</li>
-							{{-- @endcanany --}}
+							@endcanany
+							@canany(['Create-On-Boarding','Read-On-Boardings'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -427,7 +431,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.on_boarding')}}</span>
 											</span>
 										</li>
-										{{-- @can('Create-Language') --}}
+										@can('Create-On-Boarding')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('on-boarding-screens.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -436,8 +440,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
-										{{-- @can('Read-Languages') --}}
+										@endcan
+										@can('Read-On-Boardings')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('on-boarding-screens.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -446,12 +450,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
+										@endcan
 									</ul>
 								</div>
 							</li>
-
-
+							@endcanany
+							@canany(['Create-Ad','Read-Ads'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -481,10 +485,10 @@ License: You must have a valid license purchased only from themeforest(the above
 									<ul class="menu-subnav">
 										<li class="menu-item menu-item-parent" aria-haspopup="true">
 											<span class="menu-link">
-												<span class="menu-text">{{__('cms.on_boarding')}}</span>
+												<span class="menu-text">{{__('cms.ads')}}</span>
 											</span>
 										</li>
-										{{-- @can('Create-Language') --}}
+										@can('Create-Ad')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('ads.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -493,8 +497,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
-										{{-- @can('Read-Languages') --}}
+										@endcan
+										@can('Read-Ads')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('ads.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -503,11 +507,74 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
+										@endcan
 									</ul>
 								</div>
 							</li>
+							@endcanany
 
+
+
+							@canany(['Create-Nationality','Read-Nationalities'])
+							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<a href="javascript:;" class="menu-link menu-toggle">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Home.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z"
+													fill="#000000" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.nationality')}}</span>
+									<i class="menu-arrow"></i>
+								</a>
+								<div class="menu-submenu">
+									<i class="menu-arrow"></i>
+									<ul class="menu-subnav">
+										<li class="menu-item menu-item-parent" aria-haspopup="true">
+											<span class="menu-link">
+												<span class="menu-text">{{__('cms.nationality')}}</span>
+											</span>
+										</li>
+										@can('Create-Nationality')
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('nationalities.create')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.create')}}</span>
+											</a>
+										</li>
+										@endcan
+										@can('Read-Nationalities')
+										<li class="menu-item" aria-haspopup="true">
+											<a href="{{route('nationalities.index')}}" class="menu-link">
+												<i class="menu-bullet menu-bullet-dot">
+													<span></span>
+												</i>
+												<span class="menu-text">{{__('cms.index')}}</span>
+											</a>
+										</li>
+										@endcan
+									</ul>
+								</div>
+							</li>
+							@endcanany
+
+
+
+
+
+
+
+							@canany(['Create-Sport','Read-Sports'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -536,7 +603,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.sport')}}</span>
 											</span>
 										</li>
-										{{-- @can('Create-Language') --}}
+										@can('Create-Sport')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('sports.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -545,8 +612,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
-										{{-- @can('Read-Languages') --}}
+										@endcan
+										@can('Read-Sports')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('sports.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -555,7 +622,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
+										@endcan
 									</ul>
 								</div>
 							</li>
@@ -726,11 +793,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 							{{-- @canany(['Create-Country','Read-Countries','Create-City','Read-Cities']) --}}
+							@endcanany
+							@canany(['Create-Country','Read-Countries','Create-City','Read-Cities'])
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.location_management')}}</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
-							{{-- @canany(['Create-Country','Read-Countries']) --}}
+							@endcanany
+							@canany(['Create-Country','Read-Countries'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -762,7 +832,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.countries')}}</span>
 											</span>
 										</li>
-										{{-- @can('Create-Country') --}}
+										@can('Create-Country')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('countries.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -771,8 +841,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
-										{{-- @can('Read-Countries') --}}
+										@endcan
+										@can('Read-Countries')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('countries.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -781,13 +851,13 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
+										@endcan
 									</ul>
 								</div>
 							</li>
 
-							{{-- @endcanany --}}
-							{{-- @canany(['Create-City','Read-Cities']) --}}
+							@endcanany
+							@canany(['Create-City','Read-Cities'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -818,7 +888,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.cities')}}</span>
 											</span>
 										</li>
-										{{-- @can('Create-City') --}}
+										@can('Create-City')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('cities.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -827,8 +897,8 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.create')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
-										{{-- @can('Read-Cities') --}}
+										@endcan
+										@can('Read-Cities')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('cities.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -837,10 +907,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.index')}}</span>
 											</a>
 										</li>
-										{{-- @endcan --}}
+										@endcan
 									</ul>
 								</div>
 							</li>
+							@endcanany
+
 
 
 							<li class="menu-section">
@@ -871,10 +943,27 @@ License: You must have a valid license purchased only from themeforest(the above
 									<span class="menu-text">{{__('cms.change_password')}}</span>
 								</a>
 							</li>
-							{{-- @endcanany --}}
-
-
-							{{-- @endcanany --}}
+							<li class="menu-item" aria-haspopup="true">
+								<a href="{{route('cms.logout')}}" class="menu-link">
+									<span class="svg-icon menu-icon">
+										<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Electric\Shutdown.svg--><svg
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+											viewBox="0 0 24 24" version="1.1">
+											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<rect x="0" y="0" width="24" height="24" />
+												<path
+													d="M7.62302337,5.30262097 C8.08508802,5.000107 8.70490146,5.12944838 9.00741543,5.59151303 C9.3099294,6.05357769 9.18058801,6.67339112 8.71852336,6.97590509 C7.03468892,8.07831239 6,9.95030239 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,9.99549229 17.0108275,8.15969002 15.3875704,7.04698597 C14.9320347,6.73472706 14.8158858,6.11230651 15.1281448,5.65677076 C15.4404037,5.20123501 16.0628242,5.08508618 16.51836,5.39734508 C18.6800181,6.87911023 20,9.32886071 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,9.26852332 5.38056879,6.77075716 7.62302337,5.30262097 Z"
+													fill="#000000" fill-rule="nonzero" />
+												<rect fill="#000000" opacity="0.3" x="11" y="3" width="2" height="10"
+													rx="1" />
+											</g>
+										</svg>
+										<!--end::Svg Icon-->
+									</span>
+									<span class="menu-text">{{__('cms.logout')}}</span>
+								</a>
+							</li>
 						</ul>
 
 						<!--end::Menu Nav-->
@@ -1051,7 +1140,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--begin::Header-->
 		<div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
 			<h3 class="font-weight-bold m-0">{{__('cms.user_profile')}}
-				<small class="text-muted font-size-sm ml-2">{{__('website.bintwar_partners')}} -
+				<small class="text-muted font-size-sm ml-2">{{__('cms.app_name')}} -
 					{{__('cms.cms')}}</small>
 			</h3>
 			<a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
@@ -1071,7 +1160,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="d-flex flex-column">
 					<a href="#"
 						class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{auth()->user()->name}}</a>
-					<div class="text-muted mt-1">{{__('cms.managers')}}</div>
+					<div class="text-muted mt-1">{{auth()->user()->roles[0]->name}}</div>
 					<div class="navi mt-2">
 						<a href="#" class="navi-item">
 							<span class="navi-link p-0 pb-2">
@@ -1092,7 +1181,13 @@ License: You must have a valid license purchased only from themeforest(the above
 										<!--end::Svg Icon-->
 									</span>
 								</span>
-								<span class="navi-text text-muted text-hover-primary">{{auth()->user()->email}}</span>
+								<span class="navi-text text-muted text-hover-primary">
+									@php
+									$string=explode("@", auth()->user()->email);
+									@endphp
+									{{
+									$string[0]
+									}}</span>
 							</span>
 						</a>
 						<a href="{{route('cms.logout')}}"

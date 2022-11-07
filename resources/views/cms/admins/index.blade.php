@@ -18,13 +18,13 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.admins')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
+        @can('Create-Admin')
         <div class="card-toolbar">
             <a href="{{route('admins.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm mr-2">{{__('cms.create')}}</a>
-            {{-- <a href="{{route('pdf.admin')}}" target="_blanck"
-                class="btn btn-info font-weight-bolder font-size-sm mr-2">{{__('cms.export_report')}}</a> --}}
-
         </div>
+        @endcan
+
     </div>
     <!--end::Header-->
     <!--begin::Body-->
@@ -34,6 +34,7 @@
             <table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_2">
                 <thead>
                     <tr class="text-uppercase">
+                        <th style="min-width: 120px">{{__('cms.image')}}</th>
                         <th style="min-width: 120px">{{__('cms.full_name')}}</th>
                         <th style="min-width: 150px">{{__('cms.user_name')}}</th>
                         <th style="min-width: 150px">{{__('cms.email')}}</th>
@@ -45,6 +46,13 @@
                 <tbody>
                     @foreach ($admins as $admin)
                     <tr>
+                        <td class="pl-0">
+                            <div class="symbol symbol-50 symbol-light mr-4">
+                                <span class="symbol-label">
+                                    <img src="{{Storage::url($admin->image)}}" class="h-75 align-self-end" alt="">
+                                </span>
+                            </div>
+                        </td>
                         <td class="pl-0">
                             <a href="#"
                                 class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$admin->name}}</a>

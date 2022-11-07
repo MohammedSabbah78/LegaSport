@@ -17,12 +17,6 @@
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
                 <h3 class="card-title"></h3>
-                {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
             </div>
             <!--begin::Form-->
             <form id="create-form">
@@ -33,9 +27,11 @@
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">
                                 <select class="form-control selectpicker" data-size="7" id="language"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
+                                    title="Choose one of the following..." tabindex="null" data-live-search="true"
+                                    disabled>
                                     @foreach ($languages as $language)
-                                        <option value="{{$language->id}}" @selected($country->language_id == $language->id)>{{$language->name}}</option>
+                                    <option value="{{$language->id}}" @selected($country->language_id ==
+                                        $language->id)>{{$language->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -47,10 +43,12 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" value="{{$country->name}}"/>
+                            <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}"
+                                value="{{$country->name}}" />
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
+                    @empty($country)
                     <div class="separator separator-dashed my-10"></div>
                     <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
                     <div class="form-group row">
@@ -58,12 +56,14 @@
                         <div class="col-3">
                             <span class="switch switch-outline switch-icon switch-success">
                                 <label>
-                                    <input type="checkbox" checked="checked" id="active">
+                                    <input type="checkbox" @checked($country->active) id="active">
                                     <span></span>
                                 </label>
                             </span>
                         </div>
                     </div>
+                    @endempty
+
                 </div>
                 <div class="card-footer">
                     <div class="row">

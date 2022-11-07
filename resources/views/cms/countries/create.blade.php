@@ -13,17 +13,10 @@
 <!--begin::Container-->
 <div class="row">
     <div class="col-lg-12">
-        {{-- {{dd(isset($data['country']));}} --}}
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
                 <h3 class="card-title"></h3>
-                {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
             </div>
             <!--begin::Form-->
             <form id="create-form">
@@ -52,10 +45,11 @@
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
+                    @empty($country)
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.longitude')}}:</label>
                         <div class="col-lg-4 col-md-9 col-sm-12">
-                            <input type="text" class="form-control" id="longitude"
+                            <input type="number" class="form-control" id="longitude"
                                 placeholder="{{__('cms.longitude')}}" />
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.longitude')}}</span>
                         </div>
@@ -63,15 +57,15 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.latitude')}}:</label>
                         <div class="col-lg-4 col-md-9 col-sm-12">
-                            <input type="text" class="form-control" id="latitude"
+                            <input type="number" class="form-control" id="latitude"
                                 placeholder="{{__('cms.latitude')}}" />
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.latitude')}}</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-3">
-                            <label class="col-3 col-form-label">{{__('cms.image')}}:</label>
-                            <div class="col-9">
+                        <div class="form-group col-12">
+                            <label class="col-12 col-form-label">{{__('cms.image')}}:</label>
+                            <div class="col-12">
                                 <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
                                     style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
                                     <div class="image-input-wrapper"></div>
@@ -116,6 +110,8 @@
                             </span>
                         </div>
                     </div>
+                    @endempty
+
                 </div>
                 <div class="card-footer">
                     <div class="row">

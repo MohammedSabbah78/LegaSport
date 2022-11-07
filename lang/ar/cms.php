@@ -360,6 +360,8 @@ return [
     'center' => 'العنوان',
     'subscribtion_price' => 'سعر الاشتراك',
 
+    'nationality' => 'الجنسية',
+    'IS_RTL' => 'من اليمين إلى اليسار',
 
 
 

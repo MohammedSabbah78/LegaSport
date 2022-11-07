@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.countries'))
+@section('page-name',__('cms.sport'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.countries'))
+@section('sub-page',__('cms.sport'))
 @section('page-name-small',__('cms.update'))
 
 @section('styles')
@@ -17,12 +17,6 @@
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
                 <h3 class="card-title"></h3>
-                {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
             </div>
             <!--begin::Form-->
             <form id="create-form">
@@ -33,9 +27,11 @@
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">
                                 <select class="form-control selectpicker" data-size="7" id="language"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
+                                    title="Choose one of the following..." tabindex="null" data-live-search="true"
+                                    disabled>
                                     @foreach ($languages as $language)
-                                        <option value="{{$language->id}}" @selected($sportTranslation->language_id == $language->id)>{{$language->name}}</option>
+                                    <option value="{{$language->id}}" @selected($sportTranslation->language_id ==
+                                        $language->id)>{{$language->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -47,10 +43,12 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" value="{{$sportTranslation->title}}"/>
+                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}"
+                                value="{{$sportTranslation->title}}" />
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.title')}}</span>
                         </div>
                     </div>
+                    @empty($sportTranslation)
                     <div class="separator separator-dashed my-10"></div>
                     <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
                     <div class="form-group row">
@@ -64,6 +62,8 @@
                             </span>
                         </div>
                     </div>
+                    @endempty
+
                 </div>
                 <div class="card-footer">
                     <div class="row">

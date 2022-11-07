@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ControllersService;
+use App\Models\Country;
 use App\Models\Language;
 use App\Models\OnBoardingScreen;
 use App\Models\OnBoardingScreenTranslation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class OnBoardingScreenController extends Controller
 {
@@ -59,7 +61,7 @@ class OnBoardingScreenController extends Controller
             $onBoardingScreen->ordering_screen = $request->input('ordering');
             $onBoardingScreen->country_id = $request->input('country_id');
             if ($request->hasFile('image')) {
-                $imageName = time() . '_' . str_replace(' ', '', $onBoardingScreen->name) . '.' . $request->file('image')->extension();
+                $imageName = time() . '_' . str_replace(' ', '', $onBoardingScreen->title) . '.' . $request->file('image')->extension();
                 $request->file('image')->storePubliclyAs('onBoardingScreens', $imageName, ['disk' => 'public']);
                 $onBoardingScreen->image = 'onBoardingScreens/' . $imageName;
             }
@@ -107,7 +109,9 @@ class OnBoardingScreenController extends Controller
      */
     public function edit(OnBoardingScreen $onBoardingScreen)
     {
-        //
+        $languages = Language::all();
+        $countries = Country::all();
+        return response()->view('cms.onBoarding.update', ['screen' => $onBoardingScreen, 'languages' => $languages, 'countries' => $countries]);
     }
 
     /**
@@ -119,7 +123,42 @@ class OnBoardingScreenController extends Controller
      */
     public function update(Request $request, OnBoardingScreen $onBoardingScreen)
     {
-        //
+        $validator = Validator($request->all(), [
+            'language' => 'required|numeric|exists:languages,id',
+            'country_id' => 'required|numeric|exists:countries,id',
+            'ordering' => 'required|numeric|min:1|unique:on_boarding_screens,ordering_screen',
+            'title' => 'required|string|min:3|max:30',
+            'body' => 'required|string|min:3|max:255',
+            'image' => 'required|image|mimes:jpg,png',
+            'active' => 'required|boolean',
+        ]);
+
+        if (!$validator->fails()) {
+            $onBoardingScreen->active = $request->input('active');
+            $onBoardingScreen->ordering_screen = $request->input('ordering');
+            $onBoardingScreen->country_id = $request->input('country_id');
+            if ($request->hasFile('image')) {
+                Storage::delete($onBoardingScreen->image);
+                $imageName = time() . '_' . str_replace(' ', '', $onBoardingScreen->title) . '.' . $request->file('image')->extension();
+                $request->file('image')->storePubliclyAs('onBoardingScreens', $imageName, ['disk' => 'public']);
+                $onBoardingScreen->image = 'onBoardingScreens/' . $imageName;
+            }
+            $isSaved = $onBoardingScreen->save();
+            if ($isSaved) {
+                $translation = OnBoardingScreenTranslation::where('on_boarding_screen_id', $onBoardingScreen->id)->first();
+                $translation->title = $request->input('title');
+                $translation->body = $request->input('body');
+                $translation->language_id = $request->input('language');
+                $translation->on_boarding_screen_id = $onBoardingScreen->id;
+                $translation->save();
+            } else {
+                $onBoardingScreen->delete();
+            }
+
+            return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
+        } else {
+            return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
+        }
     }
 
     /**

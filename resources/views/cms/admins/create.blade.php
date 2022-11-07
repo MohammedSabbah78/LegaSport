@@ -17,12 +17,6 @@
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
                 <h3 class="card-title"></h3>
-                {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
             </div>
             <!--begin::Form-->
             <form id="create-form">
@@ -63,6 +57,40 @@
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.email')}}</span>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <label class="col-12 col-form-label">{{__('cms.image')}}:</label>
+                            <div class="col-12">
+                                <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
+                                    style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
+                                    <div class="image-input-wrapper"></div>
+
+                                    <label
+                                        class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                        data-action="change" data-toggle="tooltip" title=""
+                                        data-original-title="Change avatar">
+                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                        <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                        <input type="hidden" name="profile_avatar_remove">
+                                    </label>
+
+                                    <span
+                                        class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                        data-action="cancel" data-toggle="tooltip" title=""
+                                        data-original-title="Cancel avatar">
+                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                    </span>
+
+                                    <span
+                                        class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                        data-action="remove" data-toggle="tooltip" title=""
+                                        data-original-title="Remove avatar">
+                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-3 col-form-label">{{__('cms.account_status')}}</label>
                         <div class="col-3">
@@ -98,13 +126,11 @@
 
 @section('scripts')
 <script>
+    var image = new KTImageInput('kt_image_5');
     function performStore(){
-
-
         let timerInterval
                 Swal.fire({
                 title: 'Saved New Admin!',
-                // timer: 2000,
                 timerProgressBar: true,
                 didOpen: () => {
                 Swal.showLoading()
@@ -117,17 +143,38 @@
                 console.log('I was closed by the timer')
                 }
                 })
-
-
-        let data = {
-            role_id: document.getElementById('role_id').value,
-            name: document.getElementById('name').value,
-            user_name: document.getElementById('user_name').value,
-            email: document.getElementById('email').value,
-            active: document.getElementById('active').checked,
-        }
-        store('/cms/admin/admins',data);
-        window.location.href='/cms/admin/admins';
+        let formData = new FormData();
+                formData.append('image',image.input.files[0]);
+                formData.append('name',document.getElementById('name').value);
+                formData.append('role_id',document.getElementById('role_id').value);
+                formData.append('user_name',document.getElementById('user_name').value);
+                formData.append('email',document.getElementById('email').value);
+                formData.append('active',document.getElementById('active').checked ? 1:0);
+                
+                axios.post('/cms/admin/admins', formData)
+                .then(function (response) {
+                console.log(response);
+                console.log(response.data.message);
+                window.location.href='/cms/admin/admins';
+                Swal.dismiss;
+                    Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: response.data.message,
+                    showConfirmButton: false,
+                    timer: 2500
+                    });
+                })
+                .catch(function (error) {
+                    Swal.dismiss;
+                    Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: error.response.data.message,
+                    showConfirmButton: false,
+                    timer: 2500
+                    });
+                });
     }
 </script>
 @endsection

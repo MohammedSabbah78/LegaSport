@@ -71,7 +71,6 @@ class RolePermissionController extends Controller
         }
         $role = Role::findOrFail($id);
         $rolePermissions = $role->permissions;
-
         $permissions = Permission::where('guard_name', $role->guard_name)->get();
         foreach ($permissions as $permission) {
             $permission->setAttribute('granted', false);

@@ -364,10 +364,10 @@ return [
     'on_boarding' => 'On Boarding',
     'body' => 'Body',
     'ordering' => 'Ordering',
-    'achievements' => 'Achievement',
     'center' => 'Center',
     'subscribtion_price' => 'subscribtion price',
 
-
+    'nationality' => 'Nationality',
+    'IS_RTL' => 'IS RTL',
 
 ];
