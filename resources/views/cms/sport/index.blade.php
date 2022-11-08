@@ -49,7 +49,8 @@
                         <td class="pl-0">
                             <div class="symbol symbol-50 symbol-light mr-4">
                                 <span class="symbol-label">
-                                    <img src="{{Storage::url($sport->image)}}" class="h-75 align-self-end" alt="">
+                                    <img src="{{Storage::url($sport->image)}}" class="customImage h-75 align-self-end"
+                                        alt="">
                                 </span>
                             </div>
                         </td>

@@ -46,16 +46,19 @@
                 <tbody>
                     @foreach ($data as $achievements)
                     <tr>
-                        {{-- <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$country->id}}</a>
-                        </td> --}}
                         <td class="pl-0">
-                            <a><img width="60" height="60" src="#"></a>
+                            <div class="symbol symbol-50 symbol-light mr-4">
+                                <span class="symbol-label">
+                                    <img src="{{Storage::url($achievements->image)}}"
+                                        class="customImage h-75 align-self-end" alt="">
+                                </span>
+                            </div>
                         </td>
+
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$achievements->translations->first()?->name ?? ''}}</a>
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$achievements->translations->first()?->name
+                                ?? ''}}</a>
                         </td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#sports_{{$achievements->id}}_translations"
@@ -217,7 +220,7 @@
 @section('scripts')
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
-      function performSportsDestroy(id,reference) {
+    function performSportsDestroy(id,reference) {
         confirmDestroy('/cms/admin/achievements', id, reference);
     }
     function performTranslationDestroy(id,reference) {
