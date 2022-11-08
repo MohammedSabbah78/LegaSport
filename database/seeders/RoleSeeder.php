@@ -16,11 +16,11 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        // $allAdminPer = Permission::where('guard_name', 'admin')->get();
-        // Role::create(['name' => 'Super-Admin', 'guard_name' => 'admin'])->givePermissionTo($allAdminPer);
-        // Role::create(['name' => 'Human Resources Admin', 'guard_name' => 'admin']);
-        // Role::create(['name' => 'Client Services Admin', 'guard_name' => 'admin']);
-        // Role::create(['name' => 'Content Management Admin', 'guard_name' => 'admin']);
+        $allAdminPer = Permission::where('guard_name', 'admin')->get();
+        Role::create(['name' => 'Super-Admin', 'guard_name' => 'admin'])->givePermissionTo($allAdminPer);
+        Role::create(['name' => 'Human Resources Admin', 'guard_name' => 'admin']);
+        Role::create(['name' => 'Client Services Admin', 'guard_name' => 'admin']);
+        Role::create(['name' => 'Content Management Admin', 'guard_name' => 'admin']);
 
     }
 }
