@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.sport'))
+@section('page-name',__('cms.achievements'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.sport'))
+@section('sub-page',__('cms.achievements'))
 @section('page-name-small',__('cms.index'))
 
 @section('styles')
@@ -15,13 +15,13 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">{{__('cms.sport')}}</span>
+            <span class="card-label font-weight-bolder text-dark">{{__('cms.achievements')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Sport')
+        @can('Create-Achievement')
         <div class="card-toolbar">
-            <a href="{{route('sports.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
+            <a href="{{route('achievements.create')}}"
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.achievements')}}</a>
         </div>
         @endcan
     </div>
@@ -35,34 +35,34 @@
                     <tr class="text-uppercase">
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
                         <th class="pl-0" style="min-width: 100px">{{__('cms.image')}}</th>
-                        <th style="min-width: 150px">{{__('cms.title')}}</th>
+                        <th style="min-width: 150px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
-                        @canany(['Update-Sport','Delete-Sport'])
+                        {{-- @canany(['Update-Country','Delete-Country']) --}}
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        @endcanany
+                        {{-- @endcanany --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $sport)
+                    @foreach ($data as $achievements)
                     <tr>
+                        {{-- <td class="pl-0">
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$country->id}}</a>
+                        </td> --}}
                         <td class="pl-0">
-                            <div class="symbol symbol-50 symbol-light mr-4">
-                                <span class="symbol-label">
-                                    <img src="{{Storage::url($sport->image)}}" class="h-75 align-self-end" alt="">
-                                </span>
-                            </div>
+                            <a><img width="60" height="60" src="#"></a>
                         </td>
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$sport->translations->first()?->title
-                                ?? ''}}</a>
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$achievements->translations->first()?->name ?? ''}}</a>
                         </td>
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$sport->id}}_translations"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$sport->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$sport->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$sport->id}}_translations" aria-hidden="true">
+                            <a href="#" data-toggle="modal" data-target="#sports_{{$achievements->id}}_translations"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$achievements->translations_count}})</a>
+                            <div class="modal fade" id="sports_{{$achievements->id}}_translations" tabindex="-1"
+                                role="dialog" aria-labelledby="sports_{{$achievements->id}}_translations"
+                                aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -81,19 +81,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($sport->translations as $translation)
+                                                    @foreach ($achievements->translations as $translation)
                                                     <tr>
                                                         <td>
                                                             <span
-                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->title}}</span>
+                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->name}}</span>
                                                         </td>
                                                         <td>
                                                             <span
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            @can('Update-Sport')
-                                                            <a href="{{route('sport-translations.edit',$translation->id)}}"
+                                                            {{-- @can('Update-Achievement_Language') --}}
+                                                            <a href="{{route('achievement-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -117,10 +117,10 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            @endcan
-                                                            @can('Delete-Sport')
+                                                            {{-- @endcan --}}
+                                                            {{-- @can('Delete-Achievement_Language') --}}
                                                             <a href="#"
-                                                                onclick="performTranslationDestroy('{{$translation->id}}', this)"
+                                                                onclick="performTranslationDestroy('{{$achievements->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -142,7 +142,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            @endcan
+                                                            {{-- @endcan --}}
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -159,11 +159,11 @@
                         </td>
                         <td>
                             <span
-                                class="label label-lg @if($sport->active) label-light-success @else label-light-warning @endif label-inline">{{$sport->active_key}}</span>
+                                class="label label-lg @if($achievements->active) label-light-success @else label-light-warning @endif label-inline">{{$achievements->active_key}}</span>
                         </td>
                         <td class="pr-0 text-right">
-                            @can('Create-Sport')
-                            <a href="{{route('sport-translations.create',$sport->id)}}"
+                            {{-- @can('Create-Achievement_Language') --}}
+                            <a href="{{route('achievement-translations.create',$achievements->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg-->
@@ -180,9 +180,9 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
-                            @can('Delete-Sport')
-                            <a href="#" onclick="performSportsDestroy('{{$sport->id}}', this)"
+                            {{-- @endcan --}}
+                            {{-- @can('Delete-Achievement') --}}
+                            <a href="#" onclick="performSportsDestroy('{{$achievements->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -201,7 +201,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
+                            {{-- @endcan --}}
                         </td>
                     </tr>
                     @endforeach
@@ -217,11 +217,12 @@
 @section('scripts')
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
-    function performSportsDestroy(id,reference) {
-        confirmDestroy('/cms/admin/sports', id, reference);
+      function performSportsDestroy(id,reference) {
+        confirmDestroy('/cms/admin/achievements', id, reference);
     }
     function performTranslationDestroy(id,reference) {
-        confirmDestroy('/cms/admin/sports/translations', id, reference);
+
+        confirmDestroy('/cms/admin/achievements/translations', id, reference);
     }
 </script>
 @endsection
