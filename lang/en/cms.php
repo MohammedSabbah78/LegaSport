@@ -369,5 +369,11 @@ return [
 
     'nationality' => 'Nationality',
     'IS_RTL' => 'IS RTL',
+    'isPrivate' => 'ISPRIVATE',
+    'isOnline' => 'ISONLINE',
+    'free' => 'Free',
+    'paid' => 'Paid',
+    "permissionreadeeroor" => "Don\'t hava permission !",
+
 
 ];
