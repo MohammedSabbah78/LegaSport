@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Admin;
 use App\Models\event;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class EventsPolicy
@@ -16,11 +17,10 @@ class EventsPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(event $event)
+    public function viewAny($user)
     {
         //
-        dd(11);
-        return $event->hasPermissionTo('Read-Events')
+        return $user->hasPermissionTo('Read-Events')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -32,10 +32,12 @@ class EventsPolicy
      * @param  \App\Models\event  $event
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin, event $event)
+    public function view($user, event $event)
     {
         //
-        dd(11);
+        return $user->hasPermissionTo('Read-Events')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -44,10 +46,12 @@ class EventsPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(Admin $admin)
+    public function create($user)
     {
         //
-        dd(11);
+        return $user->hasPermissionTo('Create-Event')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -57,10 +61,12 @@ class EventsPolicy
      * @param  \App\Models\event  $event
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Admin $admin, event $event)
+    public function update($user, event $event)
     {
         //
-        dd(11);
+        return $user->hasPermissionTo('Update-Event')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -70,10 +76,12 @@ class EventsPolicy
      * @param  \App\Models\event  $event
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(Admin $admin, event $event)
+    public function delete($user, event $event)
     {
         //
-        dd(11);
+        return $user->hasPermissionTo('Delete-Event')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -85,7 +93,7 @@ class EventsPolicy
      */
     public function restore(Admin $admin, event $event)
     {
-        dd(11);
+
         //
 
     }
@@ -100,6 +108,6 @@ class EventsPolicy
     public function forceDelete(Admin $admin, event $event)
     {
         //
-        dd(11);
+
     }
 }

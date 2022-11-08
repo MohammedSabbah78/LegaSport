@@ -14,8 +14,9 @@ class EventController extends Controller
 
     public function __construct()
     {
-        // $this->authorizeResource(Event::class, 'event');
+        // $this->authorizeResource(Event::class, 'Event');
     }
+
     /**
      * Display a listing of the resource.
      *

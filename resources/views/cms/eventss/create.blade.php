@@ -171,13 +171,12 @@
 
 
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.link')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.website_title')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="link" placeholder="{{__('cms.link')}}" />
-                            <span class="form-text text-muted">{{__('cms.link')}} {{__('cms.link')}}</span>
+                            <input type="text" class="form-control" id="url_website" placeholder="{{__('cms.website_title')}}" />
+                            <span class="form-text text-muted">{{__('cms.website_title')}} {{__('cms.website_title')}}</span>
                         </div>
                     </div>
-
 
 
 
@@ -237,7 +236,7 @@ formData.append('poster',image.input.files[0]);
 formData.append('date',document.getElementById('date').value);
 formData.append('max_user',document.getElementById('max_user').value);
 formData.append('price',document.getElementById('price').value);
-formData.append('event_link',document.getElementById('link').value);
+formData.append('event_link',document.getElementById('url_website').value);
 formData.append('start',document.getElementById('start').value);
 formData.append('end',document.getElementById('end').value);
 

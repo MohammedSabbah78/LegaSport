@@ -18,7 +18,9 @@ class LanguagePolicy
      */
     public function viewAny($user)
     {
-        return $user->hasPermissionTo('Read-Languages')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Languages')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -30,7 +32,9 @@ class LanguagePolicy
      */
     public function view($user, Language $language)
     {
-        return $user->hasPermissionTo('Read-Languages')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Languages')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -41,8 +45,11 @@ class LanguagePolicy
      */
     public function create($user)
     {
-        return $user->hasPermissionTo('Create-Language')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Create-Language')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
+
 
     /**
      * Determine whether the user can update the model.
@@ -53,7 +60,9 @@ class LanguagePolicy
      */
     public function update($user, Language $language)
     {
-        return $user->hasPermissionTo('Update-Language')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Update-Language')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -65,7 +74,9 @@ class LanguagePolicy
      */
     public function delete($user, Language $language)
     {
-        return $user->hasPermissionTo('Delete-Language')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Delete-Language')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**

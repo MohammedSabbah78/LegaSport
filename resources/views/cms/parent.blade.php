@@ -689,7 +689,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-                            {{-- @canany(['Create-Plan', 'Read-Plans',]) --}}
+                            {{-- @canany(['Create-Plan', 'Read-Plans']) --}}
 
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -806,6 +806,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
                             {{-- @canany(['Create-Event', 'Read-Events']) --}}
+                            
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
@@ -858,17 +859,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </ul>
                                 </div>
                             </li>
+
                             {{-- @endcanany --}}
 
 
 							{{-- @canany(['Create-Country','Read-Countries','Create-City','Read-Cities']) --}}
 							{{-- @canany(['Create-Country','Read-Countries','Create-City','Read-Cities']) --}}
+
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.location_management')}}</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
+
 							{{-- @endcanany --}}
 							{{-- @canany(['Create-Country','Read-Countries']) --}}
+
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -926,6 +931,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 							{{-- @endcanany --}}
 							{{-- @canany(['Create-City','Read-Cities']) --}}
+
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -979,6 +985,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</ul>
 								</div>
 							</li>
+
 							{{-- @endcanany --}}
 
 
@@ -1011,6 +1018,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<span class="menu-text">{{__('cms.change_password')}}</span>
 								</a>
 							</li>
+
 							<li class="menu-item" aria-haspopup="true">
 								<a href="{{route('cms.logout')}}" class="menu-link">
 									<span class="svg-icon menu-icon">

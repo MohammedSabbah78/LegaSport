@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PlanTranslationController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *

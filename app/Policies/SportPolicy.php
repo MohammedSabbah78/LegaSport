@@ -19,7 +19,9 @@ class SportPolicy
 
     public function viewAny($user)
     {
-        return $user->hasPermissionTo('Read-Sports')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Sports')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -32,7 +34,9 @@ class SportPolicy
      */
     public function view($user, Sport $sport)
     {
-        return $user->hasPermissionTo('Read-Sports')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Sports')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -44,7 +48,9 @@ class SportPolicy
 
     public function create($user)
     {
-        return $user->hasPermissionTo('Create-Sport')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Create-Sport')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -53,7 +59,9 @@ class SportPolicy
      */
     public function update($user, Sport $sport)
     {
-        return $user->hasPermissionTo('Update-Sport')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Update-Sport')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -65,7 +73,9 @@ class SportPolicy
      */
     public function delete($user, Sport $sport)
     {
-        return $user->hasPermissionTo('Delete-Sport')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Delete-Sport')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -81,17 +91,10 @@ class SportPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\sport  $sport
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-     
-    public function forceDelete(Admin $admin, sport $sport){
-    }
-    
-     * @param  \App\Models\odel=Sport  $odel=Sport
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function forceDelete($user, Sport $sport)
+    public function forceDelete($user, sport $role)
     {
         //
     }
