@@ -29,10 +29,14 @@ class EventTranslationController extends Controller
     public function create(Event $event)
     {
         //
-        $languages = Language::whereDoesntHave('eventTranslations', function ($query) use ($event) {
-            $query->where('event_id', '=', $event->id);
-        })->get();
-        return response()->view('cms.eventss.create-lang', ['languages' => $languages, 'event' => $event]);
+        if (auth('admin')->user()->can('Create-Event')) {
+            $languages = Language::whereDoesntHave('eventTranslations', function ($query) use ($event) {
+                $query->where('event_id', '=', $event->id);
+            })->get();
+            return response()->view('cms.eventss.create-lang', ['languages' => $languages, 'event' => $event]);
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -82,9 +86,12 @@ class EventTranslationController extends Controller
      */
     public function edit(EventTranslation $eventTranslation)
     {
-        //
-        $languages = Language::all();
-        return response()->view('cms.eventss.edit', ['eventTranslation' => $eventTranslation, 'languages' => $languages]);
+        if (auth('admin')->user()->can('Update-Event')) {
+            $languages = Language::all();
+            return response()->view('cms.eventss.edit', ['eventTranslation' => $eventTranslation, 'languages' => $languages]);
+        } else {
+            return abort(401);
+        }
     }
 
 

@@ -16,9 +16,12 @@ class PlanPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(Admin $admin)
+    public function viewAny($user)
     {
         //
+        return $user->hasPermissionTo('Read-Plans')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -28,9 +31,12 @@ class PlanPolicy
      * @param  \App\Models\plan  $plan
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin, plan $plan)
+    public function view($user, plan $plan)
     {
         //
+        return $user->hasPermissionTo('Read-Plans')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -39,9 +45,12 @@ class PlanPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(Admin $admin)
+    public function create($user)
     {
         //
+        return $user->hasPermissionTo('Create-Plan')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -51,9 +60,12 @@ class PlanPolicy
      * @param  \App\Models\plan  $plan
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Admin $admin, plan $plan)
+    public function update($user, plan $plan)
     {
         //
+        return $user->hasPermissionTo('Update-Plan')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -63,9 +75,12 @@ class PlanPolicy
      * @param  \App\Models\plan  $plan
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(Admin $admin, plan $plan)
+    public function delete($user, plan $plan)
     {
         //
+        return $user->hasPermissionTo('Delete-Plan')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
