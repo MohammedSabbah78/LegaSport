@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->authorizeResource(City::class, 'city');
+    }
     /**
      * Display a listing of the resource.
      *

@@ -3,10 +3,9 @@
 namespace App\Policies;
 
 use App\Models\Admin;
-use App\Models\sport;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class SportPolicy
+class AdminPolicy
 {
     use HandlesAuthorization;
 
@@ -16,23 +15,21 @@ class SportPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-
     public function viewAny($user)
     {
-        return $user->hasPermissionTo('Read-Sports')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Admins')  ? $this->allow() : $this->deny();
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Admin  $admin
-
-     * @param  \App\Models\odel=Sport  $odel=Sport
+     * @param  \App\Models\odel=Admin  $odel=Admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view($user, Sport $sport)
+    public function view($user, Admin $admin)
     {
-        return $user->hasPermissionTo('Read-Sports')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Admins')  ? $this->allow() : $this->deny();
     }
 
     /**
@@ -41,38 +38,43 @@ class SportPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-
     public function create($user)
     {
-        return $user->hasPermissionTo('Create-Sport')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Create-Admin')  ? $this->allow() : $this->deny();
     }
 
     /**
-     * @param  \App\Models\odel=Sport  $odel=Sport
+     * Determine whether the user can update the model.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\odel=Admin  $odel=Admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update($user, Sport $sport)
+    public function update($user, Admin $admin)
     {
-        return $user->hasPermissionTo('Update-Sport')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Update-Admin')  ? $this->allow() : $this->deny();
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\odel=Sport  $odel=Sport
+     * @param  \App\Models\odel=Admin  $odel=Admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete($user, Sport $sport)
+    public function delete($user, Admin $admin)
     {
-        return $user->hasPermissionTo('Delete-Sport')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Delete-Admin')  ? $this->allow() : $this->deny();
     }
 
     /**
-     * @param  \App\Models\odel=Sport  $odel=Sport
+     * Determine whether the user can restore the model.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\odel=Admin  $odel=Admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore($user, Sport $sport)
+    public function restore($user, Admin $admin)
     {
         //
     }
@@ -81,17 +83,10 @@ class SportPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\sport  $sport
+     * @param  \App\Models\odel=Admin  $odel=Admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-     
-    public function forceDelete(Admin $admin, sport $sport){
-    }
-    
-     * @param  \App\Models\odel=Sport  $odel=Sport
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function forceDelete($user, Sport $sport)
+    public function forceDelete($user, Admin $admin)
     {
         //
     }

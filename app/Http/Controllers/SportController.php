@@ -7,9 +7,15 @@ use App\Models\Language;
 use App\Models\Sport;
 use App\Models\SportTranslation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SportController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Sport::class, 'sport');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -144,6 +150,7 @@ class SportController extends Controller
         //
         $deleted = $sport->delete();
         if ($deleted) {
+            Storage::delete($sport->image);
             $translations = SportTranslation::where('sport_id', $sport->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();

@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
+
     public function activeKey(): Attribute
     {
-        return new Attribute(get: fn () => $this->active ? 'Active' : 'In-Active');
+        return new Attribute(get: fn () => $this->active ? __('cms.active_model') : __('cms.inActive_model'));
     }
 
     public function name(): Attribute
