@@ -14,6 +14,11 @@ use Str;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Admin::class, 'admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -151,6 +156,9 @@ class AdminController extends Controller
     public function destroy(Admin $admin)
     {
         $isDeleted = $admin->delete();
-        return response()->json(['message' => 'Deleted successfully'], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        if ($isDeleted) {
+            Storage::delete($admin->image);
+        }
+        return response()->json(['message' => __('cms.delete_success')], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
     }
 }

@@ -12,9 +12,8 @@ class Language extends Model
 
     public function activeKey(): Attribute
     {
-        return new Attribute(get: fn () => $this->active ? 'Active' : 'In-Active');
+        return new Attribute(get: fn () => $this->active ? __('cms.active_model') : __('cms.inActive_model'));
     }
-
     public function isRtlKey(): Attribute
     {
         return new Attribute(get: fn () => $this->is_rtl ? 'RTL' : 'LTR');

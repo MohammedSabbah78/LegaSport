@@ -370,4 +370,25 @@ return [
     'nationality' => 'Nationality',
     'IS_RTL' => 'IS RTL',
 
+    'add_today' => 'Add Today',
+    'register_today' => 'Register Today',
+    'all_players' => 'All Players',
+    'all_coaches' => 'All Coaches',
+    'all_academies' => 'All Academies',
+    'all_sports' => 'All Sports',
+    'last_academies_register' => 'Last Academies Register',
+    'last_players_register' => 'Last Players Register',
+    'last_coaches_register' => 'Last Coaches Register',
+    'more_than' => 'More Than',
+    'player' => 'Player',
+    'coache' => 'Coache',
+    'academy' => 'Academy',
+
+    'active_model' => 'Active',
+    'inActive_model' => 'In Active',
+
+    'male' => 'Male',
+    'feMale' => 'Female',
+
+
 ];

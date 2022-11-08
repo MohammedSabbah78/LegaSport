@@ -20,8 +20,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::withCount('permissions')->get();
-        return response()->view('cms.spatie.roles.index', ['roles' => $roles]);
+        if (auth('admin')->user()->can('Read-Roles')) {
+            $roles = Role::withCount('permissions')->get();
+            return response()->view('cms.spatie.roles.index', ['roles' => $roles]);
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -31,7 +35,12 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return response()->view('cms.spatie.roles.create');
+
+        if (auth('admin')->user()->can('Create-Role')) {
+            return response()->view('cms.spatie.roles.create');
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -77,8 +86,12 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::findOrFail($id);
-        return response()->view('cms.spatie.roles.edit', ['role' => $role]);
+        if (auth('admin')->user()->can('Update-Role')) {
+            $role = Role::findOrFail($id);
+            return response()->view('cms.spatie.roles.edit', ['role' => $role]);
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -114,7 +127,11 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $isDeleted = $role->delete();
-        return response()->json(['message' => 'Deleted successfully'], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        if (auth('admin')->user()->can('Delete-Role')) {
+            $isDeleted = $role->delete();
+            return response()->json(['message' => __('cms.delete_success')], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        } else {
+            return response()->json(['message' => __('cms.delete_failed')], Response::HTTP_BAD_REQUEST);
+        }
     }
 }

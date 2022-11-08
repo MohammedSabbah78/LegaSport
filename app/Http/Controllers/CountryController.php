@@ -7,9 +7,14 @@ use App\Models\Country;
 use App\Models\CountryTranslation;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CountryController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Country::class, 'country');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -118,6 +123,7 @@ class CountryController extends Controller
     {
         $deleted = $country->delete();
         if ($deleted) {
+            Storage::delete($country->image);
             $translations = CountryTranslation::where('country_id', $country->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();

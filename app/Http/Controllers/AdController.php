@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ad;
 use App\Models\OnBoardingScreen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class AdController extends Controller
@@ -129,6 +130,10 @@ class AdController extends Controller
     {
         //
         $isDeleted = $ad->delete();
-        return response()->json(['message' => 'Deleted successfully'], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+
+        if ($isDeleted) {
+            Storage::delete($ad->image);
+        }
+        return response()->json(['message' => __('cms.delete_success')], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
     }
 }

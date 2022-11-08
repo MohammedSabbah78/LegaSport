@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class NationalityController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->authorizeResource(Nationality::class, 'nationality');
+    }
     /**
      * Display a listing of the resource.
      *

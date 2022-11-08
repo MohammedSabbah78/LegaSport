@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Storage;
 
 class OnBoardingScreenController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(OnBoardingScreen::class, 'onBoardingScreen');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -171,6 +175,7 @@ class OnBoardingScreenController extends Controller
     {
         $deleted = $onBoardingScreen->delete();
         if ($deleted) {
+            Storage::delete($onBoardingScreen->image);
             $translations = OnBoardingScreenTranslation::where('on_boarding_screen_id', $onBoardingScreen->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();

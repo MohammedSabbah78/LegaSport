@@ -8,6 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PermissionController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->authorizeResource(Permission::class, 'permission');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +21,13 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::all();
-        return response()->view('cms.spatie.permissions.index', ['permissions' => $permissions]);
+        if (auth('admin')->user()->can('Read-Permissions')) {
+            $permissions = Permission::all();
+            return response()->view('cms.spatie.permissions.index', ['permissions' => $permissions]);
+        } else {
+            return abort(401);
         }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,8 +36,12 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return response()->view('cms.spatie.permissions.create');
 
+        if (auth('admin')->user()->can('Create-Permission')) {
+            return response()->view('cms.spatie.permissions.create');
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -72,8 +86,15 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        $permission = Permission::findOrFail($id);
-        return response()->view('cms.spatie.permissions.edit', ['permission' => $permission]);
+
+
+
+        if (auth('admin')->user()->can('Update-Permission')) {
+            $permission = Permission::findOrFail($id);
+            return response()->view('cms.spatie.permissions.edit', ['permission' => $permission]);
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -108,8 +129,13 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
-        $isDeleted = $permission->delete();
-        return response()->json(['message' => 'Deleted successfully'], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
-   
+
+
+        if (auth('admin')->user()->can('Delete-Permission')) {
+            $isDeleted = $permission->delete();
+            return response()->json(['message' => __('cms.delete_success')], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);
+        } else {
+            return abort(401);
+        }
     }
 }
