@@ -575,7 +575,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-							@canany(['Read-Sports', 'Create-Sport'])
+							{{-- @canany(['Read-Sports', 'Create-Sport']) --}}
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
@@ -603,7 +603,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.sport')}}</span>
                                             </span>
                                         </li>
-                                        @can('Create-Sport')
+                                        {{-- @can('Create-Sport') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('sports.create')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -612,8 +612,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.create')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
-                                        @can('Read-Sports')
+                                        {{-- @endcan --}}
+                                        {{-- @can('Read-Sports') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('sports.index')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -622,14 +622,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.index')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
+                                        {{-- @endcan --}}
                                     </ul>
                                 </div>
                             </li>
-                            @endcanany
+                            {{-- @endcanany --}}
 
 
-                           @canany(['Create-Achievement', 'Read-Achievements'])
+                           {{-- @canany(['Create-Achievement', 'Read-Achievements']) --}}
 
                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -660,7 +660,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.achievements')}}</span>
                                             </span>
                                         </li>
-                                        @can('Create-Achievement')
+                                        {{-- @can('Create-Achievement') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('achievements.create')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -669,8 +669,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.create')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
-                                        @can('Read-Achievements')
+                                        {{-- @endcan --}}
+                                        {{-- @can('Read-Achievements') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('achievements.index')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -679,17 +679,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.index')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
+                                        {{-- @endcan --}}
                                     </ul>
                                 </div>
                             </li>
 
-                           @endcanany
+                           {{-- @endcanany --}}
 
 
 
 
-                            @canany(['Create-Plan', 'Read-Plans',])
+                            {{-- @canany(['Create-Plan', 'Read-Plans',]) --}}
 
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -718,7 +718,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.plans')}}</span>
                                             </span>
                                         </li>
-                                        @can('Create-Plan')
+                                        {{-- @can('Create-Plan') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('plans.create')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -727,8 +727,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.create')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
-                                        @can('Read-Plans')
+                                        {{-- @endcan --}}
+                                        {{-- @can('Read-Plans') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('plans.index')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -737,16 +737,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.index')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
+                                        {{-- @endcan --}}
                                     </ul>
                                 </div>
                             </li>
 
-                            @endcanany
+                            {{-- @endcanany --}}
 
 
 
-                            @canany(['Read-Centers', 'Create-Center'])
+                            {{-- @canany(['Read-Centers', 'Create-Center']) --}}
 
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -777,7 +777,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.center')}}</span>
                                             </span>
                                         </li>
-                                        @can('Create-Center')
+                                        {{-- @can('Create-Center') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('centers.create')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -786,8 +786,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.create')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
-                                        @can('Read-Centers')
+                                        {{-- @endcan --}}
+                                        {{-- @can('Read-Centers') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('centers.index')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -796,16 +796,16 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.index')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
+                                        {{-- @endcan --}}
                                     </ul>
                                 </div>
                             </li>
 
-                            @endcanany
+                            {{-- @endcanany --}}
 
 
 
-                            @canany(['Create-Event', 'Read-Events'])
+                            {{-- @canany(['Create-Event', 'Read-Events']) --}}
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="javascript:;" class="menu-link menu-toggle">
                                     <span class="svg-icon menu-icon">
@@ -835,7 +835,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.events')}}</span>
                                             </span>
                                         </li>
-                                        @can('Create-Event')
+                                        {{-- @can('Create-Event') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('events.create')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -844,8 +844,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.create')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
-                                        @can('Read-Events')
+                                        {{-- @endcan --}}
+                                        {{-- @can('Read-Events') --}}
                                         <li class="menu-item" aria-haspopup="true">
                                             <a href="{{route('events.index')}}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
@@ -854,11 +854,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-text">{{__('cms.index')}}</span>
                                             </a>
                                         </li>
-                                        @endcan
+                                        {{-- @endcan --}}
                                     </ul>
                                 </div>
                             </li>
-                            @endcanany
+                            {{-- @endcanany --}}
 
 
 							{{-- @canany(['Create-Country','Read-Countries','Create-City','Read-Cities']) --}}

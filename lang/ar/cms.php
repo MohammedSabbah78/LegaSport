@@ -365,6 +365,14 @@ return [
 
 
 
+    'isPrivate' => 'خاص',
+    'isOnline' => 'متصل',
+    'free' => 'حر',
+    'paid' => 'مدفوع',
+    'permissionreadeeroor' => 'عذرا ليس لديك الصلاحية في الوصول الى هذه الصفحة',
+
+
+
 
 
 
