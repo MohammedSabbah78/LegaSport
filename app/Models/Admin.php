@@ -27,11 +27,11 @@ class Admin extends Authenticatable
         return new Attribute(get: fn () => $this->name);
     }
 
+
     public function activeKey(): Attribute
     {
-        return new Attribute(get: fn () => $this->active ? 'Active' : 'In-Active');
+        return new Attribute(get: fn () => $this->active ? __('cms.active_model') : __('cms.inActive_model'));
     }
-
     public function genderKey(): Attribute
     {
         return new Attribute(get: fn () => $this->gender == 'M' ? 'Male' : 'Female');

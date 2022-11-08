@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Language::class, 'language');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -81,7 +86,6 @@ class LanguageController extends Controller
     public function edit(Language $language)
     {
         return response()->view('cms.languages.edit', ['language' => $language]);
-
     }
 
     /**

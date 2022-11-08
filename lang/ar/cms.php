@@ -359,10 +359,24 @@ return [
     'nationality' => 'الجنسية',
     'IS_RTL' => 'من اليمين إلى اليسار',
 
+    'add_today' => 'تم إضافته اليوم',
+    'register_today' => 'التسجيل اليوم',
+    'all_players' => 'جميع اللاعبين',
+    'all_coaches' => 'جميع المدربين',
+    'all_academies' => 'جميع الأكاديميات',
+    'all_sports' => 'جميع الرياضات',
 
+    'last_academies_register' => 'إخر أكاديميات تم تسجيلها',
+    'last_players_register' => 'إخر لاعبين تم تسجليهم',
+    'last_coaches_register' => 'إخر مدربين تم تسجيلهم',
+    'more_than' => 'أكثر من',
+    'playy' => 'لاعب',
+    'coacy' => 'مدرب',
+    'academy' => 'أكاديمية',
 
-
-
-
+    'active_model' => 'فعال',
+    'inActive_model' => 'غير فعال',
+    'male' => 'ذكر',
+    'feMale' => 'إنثى',
 
 ];
