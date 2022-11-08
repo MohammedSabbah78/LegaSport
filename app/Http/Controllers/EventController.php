@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\EventTranslation;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -147,6 +148,7 @@ class EventController extends Controller
         //
         $deleted = $event->delete();
         if ($deleted) {
+            Storage::delete($event->poster);
             $translations = EventTranslation::where('event_id', $event->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();

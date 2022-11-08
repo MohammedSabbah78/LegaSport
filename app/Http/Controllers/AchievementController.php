@@ -7,6 +7,7 @@ use App\Models\Achievement;
 use App\Models\AchievementTranslation;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class AchievementController extends Controller
@@ -146,6 +147,7 @@ class AchievementController extends Controller
         //
         $deleted = $achievement->delete();
         if ($deleted) {
+            Storage::delete($achievement->image);
             $translations = AchievementTranslation::where('achievement_id', $achievement->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();

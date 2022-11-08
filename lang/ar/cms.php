@@ -370,7 +370,8 @@ return [
     'free' => 'حر',
     'paid' => 'مدفوع',
     'permissionreadeeroor' => 'عذرا ليس لديك الصلاحية في الوصول الى هذه الصفحة',
-
+    'active_model' => 'فعال',
+    'inActive_model' => 'غير فعال',
 
 
 

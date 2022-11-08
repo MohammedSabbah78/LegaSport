@@ -14,9 +14,15 @@ class Event extends Model
         return new Attribute(get: fn () => $this->translations->first()->name ?? '-');
     }
 
-    public function activeKey(): Attribute
+    public function privateKey(): Attribute
     {
-        return new Attribute(get: fn () => $this->active ? 'Active' : 'In-Active');
+        return new Attribute(get: fn () => $this->isPrivate ? __('cms.isPrivate') : __('cms.NotPrivate'));
+    }
+
+
+    public function onlineKey(): Attribute
+    {
+        return new Attribute(get: fn () => $this->isOnline ? __('cms.isonline') : __('cms.Notonline'));
     }
 
     public function translations()

@@ -1,9 +1,9 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.event'))
+@section('page-name',__('cms.events'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.event'))
-@section('page-name-small',__('cms.event'))
+@section('sub-page',__('cms.events'))
+@section('page-name-small',__('cms.events'))
 
 @section('styles')
 

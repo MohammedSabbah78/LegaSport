@@ -185,13 +185,13 @@
 
                         <td>
                              <span
-                                class="label label-lg @if($event->isPrivate) label-light-success @else label-light-warning @endif label-inline">{{$event->active_key ?? ''}}</span>
+                                class="label label-lg @if($event->isPrivate) label-light-success @else label-light-warning @endif label-inline">{{$event->private_Key ?? ''}}</span>
                         </td>
 
 
                             <td>
                                 <span
-                                    class="label label-lg @if($event->isOnline) label-light-success @else label-light-warning @endif label-inline">{{$event->active_key}}</span>
+                                    class="label label-lg @if($event->isOnline) label-light-success @else label-light-warning @endif label-inline">{{$event->online_Key ?? ''}}</span>
                             </td>
 
                         <td class="pl-0">
