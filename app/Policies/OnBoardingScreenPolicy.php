@@ -18,7 +18,9 @@ class OnBoardingScreenPolicy
      */
     public function viewAny($user)
     {
-        return $user->hasPermissionTo('Read-On-Boardings')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-On-Boardings')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -30,7 +32,9 @@ class OnBoardingScreenPolicy
      */
     public function view($user, OnBoardingScreen $onBoardingScreen)
     {
-        return $user->hasPermissionTo('Read-On-Boardings')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-On-Boardings')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -41,7 +45,9 @@ class OnBoardingScreenPolicy
      */
     public function create($user)
     {
-        return $user->hasPermissionTo('Create-On-Boarding')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Create-On-Boarding')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -53,7 +59,9 @@ class OnBoardingScreenPolicy
      */
     public function update($user, OnBoardingScreen $onBoardingScreen)
     {
-        return $user->hasPermissionTo('Update-On-Boarding')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Update-On-Boarding')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -65,7 +73,9 @@ class OnBoardingScreenPolicy
      */
     public function delete($user, OnBoardingScreen $onBoardingScreen)
     {
-        return $user->hasPermissionTo('Delete-On-Boarding')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Delete-On-Boarding')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**

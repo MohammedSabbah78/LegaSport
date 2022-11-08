@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
-
-    public function __construct()
-    {
-        // $this->authorizeResource(Event::class, 'event');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -23,14 +18,14 @@ class EventController extends Controller
      */
     public function index()
     {
-        if (auth('admin')->check()) {
-            $data = Event::with('translations')->withCount(['translations'])->get();
-            return response()->view('cms.eventss.index', ['data' => $data]);
+        if (auth('admin')->user()->can('Read-Events')) {
+            if (auth('admin')->check()) {
+                $data = Event::with('translations')->withCount(['translations'])->get();
+                return response()->view('cms.eventss.index', ['data' => $data]);
+            }
         } else {
+            return abort(401);
         }
-        //
-
-
     }
 
     /**
@@ -41,8 +36,14 @@ class EventController extends Controller
     public function create()
     {
         //
-        $languages = Language::all();
-        return response()->view('cms.eventss.create', ['languages' => $languages]);
+        if (auth('admin')->user()->can('Create-Event')) {
+            if (auth('admin')->check()) {
+                $languages = Language::all();
+                return response()->view('cms.eventss.create', ['languages' => $languages]);
+            }
+        } else {
+            return abort(401);
+        }
     }
 
     /**
@@ -146,14 +147,20 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         //
-        $deleted = $event->delete();
-        if ($deleted) {
-            Storage::delete($event->poster);
-            $translations = EventTranslation::where('event_id', $event->id)->get();
-            foreach ($translations as $translation) {
-                $translation->delete();
+        if (auth('admin')->user()->can('Delete-Event')) {
+            if (auth('admin')->check()) {
+                $deleted = $event->delete();
+                if ($deleted) {
+                    Storage::delete($event->poster);
+                    $translations = EventTranslation::where('event_id', $event->id)->get();
+                    foreach ($translations as $translation) {
+                        $translation->delete();
+                    }
+                }
+                return ControllersService::generateProcessResponse($deleted, 'DELETE');
             }
+        } else {
+            return abort(401);
         }
-        return ControllersService::generateProcessResponse($deleted, 'DELETE');
     }
 }

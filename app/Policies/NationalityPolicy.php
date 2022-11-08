@@ -18,7 +18,9 @@ class NationalityPolicy
      */
     public function viewAny($user)
     {
-        return $user->hasPermissionTo('Read-Nationalities')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Nationalities')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -30,7 +32,9 @@ class NationalityPolicy
      */
     public function view($user, Nationality $nationality)
     {
-        return $user->hasPermissionTo('Read-Nationalities')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Read-Nationalities')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -41,7 +45,9 @@ class NationalityPolicy
      */
     public function create($user)
     {
-        return $user->hasPermissionTo('Create-Nationality')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Create-Nationality')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -53,7 +59,9 @@ class NationalityPolicy
      */
     public function update($user, Nationality $nationality)
     {
-        return $user->hasPermissionTo('Update-Nationality')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Update-Nationality')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -65,7 +73,9 @@ class NationalityPolicy
      */
     public function delete($user, Nationality $nationality)
     {
-        return $user->hasPermissionTo('Delete-Nationality')  ? $this->allow() : $this->deny();
+        return $user->hasPermissionTo('Delete-Nationality')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**

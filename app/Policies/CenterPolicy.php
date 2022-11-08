@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Admin;
 use App\Models\center;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CenterPolicy
@@ -16,9 +17,12 @@ class CenterPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(Admin $admin)
+    public function viewAny($user)
     {
         //
+        return $user->hasPermissionTo('Read-Centers')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -28,9 +32,12 @@ class CenterPolicy
      * @param  \App\Models\center  $center
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin, center $center)
+    public function view(User $user, center $center)
     {
         //
+        return $user->hasPermissionTo('Read-Centers')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -39,9 +46,12 @@ class CenterPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(Admin $admin)
+    public function create($user)
     {
         //
+        return $user->hasPermissionTo('Create-Center')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -51,9 +61,12 @@ class CenterPolicy
      * @param  \App\Models\center  $center
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Admin $admin, center $center)
+    public function update($user, center $center)
     {
         //
+        return $user->hasPermissionTo('Update-Center')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -63,9 +76,12 @@ class CenterPolicy
      * @param  \App\Models\center  $center
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(Admin $admin, center $center)
+    public function delete(user $user, center $center)
     {
         //
+        return $user->hasPermissionTo('Delete-Center')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**

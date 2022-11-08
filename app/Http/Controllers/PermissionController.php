@@ -129,8 +129,6 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
-
-
         if (auth('admin')->user()->can('Delete-Permission')) {
             $isDeleted = $permission->delete();
             return response()->json(['message' => __('cms.delete_success')], $isDeleted ? Response::HTTP_OK : Response::HTTP_BAD_REQUEST);

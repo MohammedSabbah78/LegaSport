@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Admin;
 use App\Models\achievement;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AchievementPolicy
@@ -16,9 +17,12 @@ class AchievementPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(Admin $admin)
+    public function viewAny($user)
     {
-        //
+
+        return $user->hasPermissionTo('Read-Achievements')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -28,9 +32,12 @@ class AchievementPolicy
      * @param  \App\Models\achievement  $achievement
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin, achievement $achievement)
+    public function view(User $user, achievement $achievement)
     {
-        //
+
+        return $achievement->hasPermissionTo('Read-Achievements')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -39,9 +46,12 @@ class AchievementPolicy
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(Admin $admin)
+    public function create($user)
     {
         //
+        return $user->hasPermissionTo('Create-Achievement')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -51,9 +61,12 @@ class AchievementPolicy
      * @param  \App\Models\achievement  $achievement
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Admin $admin, achievement $achievement)
+    public function update($user, achievement $achievement)
     {
         //
+        return $user->hasPermissionTo('Update-Achievement')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**
@@ -63,9 +76,12 @@ class AchievementPolicy
      * @param  \App\Models\achievement  $achievement
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(Admin $admin, achievement $achievement)
+    public function delete($user, achievement $achievement)
     {
         //
+        return $user->hasPermissionTo('Delete-Achievement')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
     }
 
     /**

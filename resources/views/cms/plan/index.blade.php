@@ -18,12 +18,12 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.plans')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        {{-- @can('Create-Country') --}}
+        @can('Create-Plan')
         <div class="card-toolbar">
             <a href="{{route('plans.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.plans')}}</a>
         </div>
-        {{-- @endcan --}}
+        @endcan
     </div>
     <!--end::Header-->
     <!--begin::Body-->
@@ -50,7 +50,8 @@
                     <tr>
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->translations->first()?->title ?? ''}}</a>
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->translations->first()?->title
+                                ?? ''}}</a>
                         </td>
 
                         <td class="pl-0">
@@ -67,15 +68,15 @@
 
 
                         <td class="pl-0">
-                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->max_month
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->max_month
                                 ?? ''}}</a>
                         </td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#sports_{{$plan->id}}_translations"
                                 class="btn btn-light-primary font-weight-bolder font-size-sm">({{$plan->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$plan->id}}_translations" tabindex="-1"
-                                role="dialog" aria-labelledby="sports_{{$plan->id}}_translations"
-                                aria-hidden="true">
+                            <div class="modal fade" id="sports_{{$plan->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="sports_{{$plan->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">

@@ -19,7 +19,6 @@ class AchievementController extends Controller
      */
     public function index()
     {
-        //
 
         if (auth('admin')->check()) {
             $data = Achievement::with('translations')->withCount(['translations'])->get();
@@ -35,7 +34,7 @@ class AchievementController extends Controller
      */
     public function create()
     {
-        //
+
         $languages = Language::all();
         return response()->view('cms.achievement.create', ['languages' => $languages]);
     }
@@ -48,7 +47,7 @@ class AchievementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'name' => 'required|string|min:3|max:30',
