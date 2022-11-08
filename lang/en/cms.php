@@ -251,8 +251,8 @@ return [
     'ratio' => 'Ratio',
     'all_beneficiaries' => 'All beneficiaries',
     'current_beneficiaries' => 'Current beneficiaries',
-    'start_date' => 'Start date',
-    'end_date' => 'End date',
+    'start_date' => 'Start Time',
+    'end_date' => 'End Time',
     'href' => 'Forward Url',
     'ads' => 'Ads Section',
     'welcome' => 'welcome dear',
@@ -369,6 +369,19 @@ return [
 
     'nationality' => 'Nationality',
     'IS_RTL' => 'IS RTL',
+
+    'isPrivate' => 'IS PRIVATE',
+    'NotPrivate' => 'IS Not PRIVATE',
+
+    'isonline' => 'IS Online',
+    'Notonline' => 'Not Online',
+
+    'isOnline' => 'IS ONLINE',
+    'free' => 'Free',
+    'paid' => 'Paid',
+    'permissionreadeeroor' => 'Don\'t hava permission !',
+    'achievements' => 'Achievements',
+
 
     'add_today' => 'Add Today',
     'register_today' => 'Register Today',

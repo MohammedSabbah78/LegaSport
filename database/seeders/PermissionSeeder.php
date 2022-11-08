@@ -54,10 +54,10 @@ class PermissionSeeder extends Seeder
 
 
 
-        // Permission::create(['name' => 'Create-Ad', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Read-Ads', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Update-Ad', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Delete-Ad', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Create-Ad', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Ads', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Ad', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Ad', 'guard_name' => 'admin']);
 
 
 
@@ -69,9 +69,13 @@ class PermissionSeeder extends Seeder
 
 
 
-        Permission::create(['name' => 'Create-Nationality', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Nationalities', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Nationality', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Nationality', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Center', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Centers', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Plan', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Plans', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Achievement', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Achievements', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Sport', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Sports', 'guard_name' => 'admin']);
     }
 }

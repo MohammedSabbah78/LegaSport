@@ -4,6 +4,8 @@ use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\AchievementTranslationController;
 use App\Http\Controllers\CenterController;
 use App\Http\Controllers\CenterTranslationController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventTranslationController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PlanTranslationController;
 use Illuminate\Support\Facades\Route;
@@ -86,5 +88,23 @@ Route::group([
         Route::get('centers/translations/{centerTranslation}/edit', [CenterTranslationController::class, 'edit'])->name('center-translations.edit');
         Route::put('centers/translations/{centerTranslation}', [CenterTranslationController::class, 'update'])->name('center-translations.update');
         Route::delete('centers/translations/{centerTranslation}', [CenterTranslationController::class, 'destroy'])->name('center-translations.destroy');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Event Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('events', [EventController::class, 'index'])->name('events.index');
+        Route::get('events/create', [EventController::class, 'create'])->name('events.create');
+        Route::post('events', [EventController::class, 'store'])->name('events.store');
+        Route::delete('events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+
+        Route::get('events/translation/{language}', [EventTranslationController::class, 'showByLanguage'])->name('event-translations.showByLanguage');
+        Route::get('events/{event}/translation/create', [EventTranslationController::class, 'create'])->name('event-translations.create');
+        Route::post('events/{event}/translation', [EventTranslationController::class, 'store'])->name('event-translations.store');
+        Route::get('events/translations/{eventTranslation}/edit', [EventTranslationController::class, 'edit'])->name('event-translations.edit');
+        Route::put('events/translations/{eventTranslation}', [EventTranslationController::class, 'update'])->name('event-translations.update');
+        Route::delete('events/translations/{eventTranslation}', [EventTranslationController::class, 'destroy'])->name('event-translations.destroy');
     });
 });

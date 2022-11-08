@@ -363,6 +363,18 @@ return [
     'nationality' => 'الجنسية',
     'IS_RTL' => 'من اليمين إلى اليسار',
 
+
+
+    'isPrivate' => 'خاص',
+    'isOnline' => 'متصل',
+    'free' => 'حر',
+    'paid' => 'مدفوع',
+    'permissionreadeeroor' => 'عذرا ليس لديك الصلاحية في الوصول الى هذه الصفحة',
+    'active_model' => 'فعال',
+    'inActive_model' => 'غير فعال',
+
+
+
     'add_today' => 'تم إضافته اليوم',
     'register_today' => 'التسجيل اليوم',
     'all_players' => 'جميع اللاعبين',

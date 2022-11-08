@@ -7,6 +7,7 @@ use App\Models\Center;
 use App\Models\CenterTranslation;
 use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CenterController extends Controller
 {
@@ -156,6 +157,7 @@ class CenterController extends Controller
         //
         $deleted = $center->delete();
         if ($deleted) {
+            Storage::delete($center->image);
             $translations = CenterTranslation::where('center_id', $center->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();
