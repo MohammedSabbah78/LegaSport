@@ -77,10 +77,10 @@
 
 
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.date')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.max_month')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="date" placeholder="{{__('cms.date')}}" />
-                            <span class="form-text text-muted">{{__('cms.date')}} {{__('cms.date')}}</span>
+                            <input type="number" class="form-control" id="max_month" placeholder="{{__('cms.max_month')}}" />
+                            <span class="form-text text-muted">{{__('cms.max_month')}} {{__('cms.max_month')}}</span>
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@ formData.append('language',document.getElementById('language').value);
 formData.append('title',document.getElementById('title').value);
 formData.append('description',document.getElementById('description').value);
 formData.append('price',document.getElementById('price').value);
-formData.append('max_month',document.getElementById('date').value);
+formData.append('max_month',document.getElementById('max_month').value);
 formData.append('active',document.getElementById('active').checked ? 1:0);
 
 

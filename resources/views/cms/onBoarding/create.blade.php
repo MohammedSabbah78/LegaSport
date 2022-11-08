@@ -70,6 +70,16 @@
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.body')}}</span>
                         </div>
                     </div>
+
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.ordering')}}:<span class="text-danger"></span></label>
+                        <div class="col-9">
+                            <input type="number" class="form-control" id="ordering" maxlength="1000" rows="3"
+                                placeholder="{{__('cms.please_enter')}} {{__('cms.ordering')}}">
+                            <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.ordering')}}</span>
+                        </div>
+                    </div>
                     @empty($screen)
 
                     <div class="row">

@@ -373,10 +373,9 @@ return [
     'isPrivate' => 'IS PRIVATE',
     'NotPrivate' => 'IS Not PRIVATE',
 
-    'isonline' => 'IS Online',
     'Notonline' => 'Not Online',
 
-    'isOnline' => 'IS ONLINE',
+    'isOnline' => 'Online Event',
     'free' => 'Free',
     'paid' => 'Paid',
     'permissionreadeeroor' => 'Don\'t hava permission !',
@@ -402,6 +401,7 @@ return [
 
     'male' => 'Male',
     'feMale' => 'Female',
+    'max_month' => 'Max Month'
 
 
 ];

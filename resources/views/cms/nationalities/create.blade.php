@@ -93,7 +93,7 @@
         name: document.getElementById('name').value,
         }
         if(id == null) {
-            data['active'] = document.getElementById('active').value,
+            data['active'] = document.getElementById('active').checked,
             store('/cms/admin/nationalities',data);
         }else {
             store('/cms/admin/nationalities/'+id+'/translation',data);

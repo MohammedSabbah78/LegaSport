@@ -181,7 +181,7 @@
             data['country'] = document.getElementById('country').value,
             data['latitude'] = document.getElementById('latitude').value,
             data['longitude'] = document.getElementById('longitude').value,
-            data['active'] = document.getElementById('active').value,
+            data['active'] = document.getElementById('active').checked,
             store('/cms/admin/cities',data);
         }else {
             store('/cms/admin/cities/'+id+'/translation',data);

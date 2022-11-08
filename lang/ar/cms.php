@@ -357,7 +357,7 @@ return [
     'body' => 'الوصف',
     'ordering' => 'الترتيب',
     'achievements' => 'مكافئات',
-    'center' => 'العنوان',
+    'center' => 'المركز',
     'subscribtion_price' => 'سعر الاشتراك',
 
     'nationality' => 'الجنسية',
@@ -366,7 +366,7 @@ return [
 
 
     'isPrivate' => 'خاص',
-    'isOnline' => 'متصل',
+    'isOnline' => 'اجتماع اونلاين',
     'free' => 'حر',
     'paid' => 'مدفوع',
     'permissionreadeeroor' => 'عذرا ليس لديك الصلاحية في الوصول الى هذه الصفحة',
@@ -394,5 +394,7 @@ return [
     'inActive_model' => 'غير فعال',
     'male' => 'ذكر',
     'feMale' => 'إنثى',
+
+    'max_month' => 'عدد الاشهر'
 
 ];

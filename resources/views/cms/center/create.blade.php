@@ -70,7 +70,7 @@
                         <label class="col-3 col-form-label">{{__('cms.longitude')}}:</label>
                         <div class="col-9">
                             <input type="number" class="form-control" id="long"
-                                placeholder="{{__('cms.long')}}" />
+                                placeholder="{{__('cms.longitude')}}" />
                             <span class="form-text text-muted">{{__('cms.longitude')}} {{__('cms.longitude')}}</span>
                         </div>
                     </div>
