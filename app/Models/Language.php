@@ -42,8 +42,28 @@ class Language extends Model
         return $this->hasMany(SportTranslation::class, 'language_id', 'id');
     }
 
+    public function achievementTranslation()
+    {
+        return $this->hasMany(AchievementTranslation::class, 'language_id', 'id');
+    }
+
+    public function palnTranslation()
+    {
+        return $this->hasMany(PlanTranslation::class, 'language_id', 'id');
+    }
+
+
+    public function centerTranslation()
+    {
+        return $this->hasMany(CenterTranslation::class, 'language_id', 'id');
+    }
     public function nationalityTranslations()
     {
         return $this->hasMany(NationalityTranslation::class, 'language_id', 'id');
+    }
+
+    public function eventTranslations()
+    {
+        return $this->hasMany(EventTranslation::class, 'language_id', 'id');
     }
 }

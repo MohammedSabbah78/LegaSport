@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
@@ -67,11 +66,39 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'Update-On-Boarding', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Delete-On-Boarding', 'guard_name' => 'admin']);
 
-
-
         Permission::create(['name' => 'Create-Nationality', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Read-Nationalities', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Update-Nationality', 'guard_name' => 'admin']);
         Permission::create(['name' => 'Delete-Nationality', 'guard_name' => 'admin']);
+
+
+
+
+
+
+
+        Permission::create(['name' => 'Create-Center', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Centers', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Center', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Center', 'guard_name' => 'admin']);
+
+
+        Permission::create(['name' => 'Create-Plan', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Plans', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Plan', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Plan', 'guard_name' => 'admin']);
+
+
+        Permission::create(['name' => 'Create-Achievement', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Achievements', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Achievement', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Achievement', 'guard_name' => 'admin']);
+
+        Permission::create(['name' => 'Create-Event', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Events', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Event', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Event', 'guard_name' => 'admin']);
+
+
     }
 }
