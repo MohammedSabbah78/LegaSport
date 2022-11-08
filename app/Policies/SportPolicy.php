@@ -87,12 +87,5 @@ class SportPolicy
      
     public function forceDelete(Admin $admin, sport $sport){
     }
-    
-     * @param  \App\Models\odel=Sport  $odel=Sport
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function forceDelete($user, Sport $sport)
-    {
-        //
-    }
+   
 }

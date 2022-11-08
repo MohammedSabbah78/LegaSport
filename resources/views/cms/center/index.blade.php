@@ -47,7 +47,12 @@
                     @foreach ($data as $center)
                     <tr>
                         <td class="pl-0">
-                            <a><img width="60" height="60" src="#"></a>
+                            <div class="symbol symbol-50 symbol-light mr-4">
+                                <span class="symbol-label">
+                                    <img src="{{Storage::url($center->image)}}" class="customImage h-75 align-self-end"
+                                        alt="">
+                                </span>
+                            </div>
                         </td>
 
                         <td class="pl-0">
@@ -58,15 +63,15 @@
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$center->subscribtion_price ?? ''}}</a>
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$center->subscribtion_price
+                                ?? ''}}</a>
                         </td>
 
                         <td>
                             <a href="#" data-toggle="modal" data-target="#sports_{{$center->id}}_translations"
                                 class="btn btn-light-primary font-weight-bolder font-size-sm">({{$center->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$center->id}}_translations" tabindex="-1"
-                                role="dialog" aria-labelledby="sports_{{$center->id}}_translations"
-                                aria-hidden="true">
+                            <div class="modal fade" id="sports_{{$center->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="sports_{{$center->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
