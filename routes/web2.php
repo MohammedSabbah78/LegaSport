@@ -6,6 +6,8 @@ use App\Http\Controllers\CenterController;
 use App\Http\Controllers\CenterTranslationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTranslationController;
+use App\Http\Controllers\FederationController;
+use App\Http\Controllers\FederationTranslationController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PlanTranslationController;
 use Illuminate\Support\Facades\Route;
@@ -106,5 +108,23 @@ Route::group([
         Route::get('events/translations/{eventTranslation}/edit', [EventTranslationController::class, 'edit'])->name('event-translations.edit');
         Route::put('events/translations/{eventTranslation}', [EventTranslationController::class, 'update'])->name('event-translations.update');
         Route::delete('events/translations/{eventTranslation}', [EventTranslationController::class, 'destroy'])->name('event-translations.destroy');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Federations Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('federations', [FederationController::class, 'index'])->name('federations.index');
+        Route::get('federations/create', [FederationController::class, 'create'])->name('federations.create');
+        Route::post('federations', [FederationController::class, 'store'])->name('federations.store');
+        Route::delete('federations/{federation}', [FederationController::class, 'destroy'])->name('federations.destroy');
+
+        Route::get('federations/translation/{language}', [FederationTranslationController::class, 'showByLanguage'])->name('federation-translations.showByLanguage');
+        Route::get('federations/{federation}/translation/create', [FederationTranslationController::class, 'create'])->name('federation-translations.create');
+        Route::post('federations/{federation}/translation', [FederationTranslationController::class, 'store'])->name('federation-translations.store');
+        Route::get('federations/translations/{federationTranslation}/edit', [FederationTranslationController::class, 'edit'])->name('federation-translations.edit');
+        Route::put('federations/translations/{federationTranslation}', [FederationTranslationController::class, 'update'])->name('federation-translations.update');
+        Route::delete('federations/translations/{federationTranslation}', [FederationTranslationController::class, 'destroy'])->name('federation-translations.destroy');
     });
 });

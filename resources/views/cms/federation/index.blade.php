@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.events'))
+@section('page-name',__('cms.federations'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.events'))
+@section('sub-page',__('cms.federations'))
 @section('page-name-small',__('cms.index'))
 
 @section('styles')
@@ -15,13 +15,13 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">{{__('cms.events')}}</span>
+            <span class="card-label font-weight-bolder text-dark">{{__('cms.federations')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
         @can('Create-Event')
         <div class="card-toolbar">
-            <a href="{{route('events.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.events')}}</a>
+            <a href="{{route('federations.create')}}"
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.federations')}}</a>
         </div>
         @endcan
     </div>
@@ -34,45 +34,33 @@
                 <thead>
                     <tr class="text-uppercase">
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
-                        <th style="min-width: 120px">{{__('cms.image')}}</th>
-                        <th style="min-width: 150px">{{__('cms.title')}}</th>
-                        <th style="min-width: 150px">{{__('cms.description')}}</th>
+                        <th style="min-width: 150px">{{__('cms.name')}}</th>
+                        <th style="min-width: 150px">{{__('cms.cities')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
-                        <th style="min-width: 150px">{{__('cms.type')}}</th>
-                        <th style="min-width: 150px">{{__('cms.price')}}</th>
-                        <th style="min-width: 150px">{{__('cms.isPrivate')}}</th>
-                        <th style="min-width: 150px">{{__('cms.isOnline')}}</th>
-                        <th style="min-width: 150px">{{__('cms.date')}}</th>
-                        <th style="min-width: 150px">{{__('cms.user')}}</th>
+                        <th style="min-width: 150px">{{__('cms.country')}}</th>
+                        <th style="min-width: 150px">{{__('cms.sport')}}</th>
+                        <th style="min-width: 150px">{{__('cms.mobile')}}</th>
                         <th style="min-width: 150px">{{__('cms.link')}}</th>
+                        <th style="min-width: 150px">{{__('cms.twitter')}}</th>
 
-                        <th style="min-width: 150px">{{__('cms.end_date')}}</th>
-                        <th style="min-width: 150px">{{__('cms.start_date')}}</th>
                         {{-- @canany(['Update-Country','Delete-Country']) --}}
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
                         {{-- @endcanany --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $event)
+                    @foreach ($data as $federation)
                     <tr>
-                        <td class="pl-0">
-                            <div class="symbol symbol-50 symbol-light mr-4">
-                                <span class="symbol-label">
-                                    <img src="{{Storage::url($event->poster)}}" class="customImage h-75 align-self-end"
-                                        alt="">
-                                </span>
-                            </div>
-                        </td>
+
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->translations->first()?->title
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->translations->first()?->name
                                 ?? ''}}</a>
                         </td>
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->translations->first()?->description
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->translations->first()?->city->name
                                 ?? ''}}</a>
                         </td>
 
@@ -80,10 +68,10 @@
 
 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$event->id}}_translations"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$event->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$event->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$event->id}}_translations" aria-hidden="true">
+                            <a href="#" data-toggle="modal" data-target="#sports_{{$federation->id}}_translations"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$federation->translations_count}})</a>
+                            <div class="modal fade" id="sports_{{$federation->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="sports_{{$federation->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -102,11 +90,11 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($event->translations as $translation)
+                                                    @foreach ($federation->translations as $translation)
                                                     <tr>
                                                         <td>
                                                             <span
-                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->title}}</span>
+                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->name}}</span>
                                                         </td>
                                                         <td>
                                                             <span
@@ -114,7 +102,7 @@
                                                         </td>
                                                         <td class="pr-0 text-right">
                                                             {{-- @can('Update-Country') --}}
-                                                            <a href="{{route('event-translations.edit',$translation->id)}}"
+                                                            <a href="{{route('federation-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -182,68 +170,38 @@
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->type
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->translations->first()?->country->name
+                                ?? ''}}</a>
+                        </td>
+
+                        <td class="pl-0">
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->translations->first()?->sport->name
                                 ?? ''}}</a>
                         </td>
 
 
 
                         <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->price
-                                ?? ''}} $</a>
-                        </td>
-
-                        <td>
-                            <span
-                                class="label label-lg @if($event->isPrivate) label-light-success @else label-light-warning @endif label-inline">{{$event->private_Key
-                                ?? ''}}</span>
+                            <a class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->mobile
+                            ?? ''}}</a>
                         </td>
 
 
-                        <td>
-                            <span
-                                class="label label-lg @if($event->isOnline) label-light-success @else label-light-warning @endif label-inline">{{$event->online_Key
-                                ?? ''}}</span>
-                        </td>
 
                         <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->date
-                                ?? ''}}</a>
-                        </td>
-
-                        <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->max_user
-                                ?? ''}}</a>
-                        </td>
-
-                        <td class="pl-0">
-                            <a href="{{$event->event_link ?? ''}}"
+                            <a href="{{$federation->website ?? ''}}"
                                 class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{__('cms.link')}}</a>
                         </td>
 
-
                         <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->start
-                                ?? ''}}</a>
+                            <a href="{{$federation->twitter ?? ''}}"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{__('cms.link')}}</a>
                         </td>
-
-                        <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$event->end ??
-                                ''}}</a>
-                        </td>
-
-
-
-
 
                         <td class="pr-0 text-right">
                             {{-- @can('Create-Country') --}}
-                            <a href="{{route('event-translations.create',$event->id)}}"
+                            <a href="{{route('federation-translations.create',$federation->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg-->
@@ -262,7 +220,7 @@
                             </a>
                             {{-- @endcan --}}
                             {{-- @can('Delete-Country') --}}
-                            <a href="#" onclick="performSportsDestroy('{{$event->id}}', this)"
+                            <a href="#" onclick="performSportsDestroy('{{$federation->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -299,10 +257,10 @@
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
     function performSportsDestroy(id,reference) {
-        confirmDestroy('/cms/admin/events', id, reference);
+        confirmDestroy('/cms/admin/federations', id, reference);
     }
     function performTranslationDestroy(id,reference) {
-        confirmDestroy('/cms/admin/events/translations', id, reference);
+        confirmDestroy('/cms/admin/federations/translations', id, reference);
     }
 </script>
 @endsection

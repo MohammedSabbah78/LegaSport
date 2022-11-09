@@ -23,12 +23,12 @@
                 <div class="card-body">
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.language')}}:<span
-                                class="text-danger">*</span></label>
+                             class="text-danger">*</span></label>
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">
                                 <select class="form-control selectpicker" data-size="7" id="language"
                                     title="Choose one of the following..." tabindex="null" data-live-search="true"
-                                    disabled>
+                                    >
                                     @foreach ($languages as $language)
                                     <option value="{{$language->id}}" @selected($sportTranslation->language_id ==
                                         $language->id)>{{$language->name}}</option>

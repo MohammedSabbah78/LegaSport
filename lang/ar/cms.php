@@ -395,6 +395,7 @@ return [
     'male' => 'ذكر',
     'feMale' => 'إنثى',
 
-    'max_month' => 'عدد الاشهر'
+    'max_month' => 'عدد الاشهر',
+    'federations' => 'الإتحادات'
 
 ];

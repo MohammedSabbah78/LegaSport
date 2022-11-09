@@ -401,7 +401,8 @@ return [
 
     'male' => 'Male',
     'feMale' => 'Female',
-    'max_month' => 'Max Month'
+    'max_month' => 'Max Month',
+    'federations' => 'Federations'
 
 
 ];
