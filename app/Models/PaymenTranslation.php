@@ -5,23 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ClubTranslation extends Model
+class PaymenTranslation extends Model
 {
-
     use HasFactory;
     protected $fillable = ['name', 'language_id'];
 
-    
-    public function club()
+    public function paymen()
     {
-        return $this->belongsTo(Club::class, 'club_id', 'id');
+        return $this->belongsTo(Paymen::class, 'paymen_id', 'id');
     }
-
-    public function city()
-    {
-        return $this->belongsTo(City::class, 'city_id', 'id');
-    }
-
 
     public function language()
     {

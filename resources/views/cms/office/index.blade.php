@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.clubs'))
+@section('page-name',__('cms.offices'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.clubs'))
+@section('sub-page',__('cms.offices'))
 @section('page-name-small',__('cms.index'))
 
 @section('styles')
@@ -15,13 +15,13 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">{{__('cms.clubs')}}</span>
+            <span class="card-label font-weight-bolder text-dark">{{__('cms.offices')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
         @can('Create-Event')
         <div class="card-toolbar">
-            <a href="{{route('clubs.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.clubs')}}</a>
+            <a href="{{route('offices.create')}}"
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.offices')}}</a>
         </div>
         @endcan
     </div>
@@ -34,13 +34,16 @@
                 <thead>
                     <tr class="text-uppercase">
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
-                        <th style="min-width: 150px">{{__('cms.image')}}</th>
                         <th style="min-width: 150px">{{__('cms.name')}}</th>
-                        <th style="min-width: 150px">{{__('cms.cities')}}</th>
+                        <th style="min-width: 150px">{{__('cms.email')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
-                        <th style="min-width: 150px">{{__('cms.name_manger')}}</th>
-                        <th style="min-width: 150px">{{__('cms.Faq')}}</th>
-                        <th style="min-width: 150px">{{__('cms.active')}}</th>
+                        <th style="min-width: 150px">{{__('cms.cities')}}</th>
+                        <th style="min-width: 150px">{{__('cms.country')}}</th>
+                        <th style="min-width: 150px">{{__('cms.address1')}}</th>
+                        <th style="min-width: 150px">{{__('cms.address2')}}</th>
+                        <th style="min-width: 150px">{{__('cms.mobile')}}</th>
+                        <th style="min-width: 150px">{{__('cms.work_from')}}</th>
+                        <th style="min-width: 150px">{{__('cms.work_to')}}</th>
 
 
                         {{-- @canany(['Update-Country','Delete-Country']) --}}
@@ -49,28 +52,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $club)
+                    @foreach ($data as $office)
                     <tr>
 
-                        <td class="pl-0">
-                            <div class="symbol symbol-50 symbol-light mr-4">
-                                <span class="symbol-label">
-                                    <img src="{{Storage::url($club->logo)}}" class="customImage h-75 align-self-end" alt="">
-                                </span>
-                            </div>
-                        </td>
+
 
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$club->translations->first()?->name
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->name
                                 ?? ''}}</a>
                         </td>
 
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$club->translations->first()?->city->name
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->email
                                 ?? ''}}</a>
                         </td>
 
@@ -78,10 +75,10 @@
 
 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$club->id}}_translations"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$club->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$club->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$club->id}}_translations" aria-hidden="true">
+                            <a href="#" data-toggle="modal" data-target="#sports_{{$office->id}}_translations"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$office->translations_count}})</a>
+                            <div class="modal fade" id="sports_{{$office->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="sports_{{$office->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -100,7 +97,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($club->translations as $translation)
+                                                    @foreach ($office->translations as $translation)
                                                     <tr>
                                                         <td>
                                                             <span
@@ -112,7 +109,7 @@
                                                         </td>
                                                         <td class="pr-0 text-right">
                                                             {{-- @can('Update-Country') --}}
-                                                            <a href="{{route('club-translations.edit',$translation->id)}}"
+                                                            <a href="{{route('office-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -177,33 +174,54 @@
                             </div>
                         </td>
 
+                        <td class="pl-0">
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->translations->first()?->city->name
+                                ?? ''}}</a>
+                        </td>
+
+
+                        <td class="pl-0">
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->translations->first()?->country->name
+                                ?? ''}}</a>
+                        </td>
+
+
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$club->translations->first()?->name_manger
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->translations->first()?->address1
                                 ?? ''}}</a>
                         </td>
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$club->member_num
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->translations->first()?->address2
+                                 ?? ''}}</a>
+                        </td>
+
+                        <td class="pl-0">
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->mobile
                                 ?? ''}}</a>
                         </td>
 
 
 
-                        <td>
-                            <span
-                                class="label label-lg @if($club->active) label-light-success @else label-light-warning @endif label-inline">{{$club->active_key}}</span>
+                        <td class="pl-0">
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->work_from
+                             ?? ''}}</a>
                         </td>
 
+                        <td class="pl-0">
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->work_to
+                            ?? ''}}</a>
+                        </td>
 
 
 
 
                         <td class="pr-0 text-right">
                             {{-- @can('Create-Country') --}}
-                            <a href="{{route('club-translations.create',$club->id)}}"
+                            <a href="{{route('office-translations.create',$office->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg-->
@@ -222,7 +240,7 @@
                             </a>
                             {{-- @endcan --}}
                             {{-- @can('Delete-Country') --}}
-                            <a href="#" onclick="performSportsDestroy('{{$club->id}}', this)"
+                            <a href="#" onclick="performSportsDestroy('{{$office->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -259,10 +277,10 @@
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
     function performSportsDestroy(id,reference) {
-        confirmDestroy('/cms/admin/clubs', id, reference);
+        confirmDestroy('/cms/admin/offices', id, reference);
     }
     function performTranslationDestroy(id,reference) {
-        confirmDestroy('/cms/admin/clubs/translations', id, reference);
+        confirmDestroy('/cms/admin/offices/translations', id, reference);
     }
 </script>
 @endsection

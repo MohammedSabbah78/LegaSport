@@ -8,12 +8,23 @@ use App\Http\Controllers\ClubController;
 use App\Http\Controllers\ClubTranslationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTranslationController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\FaqsTranslationController;
+use App\Http\Controllers\FaqTranslationController;
 use App\Http\Controllers\FederationController;
 use App\Http\Controllers\FederationTranslationController;
+use App\Http\Controllers\OfficeController;
+use App\Http\Controllers\OfficeTranslationController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PartnerTranslationController;
+use App\Http\Controllers\PaymenController;
+use App\Http\Controllers\PaymenTranslationController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PlanTranslationController;
+use App\Http\Controllers\StoreCategoryController;
+use App\Http\Controllers\StoreCategoryTranslationController;
+use App\Models\StoreCategoryTranslation;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
@@ -167,5 +178,89 @@ Route::group([
         Route::get('clubs/translations/{clubTranslation}/edit', [ClubTranslationController::class, 'edit'])->name('club-translations.edit');
         Route::put('clubs/translations/{clubTranslation}', [ClubTranslationController::class, 'update'])->name('club-translations.update');
         Route::delete('clubs/translations/{clubTranslation}', [ClubTranslationController::class, 'destroy'])->name('club-translations.destroy');
+
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Clubs Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('storecategories', [StoreCategoryController::class, 'index'])->name('storecategories.index');
+        Route::get('storecategories/create', [StoreCategoryController::class, 'create'])->name('storecategories.create');
+        Route::post('storecategories', [StoreCategoryController::class, 'store'])->name('storecategories.store');
+        Route::delete('storecategories/{storecategorie}', [StoreCategoryController::class, 'destroy'])->name('storecategories.destroy');
+
+        Route::get('storecategories/translation/{language}', [StoreCategoryTranslationController::class, 'showByLanguage'])->name('storecategorie-translations.showByLanguage');
+        Route::get('storecategories/{storecategorie}/translation/create', [StoreCategoryTranslationController::class, 'create'])->name('storecategorie-translations.create');
+        Route::post('storecategories/{storecategorie}/translation', [StoreCategoryTranslationController::class, 'store'])->name('storecategorie-translations.store');
+        Route::get('storecategories/translations/{storecategorieTranslation}/edit', [StoreCategoryTranslationController::class, 'edit'])->name('storecategorie-translations.edit');
+        Route::put('storecategories/translations/{storecategorieTranslation}', [StoreCategoryTranslationController::class, 'update'])->name('storecategorie-translations.update');
+        Route::delete('storecategories/translations/{storecategorieTranslation}', [StoreCategoryTranslation::class, 'destroy'])->name('storecategorie-translations.destroy');
+
+
+
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Faqs Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('faqs', [FaqController::class, 'index'])->name('faqs.index');
+        Route::get('faqs/create', [FaqController::class, 'create'])->name('faqs.create');
+        Route::post('faqs', [FaqController::class, 'store'])->name('faqs.store');
+        Route::delete('faqs/{faq}', [FaqController::class, 'destroy'])->name('faqs.destroy');
+
+        Route::get('faqs/translation/{language}', [FaqTranslationController::class, 'showByLanguage'])->name('faq-translations.showByLanguage');
+        Route::get('faqs/{faq}/translation/create', [FaqTranslationController::class, 'create'])->name('faq-translations.create');
+        Route::post('faqs/{faq}/translation', [FaqTranslationController::class, 'store'])->name('faq-translations.store');
+        Route::get('faqs/translations/{faqTranslation}/edit', [FaqTranslationController::class, 'edit'])->name('faq-translations.edit');
+        Route::put('faqs/translations/{faqTranslation}', [FaqTranslationController::class, 'update'])->name('faq-translations.update');
+        Route::delete('faqs/translations/{faqTranslation}', [FaqTranslationController::class, 'destroy'])->name('faq-translations.destroy');
+
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Paymens Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('paymens', [PaymenController::class, 'index'])->name('paymens.index');
+        Route::get('paymens/create', [PaymenController::class, 'create'])->name('paymens.create');
+        Route::post('paymens', [PaymenController::class, 'store'])->name('paymens.store');
+        Route::delete('paymens/{paymen}', [PaymenController::class, 'destroy'])->name('paymens.destroy');
+
+        Route::get('paymens/translation/{language}', [PaymenTranslationController::class, 'showByLanguage'])->name('paymen-translations.showByLanguage');
+        Route::get('paymens/{paymen}/translation/create', [PaymenTranslationController::class, 'create'])->name('paymen-translations.create');
+        Route::post('paymens/{paymen}/translation', [PaymenTranslationController::class, 'store'])->name('paymen-translations.store');
+        Route::get('paymens/translations/{paymenTranslation}/edit', [PaymenTranslationController::class, 'edit'])->name('paymen-translations.edit');
+        Route::put('paymens/translations/{paymenTranslation}', [PaymenTranslationController::class, 'update'])->name('paymen-translations.update');
+        Route::delete('paymens/translations/{paymenTranslation}', [PaymenTranslationController::class, 'destroy'])->name('paymen-translations.destroy');
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Offices Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('offices', [OfficeController::class, 'index'])->name('offices.index');
+        Route::get('offices/create', [OfficeController::class, 'create'])->name('offices.create');
+        Route::post('offices', [OfficeController::class, 'store'])->name('offices.store');
+        Route::delete('offices/{office}', [OfficeController::class, 'destroy'])->name('offices.destroy');
+
+        Route::get('offices/translation/{language}', [OfficeTranslationController::class, 'showByLanguage'])->name('office-translations.showByLanguage');
+        Route::get('offices/{office}/translation/create', [OfficeTranslationController::class, 'create'])->name('office-translations.create');
+        Route::post('offices/{office}/translation', [OfficeTranslationController::class, 'store'])->name('office-translations.store');
+        Route::get('offices/translations/{OfficeTranslation}/edit', [OfficeTranslationController::class, 'edit'])->name('office-translations.edit');
+        Route::put('offices/translations/{OfficeTranslation}', [OfficeTranslationController::class, 'update'])->name('office-translations.update');
+        Route::delete('offices/translations/{OfficeTranslation}', [OfficeTranslationController::class, 'destroy'])->name('office-translations.destroy');
     });
 });

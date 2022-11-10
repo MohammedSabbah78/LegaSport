@@ -410,7 +410,12 @@ return [
     'clubs' => 'Club',
     'name_manger' => 'NAME MANGER',
     'member_num' => 'MEMBER NUM',
-    'representative' => 'Representative'
+    'representative' => 'Representative',
+    'offices' => 'Office',
+    'address1' => 'ADDRESS 1',
+    'address2' => 'ADDRESS 2',
+    'work_from' => 'WORK_FROM',
+    'work_to' => 'WORK_TO',
 
 
 ];

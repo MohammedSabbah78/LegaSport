@@ -106,10 +106,29 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Delete-Partner', 'guard_name' => 'admin']);
 
 
+        // Permission::create(['name' => 'Create-Club', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Clubs', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Club', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Club', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Club', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Clubs', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Club', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Club', 'guard_name' => 'admin']);
+
+
+
+        // Permission::create(['name' => 'Create-Paymen', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Paymens', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Paymen', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Paymen', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Office', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Offices', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Office', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Office', 'guard_name' => 'admin']);
+
+
+        Permission::create(['name' => 'Create-Faq', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Faqs', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Faq', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Faq', 'guard_name' => 'admin']);
     }
 }

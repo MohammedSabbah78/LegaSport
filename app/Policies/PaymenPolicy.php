@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\Admin;
-use App\Models\club;
+use App\Models\paymen;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ClubPolicy
+class PaymenPolicy
 {
     use HandlesAuthorization;
 
@@ -19,7 +19,7 @@ class ClubPolicy
     public function viewAny($user)
     {
         //
-        return $user->hasPermissionTo('Read-Clubs')
+        return $user->hasPermissionTo('Read-Paymens')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -28,13 +28,13 @@ class ClubPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\club  $club
+     * @param  \App\Models\paymen  $paymen
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view($user, club $club)
+    public function view($user, paymen $paymen)
     {
         //
-        return $user->hasPermissionTo('Read-Clubs')
+        return $user->hasPermissionTo('Read-Paymens')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -48,8 +48,8 @@ class ClubPolicy
     public function create($user)
     {
         //
-        return $user->hasPermissionTo('Read-Clubs')
-        ? $this->allow()
+        return $user->hasPermissionTo('Create-Paymen')
+            ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
 
@@ -57,13 +57,13 @@ class ClubPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\club  $club
+     * @param  \App\Models\paymen  $paymen
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update($user, club $club)
+    public function update($user, paymen $paymen)
     {
         //
-        return $user->hasPermissionTo('Update-Club')
+        return $user->hasPermissionTo('Update-Paymen')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -72,25 +72,23 @@ class ClubPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\club  $club
+     * @param  \App\Models\paymen  $paymen
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete($user, club $club)
+    public function delete($user, paymen $paymen)
     {
-        //
-        return $user->hasPermissionTo('Delete-Club')
+        return $user->hasPermissionTo('Delete-Paymen')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
-
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\club  $club
+     * @param  \App\Models\paymen  $paymen
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(Admin $admin, club $club)
+    public function restore(Admin $admin, paymen $paymen)
     {
         //
     }
@@ -99,10 +97,10 @@ class ClubPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\club  $club
+     * @param  \App\Models\paymen  $paymen
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(Admin $admin, club $club)
+    public function forceDelete(Admin $admin, paymen $paymen)
     {
         //
     }
