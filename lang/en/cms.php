@@ -402,7 +402,15 @@ return [
     'male' => 'Male',
     'feMale' => 'Female',
     'max_month' => 'Max Month',
-    'federations' => 'Federations'
+    'federations' => 'Federations',
+    'webist' => 'Webist',
+    'compony_record' => 'Compony Record',
+    'num_branch' => 'Num Branch',
+    'partners' => 'Partner',
+    'clubs' => 'Club',
+    'name_manger' => 'NAME MANGER',
+    'member_num' => 'MEMBER NUM',
+    'representative' => 'Representative'
 
 
 ];

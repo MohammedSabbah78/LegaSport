@@ -46,23 +46,7 @@
                     </div>
 
 
-                    <div class="separator separator-dashed my-10"></div>
 
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.country')}}:<span class="text-danger">*</span></label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <div class="dropdown bootstrap-select form-control dropup">
-                                <select class="form-control selectpicker" data-size="7" id="country" title="Choose one of the following..."
-                                    tabindex="null" data-live-search="true">
-                                    @foreach ($Countrys as $Country)
-                                    <option value="{{$Country->id}}">{{$Country->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <span class="form-text text-muted">{{__('cms.country')}}
-                                {{__('cms.type')}}</span>
-                        </div>
-                    </div>
 
 
                     <div class="separator separator-dashed my-10"></div>
@@ -83,8 +67,8 @@
                         </div>
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
 
+                    <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
@@ -94,27 +78,52 @@
                     </div>
 
 
+
+                    <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.representative')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.name_manger')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="representative" placeholder="{{__('cms.representative')}}" />
-                            <span class="form-text text-muted">{{__('cms.representative')}} {{__('cms.representative')}}</span>
+                            <input type="text" class="form-control" id="name_manger" placeholder="{{__('cms.name_manger')}}" />
+                            <span class="form-text text-muted">{{__('cms.name_manger')}} {{__('cms.name_manger')}}</span>
                         </div>
                     </div>
 
 
-                    <div class="form-group row">
-                        <label class="col-3 col-form-label">{{__('cms.logo')}}:</label>
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.mobile')}}:</label>
                         <div class="col-9">
+                            <input type="number" class="form-control" id="member_num" placeholder="{{__('cms.mobile')}}" />
+                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
+                        </div>
+                    </div>
+
+                    <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">{{__('cms.active')}}</label>
+                        <div class="col-3">
+                            <span class="switch switch-outline switch-icon switch-success">
+                                <label>
+                                    <input type="checkbox" checked="checked" id="active">
+                                    <span></span>
+                                </label>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-12">
+                        <label class="col-12 col-form-label">{{__('cms.image')}}:</label>
+                        <div class="col-12">
                             <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
-                                style="background-image: url({{asset('assets/media/users/100_1.jpg')}})">
+                                style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
                                 <div class="image-input-wrapper"></div>
 
                                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
                                     data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                     <i class="fa fa-pen icon-sm text-muted"></i>
-                                    <input type="file" id="kt_image_4" name="kt_image_4" accept=".png, .jpg, .jpeg">
-                                    <input type="hidden" name="kt_image_4">
+                                    <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                    <input type="hidden" name="profile_avatar_remove">
                                 </label>
 
                                 <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
@@ -127,58 +136,6 @@
                                     <i class="ki ki-bold-close icon-xs text-muted"></i>
                                 </span>
                             </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.link')}}:</label>
-                        <div class="col-9">
-                            <input type="text" class="form-control" id="webiste" placeholder="{{__('cms.link')}}" />
-                            <span class="form-text text-muted">{{__('cms.link')}} {{__('cms.link')}}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.num_branch')}}:</label>
-                        <div class="col-9">
-                            <input type="number" class="form-control" id="num_branch" placeholder="{{__('cms.mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
-                        </div>
-                    </div>
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.representative_mobile')}}:</label>
-                        <div class="col-9">
-                            <input type="number" class="form-control" id="representative_mobile" placeholder="{{__('cms.representative_mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.representative_mobile')}} {{__('cms.representative_mobile')}}</span>
-                        </div>
-                    </div>
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.compony_record')}}:</label>
-                        <div class="col-9">
-                            <input type="text" class="form-control" id="compony_record"
-                                placeholder="{{__('cms.compony_record')}}" />
-                            <span class="form-text text-muted">{{__('cms.compony_record')}}
-                                {{__('cms.compony_record')}}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.date')}}:</label>
-                        <div class="col-9">
-                            <input type="date" class="form-control" id="date" placeholder="{{__('cms.date')}}" />
-                            <span class="form-text text-muted">{{__('cms.date')}}
-                                {{__('cms.date')}}</span>
                         </div>
                     </div>
 
@@ -208,32 +165,27 @@
 
 @section('scripts')
 <script>
-    var logo = new KTImageInput('kt_image_5');
+    var image = new KTImageInput('kt_image_5');
 </script>
 <script>
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('country',document.getElementById('country').value);
 formData.append('city',document.getElementById('city').value);
+formData.append('member_num',document.getElementById('member_num').value);
 formData.append('name',document.getElementById('name').value);
-formData.append('representative',document.getElementById('representative').value);
-formData.append('logo',logo.input.files[0]);
-formData.append('webiste',document.getElementById('webiste').value);
-formData.append('num_branch',document.getElementById('num_branch').value);
-formData.append('representative_mobile',document.getElementById('representative_mobile').value);
-formData.append('compony_record',document.getElementById('compony_record').value);
-formData.append('incorporation_date',document.getElementById('date').value);
-
+formData.append('name_manger',document.getElementById('name_manger').value);
+formData.append('image',image.input.files[0]);
+formData.append('active',document.getElementById('active').checked ? 1:0);
 
 
 
 
 
 if(id == null) {
-    store('/cms/admin/partners',formData);
+    store('/cms/admin/clubs',formData);
     }else {
-    store('/cms/admin/partners/'+id+'/translation',formData);
+    store('/cms/admin/clubs/'+id+'/translation',formData);
     }
 
 }

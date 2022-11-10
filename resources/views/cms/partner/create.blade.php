@@ -1,9 +1,9 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.federations'))
+@section('page-name',__('cms.partners'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.federations'))
-@section('page-name-small',__('cms.federations'))
+@section('sub-page',__('cms.partners'))
+@section('page-name-small',__('cms.partners'))
 
 @section('styles')
 
@@ -83,7 +83,12 @@
                         </div>
                     </div>
 
+
+
+
                     <div class="separator separator-dashed my-10"></div>
+
+
 
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
@@ -94,27 +99,77 @@
                     </div>
 
 
+
+                    <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.representative')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="representative" placeholder="{{__('cms.representative')}}" />
-                            <span class="form-text text-muted">{{__('cms.representative')}} {{__('cms.representative')}}</span>
+                            <span class="form-text text-muted">{{__('cms.representative')}} </span>
+                        </div>
+                    </div>
+
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.compony_record')}}:</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="compony_record" placeholder="{{__('cms.compony_record')}}" />
+                            <span class="form-text text-muted">{{__('cms.compony_record')}} </span>
                         </div>
                     </div>
 
 
-                    <div class="form-group row">
-                        <label class="col-3 col-form-label">{{__('cms.logo')}}:</label>
+                <div class="separator separator-dashed my-10"></div>
+                <div class="form-group row mt-4">
+                    <label class="col-3 col-form-label">{{__('cms.date')}}:</label>
+                    <div class="col-9">
+                        <input type="date" class="form-control" id="incorporation_date" placeholder="{{__('cms.date')}}" />
+                        <span class="form-text text-muted">{{__('cms.date')}} {{__('cms.date')}}</span>
+                    </div>
+                </div>
+
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.mobile')}}:</label>
                         <div class="col-9">
+                            <input type="number" class="form-control" id="representative_mobile" placeholder="{{__('cms.mobile')}}" />
+                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
+                        </div>
+                    </div>
+
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.num_branch')}}:</label>
+                        <div class="col-9">
+                            <input type="number" class="form-control" id="num_branch" placeholder="{{__('cms.mobile')}}" />
+                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="separator separator-dashed my-10"></div>
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.webist')}}:</label>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="webiste" placeholder="{{__('cms.link')}}" />
+                            <span class="form-text text-muted">{{__('cms.link')}} {{__('cms.link')}}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-12">
+                        <label class="col-12 col-form-label">{{__('cms.image')}}:</label>
+                        <div class="col-12">
                             <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
-                                style="background-image: url({{asset('assets/media/users/100_1.jpg')}})">
+                                style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
                                 <div class="image-input-wrapper"></div>
 
                                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
                                     data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                     <i class="fa fa-pen icon-sm text-muted"></i>
-                                    <input type="file" id="kt_image_4" name="kt_image_4" accept=".png, .jpg, .jpeg">
-                                    <input type="hidden" name="kt_image_4">
+                                    <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                    <input type="hidden" name="profile_avatar_remove">
                                 </label>
 
                                 <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
@@ -127,58 +182,6 @@
                                     <i class="ki ki-bold-close icon-xs text-muted"></i>
                                 </span>
                             </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.link')}}:</label>
-                        <div class="col-9">
-                            <input type="text" class="form-control" id="webiste" placeholder="{{__('cms.link')}}" />
-                            <span class="form-text text-muted">{{__('cms.link')}} {{__('cms.link')}}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.num_branch')}}:</label>
-                        <div class="col-9">
-                            <input type="number" class="form-control" id="num_branch" placeholder="{{__('cms.mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
-                        </div>
-                    </div>
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.representative_mobile')}}:</label>
-                        <div class="col-9">
-                            <input type="number" class="form-control" id="representative_mobile" placeholder="{{__('cms.representative_mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.representative_mobile')}} {{__('cms.representative_mobile')}}</span>
-                        </div>
-                    </div>
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.compony_record')}}:</label>
-                        <div class="col-9">
-                            <input type="text" class="form-control" id="compony_record"
-                                placeholder="{{__('cms.compony_record')}}" />
-                            <span class="form-text text-muted">{{__('cms.compony_record')}}
-                                {{__('cms.compony_record')}}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.date')}}:</label>
-                        <div class="col-9">
-                            <input type="date" class="form-control" id="date" placeholder="{{__('cms.date')}}" />
-                            <span class="form-text text-muted">{{__('cms.date')}}
-                                {{__('cms.date')}}</span>
                         </div>
                     </div>
 
@@ -214,16 +217,16 @@
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('country',document.getElementById('country').value);
 formData.append('city',document.getElementById('city').value);
+formData.append('country',document.getElementById('country').value);
 formData.append('name',document.getElementById('name').value);
 formData.append('representative',document.getElementById('representative').value);
-formData.append('logo',logo.input.files[0]);
-formData.append('webiste',document.getElementById('webiste').value);
-formData.append('num_branch',document.getElementById('num_branch').value);
-formData.append('representative_mobile',document.getElementById('representative_mobile').value);
+formData.append('incorporation_date',document.getElementById('incorporation_date').value);
 formData.append('compony_record',document.getElementById('compony_record').value);
-formData.append('incorporation_date',document.getElementById('date').value);
+formData.append('representative_mobile',document.getElementById('representative_mobile').value);
+formData.append('num_branch',document.getElementById('num_branch').value);
+formData.append('webiste',document.getElementById('webiste').value);
+formData.append('logo',logo.input.files[0]);
 
 
 

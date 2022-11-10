@@ -17,7 +17,7 @@ class FederationTranslation extends Model
 
     public function city()
     {
-        return $this->belongsTo(CityTranslation::class, 'city_id', 'id');
+        return $this->belongsTo(City::class, 'city_id', 'id');
     }
 
     public function country()

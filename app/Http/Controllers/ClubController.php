@@ -4,20 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ControllersService;
 use App\Models\City;
-use App\Models\Country;
-use App\Models\Federation;
-use App\Models\FederationTranslation;
+use App\Models\Club;
+use App\Models\ClubTranslation;
 use App\Models\Language;
-use App\Models\Sport;
 use Illuminate\Http\Request;
 
-class FederationController extends Controller
+class ClubController extends Controller
 {
 
     public function __construct()
     {
-
-        $this->authorizeResource(Federation::class, 'federation');
+        $this->authorizeResource(Club::class, 'club');
     }
     /**
      * Display a listing of the resource.
@@ -28,8 +25,8 @@ class FederationController extends Controller
     {
         //
         if (auth('admin')->check()) {
-            $data = Federation::with(['translations'])->withCount(['translations'])->get();
-            return response()->view('cms.federation.index', ['data' => $data]);
+            $data = Club::with(['translations'])->withCount(['translations'])->get();
+            return response()->view('cms.club.index', ['data' => $data]);
         } else {
         }
     }
@@ -43,15 +40,11 @@ class FederationController extends Controller
     {
         //
         $languages = Language::all();
-        $Countrys = Country::where('active', '=', true)->get();
         $citys = City::where('active', '=', true)->get();
-        $sports = Sport::where('active', '=', true)->get();
 
-        return response()->view('cms.federation.create', [
+        return response()->view('cms.club.create', [
             'languages' => $languages,
-            'Countrys' => $Countrys,
             'citys' => $citys,
-            'sports' => $sports,
         ]);
     }
 
@@ -67,29 +60,29 @@ class FederationController extends Controller
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:country_translations,id',
-            'sport' => 'required|numeric|exists:sports,id',
+            'image' => 'nullable', 'image|mimes:jpg,png',
             'name' => 'required|string|min:3|max:30',
-            'website' => 'required|string|min:3|max:30',
-            'mobile' => 'required|numeric',
-            'twitter' => 'required|string|min:3|max:30',
-
-
+            'name_manger' => 'required|string|min:3|max:30',
+            'active' => 'required|boolean',
+            'member_num' => 'required|numeric',
         ]);
         if (!$validator->fails()) {
-            $federation = new Federation();
-            $federation->website = $request->input('website');
-            $federation->mobile = $request->input('mobile');
-            $federation->twitter = $request->input('twitter');
-            $isSaved = $federation->save();
+            $club = new Club();
+            $club->active = $request->input('active');
+            $club->member_num = $request->input('member_num');
+            if ($request->hasFile('image')) {
+                $imageName = time() . '_' . str_replace(' ', '', $club->name) . '.' . $request->file('image')->extension();
+                $request->file('image')->storePubliclyAs('club', $imageName, ['disk' => 'public']);
+                $club->image = 'club/' . $imageName;
+            }
+            $isSaved = $club->save();
             if ($isSaved) {
-                $translation = new FederationTranslation();
+                $translation = new ClubTranslation();
                 $translation->name = $request->input('name');
-                $translation->sport_id = $request->input('sport');
-                $translation->country_id = $request->input('country');
+                $translation->name_manger = $request->input('name_manger');
                 $translation->city_id = $request->input('city');
                 $translation->language_id = $request->input('language');
-                $translation->federation_id = $federation->id;
+                $translation->club_id = $club->id;
                 $translation->save();
             }
             return ControllersService::generateProcessResponse($isSaved, 'CREATE');
@@ -101,10 +94,10 @@ class FederationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Federation  $federation
+     * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function show(Federation $federation)
+    public function show(Club $club)
     {
         //
     }
@@ -112,37 +105,49 @@ class FederationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Federation  $federation
+     * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, Federation $federation)
+    public function edit(Club $club)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Club  $club
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Club $club)
     {
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:country_translations,id',
-            'sport' => 'required|numeric|exists:sports,id',
+            'image' => 'nullable', 'image|mimes:jpg,png',
             'name' => 'required|string|min:3|max:30',
-            'website' => 'required|string|min:3|max:30',
-            'mobile' => 'required|numeric',
-            'twitter' => 'required|string|min:3|max:30',
-
-
+            'name_manger' => 'required|string|min:3|max:30',
+            'active' => 'required|boolean',
+            'member_num' => 'required|numeric',
         ]);
         if (!$validator->fails()) {
-            $federation->website = $request->input('website');
-            $federation->mobile = $request->input('mobile');
-            $federation->twitter = $request->input('twitter');
-            $isSaved = $federation->save();
+            $club->active = $request->input('active');
+            $club->member_num = $request->input('member_num');
+            if ($request->hasFile('image')) {
+                $imageName = time() . '_' . str_replace(' ', '', $club->name) . '.' . $request->file('image')->extension();
+                $request->file('image')->storePubliclyAs('club', $imageName, ['disk' => 'public']);
+                $club->image = 'club/' . $imageName;
+            }
+            $isSaved = $club->save();
             if ($isSaved) {
-                $translation = new FederationTranslation();
+                $translation = new ClubTranslation();
                 $translation->name = $request->input('name');
-                $translation->sport_id = $request->input('sport');
-                $translation->country_id = $request->input('country');
+                $translation->name_manger = $request->input('name_manger');
                 $translation->city_id = $request->input('city');
                 $translation->language_id = $request->input('language');
-                $translation->federation_id = $federation->id;
+                $translation->club_id = $club->id;
                 $translation->save();
             }
             return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
@@ -152,29 +157,17 @@ class FederationController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Federation  $federation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Federation $federation)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Federation  $federation
+     * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Federation $federation)
+    public function destroy(Club $club)
     {
         //
-        $deleted = $federation->delete();
+        $deleted = $club->delete();
         if ($deleted) {
-            $translations = FederationTranslation::where('federation_id', $federation->id)->get();
+            $translations = ClubTranslation::where('club_id', $club->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();
             }

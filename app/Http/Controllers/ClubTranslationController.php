@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ControllersService;
 use App\Models\City;
+use App\Models\Club;
+use App\Models\ClubTranslation;
 use App\Models\Country;
 use App\Models\Language;
-use App\Models\Partner;
-use App\Models\PartnerTranslation;
+use App\Models\SportTranslation;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class PartnerTranslationController extends Controller
+class ClubTranslationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,19 +29,17 @@ class PartnerTranslationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Partner $partner)
+    public function create(Club $club)
     {
         //
-        $languages = Language::whereDoesntHave('partnerTranslations', function ($query) use ($partner) {
-            $query->where('partner_id', '=', $partner->id);
+        $languages = Language::whereDoesntHave('clubTranslations', function ($query) use ($club) {
+            $query->where('club_id', '=', $club->id);
         })->get();
-        $Countrys = Country::where('active', '=', true)->get();
         $citys = City::where('active', '=', true)->get();
-        return response()->view('cms.partner.create-lang', [
+        return response()->view('cms.club.create-lang', [
             'languages' => $languages,
-            'partner' => $partner,
+            'club' => $club,
             'languages' => $languages,
-            'Countrys' => $Countrys,
             'citys' => $citys,
         ]);
     }
@@ -51,25 +50,24 @@ class PartnerTranslationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Partner $partner)
+    public function store(Request $request, Club $club)
     {
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:country_translations,id',
-            'representative' => 'required|string|min:3|max:30',
             'name' => 'required|string|min:3|max:30',
+            'name_manger' => 'required|string|min:3|max:30',
         ]);
+
         if (!$validator->fails()) {
-            $translation = new PartnerTranslation();
-            $translation->name = $request->input('name');
-            $translation->representative = $request->input('representative');
-            $translation->country_id = $request->input('country');
-            $translation->city_id = $request->input('city');
-            $translation->language_id = $request->input('language');
-            $translation->partner_id = $partner->id;
-            $isSaved = $translation->save();
+            $clubTranslation = new ClubTranslation();
+            $clubTranslation->name = $request->input('name');
+            $clubTranslation->name_manger = $request->input('name_manger');
+            $clubTranslation->city_id = $request->input('city');
+            $clubTranslation->language_id = $request->input('language');
+            $clubTranslation->club_id = $club->id;
+            $isSaved = $clubTranslation->save();
             return ControllersService::generateProcessResponse($isSaved, 'CREATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
@@ -79,10 +77,10 @@ class PartnerTranslationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PartnerTranslation  $partnerTranslation
+     * @param  \App\Models\ClubTranslation  $clubTranslation
      * @return \Illuminate\Http\Response
      */
-    public function show(PartnerTranslation $partnerTranslation)
+    public function show(ClubTranslation $clubTranslation)
     {
         //
     }
@@ -90,19 +88,17 @@ class PartnerTranslationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PartnerTranslation  $partnerTranslation
+     * @param  \App\Models\ClubTranslation  $clubTranslation
      * @return \Illuminate\Http\Response
      */
-    public function edit(PartnerTranslation $partnerTranslation)
+    public function edit(ClubTranslation $clubTranslation)
     {
         //
         $languages = Language::all();
-        $Countrys = Country::where('active', '=', true)->get();
         $citys = City::where('active', '=', true)->get();
-        return response()->view('cms.Partner.edit', [
-            'partnerTranslation' => $partnerTranslation,
+        return response()->view('cms.club.edit', [
+            'clubTranslation' => $clubTranslation,
             'languages' => $languages,
-            'Countrys' => $Countrys,
             'citys' => $citys,
         ]);
     }
@@ -111,26 +107,26 @@ class PartnerTranslationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PartnerTranslation  $partnerTranslation
+     * @param  \App\Models\ClubTranslation  $clubTranslation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PartnerTranslation $partnerTranslation)
+    public function update(Request $request, ClubTranslation $clubTranslation)
     {
         //
+
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:country_translations,id',
-            'representative' => 'required|string|min:3|max:30',
             'name' => 'required|string|min:3|max:30',
+            'name_manger' => 'required|string|min:3|max:30',
         ]);
+
         if (!$validator->fails()) {
-            $partnerTranslation->name = $request->input('name');
-            $partnerTranslation->city_id = $request->input('city');
-            $partnerTranslation->country_id = $request->input('country');
-            $partnerTranslation->representative = $request->input('representative');
-            $partnerTranslation->language_id = $request->input('language');
-            $isSaved = $partnerTranslation->save();
+            $clubTranslation->name = $request->input('name');
+            $clubTranslation->name_manger = $request->input('name_manger');
+            $clubTranslation->city_id = $request->input('city');
+            $clubTranslation->language_id = $request->input('language');
+            $isSaved = $clubTranslation->save();
             return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
@@ -140,15 +136,15 @@ class PartnerTranslationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PartnerTranslation  $partnerTranslation
+     * @param  \App\Models\ClubTranslation  $clubTranslation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PartnerTranslation $partnerTranslation)
+    public function destroy(ClubTranslation $clubTranslation)
     {
         //
-        $count = PartnerTranslation::where('Partner_id', $partnerTranslation->federation_id)->count();
+        $count = ClubTranslation::where('club_id', $clubTranslation->sport_id)->count();
         if ($count != 1) {
-            $deleted = $partnerTranslation->delete();
+            $deleted = $clubTranslation->delete();
             return ControllersService::generateProcessResponse($deleted, 'DELETE');
         }
         $deleted = false;

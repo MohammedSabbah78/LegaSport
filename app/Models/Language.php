@@ -71,4 +71,14 @@ class Language extends Model
     {
         return $this->hasMany(FederationTranslation::class, 'language_id', 'id');
     }
+
+    public function partnerTranslations()
+    {
+        return $this->hasMany(PartnerTranslation::class, 'language_id', 'id');
+    }
+
+    public function clubTranslations()
+    {
+        return $this->hasMany(ClubTranslation::class, 'language_id', 'id');
+    }
 }

@@ -4,10 +4,14 @@ use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\AchievementTranslationController;
 use App\Http\Controllers\CenterController;
 use App\Http\Controllers\CenterTranslationController;
+use App\Http\Controllers\ClubController;
+use App\Http\Controllers\ClubTranslationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTranslationController;
 use App\Http\Controllers\FederationController;
 use App\Http\Controllers\FederationTranslationController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PartnerTranslationController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PlanTranslationController;
 use Illuminate\Support\Facades\Route;
@@ -126,5 +130,42 @@ Route::group([
         Route::get('federations/translations/{federationTranslation}/edit', [FederationTranslationController::class, 'edit'])->name('federation-translations.edit');
         Route::put('federations/translations/{federationTranslation}', [FederationTranslationController::class, 'update'])->name('federation-translations.update');
         Route::delete('federations/translations/{federationTranslation}', [FederationTranslationController::class, 'destroy'])->name('federation-translations.destroy');
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Partners Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('partners', [PartnerController::class, 'index'])->name('partners.index');
+        Route::get('partners/create', [PartnerController::class, 'create'])->name('partners.create');
+        Route::post('partners', [PartnerController::class, 'store'])->name('partners.store');
+        Route::delete('partners/{partner}', [PartnerController::class, 'destroy'])->name('partners.destroy');
+
+        Route::get('partners/translation/{language}', [PartnerTranslationController::class, 'showByLanguage'])->name('partner-translations.showByLanguage');
+        Route::get('partners/{partner}/translation/create', [PartnerTranslationController::class, 'create'])->name('partner-translations.create');
+        Route::post('partners/{partner}/translation', [PartnerTranslationController::class, 'store'])->name('partner-translations.store');
+        Route::get('partners/translations/{partnerTranslation}/edit', [PartnerTranslationController::class, 'edit'])->name('partner-translations.edit');
+        Route::put('partners/translations/{partnerTranslation}', [PartnerTranslationController::class, 'update'])->name('partner-translations.update');
+        Route::delete('partners/translations/{partnerTranslation}', [PartnerTranslationController::class, 'destroy'])->name('partner-translations.destroy');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Clubs Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('clubs', [ClubController::class, 'index'])->name('clubs.index');
+        Route::get('clubs/create', [ClubController::class, 'create'])->name('clubs.create');
+        Route::post('clubs', [ClubController::class, 'store'])->name('clubs.store');
+        Route::delete('clubs/{club}', [ClubController::class, 'destroy'])->name('clubs.destroy');
+
+        Route::get('clubs/translation/{language}', [ClubTranslationController::class, 'showByLanguage'])->name('club-translations.showByLanguage');
+        Route::get('clubs/{club}/translation/create', [ClubTranslationController::class, 'create'])->name('club-translations.create');
+        Route::post('clubs/{club}/translation', [ClubTranslationController::class, 'store'])->name('club-translations.store');
+        Route::get('clubs/translations/{clubTranslation}/edit', [ClubTranslationController::class, 'edit'])->name('club-translations.edit');
+        Route::put('clubs/translations/{clubTranslation}', [ClubTranslationController::class, 'update'])->name('club-translations.update');
+        Route::delete('clubs/translations/{clubTranslation}', [ClubTranslationController::class, 'destroy'])->name('club-translations.destroy');
     });
 });

@@ -94,9 +94,22 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Update-Achievement', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Delete-Achievement', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Federation', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Federations', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Federation', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Federation', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Federation', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Federations', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Federation', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Federation', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Partner', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Partners', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Partner', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Partner', 'guard_name' => 'admin']);
+
+
+
+        Permission::create(['name' => 'Create-Club', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Clubs', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Club', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Club', 'guard_name' => 'admin']);
     }
 }
