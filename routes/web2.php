@@ -26,6 +26,8 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PlanTranslationController;
 use App\Http\Controllers\PolicieController;
 use App\Http\Controllers\PolicieTranslationController;
+use App\Http\Controllers\SponserController;
+use App\Http\Controllers\SponserTranslationController;
 use App\Http\Controllers\StoreCategoryController;
 use App\Http\Controllers\StorecategoryController as ControllersStorecategoryController;
 use App\Http\Controllers\StoreCategoryTranslationController;
@@ -299,5 +301,23 @@ Route::group([
         Route::get('abouts/translations/{aboutTranslation}/edit', [AboutTranslationController::class, 'edit'])->name('about-translations.edit');
         Route::put('abouts/translations/{aboutTranslation}', [AboutTranslationController::class, 'update'])->name('about-translations.update');
         Route::delete('abouts/translations/{aboutTranslation}', [AboutTranslationController::class, 'destroy'])->name('about-translations.destroy');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | About-Us Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('sponsers', [SponserController::class, 'index'])->name('sponsers.index');
+        Route::get('sponsers/create', [SponserController::class, 'create'])->name('sponsers.create');
+        Route::post('sponsers', [SponserController::class, 'store'])->name('sponsers.store');
+        Route::delete('sponsers/{sponser}', [SponserController::class, 'destroy'])->name('sponsers.destroy');
+
+        Route::get('sponsers/translation/{language}', [SponserTranslationController::class, 'showByLanguage'])->name('sponser-translations.showByLanguage');
+        Route::get('sponsers/{sponser}/translation/create', [SponserTranslationController::class, 'create'])->name('sponser-translations.create');
+        Route::post('sponsers/{sponser}/translation', [SponserTranslationController::class, 'store'])->name('sponser-translations.store');
+        Route::get('sponsers/translations/{sponserTranslation}/edit', [SponserTranslationController::class, 'edit'])->name('sponser-translations.edit');
+        Route::put('sponsers/translations/{sponserTranslation}', [SponserTranslationController::class, 'update'])->name('sponser-translations.update');
+        Route::delete('sponsers/translations/{sponserTranslation}', [SponserTranslationController::class, 'destroy'])->name('sponser-translations.destroy');
     });
 });

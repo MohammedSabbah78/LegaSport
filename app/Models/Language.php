@@ -118,4 +118,9 @@ class Language extends Model
     {
         return $this->hasMany(AboutTranslation::class, 'language_id', 'id');
     }
+
+    public function SponserTranslations()
+    {
+        return $this->hasMany(SponserTranslation::class, 'language_id', 'id');
+    }
 }

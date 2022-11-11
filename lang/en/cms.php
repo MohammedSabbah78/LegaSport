@@ -418,7 +418,9 @@ return [
     'work_to' => 'WORK_TO',
     'term' => 'Term',
     'policie' => 'Policies',
-    'mission' => 'Mission'
+    'mission' => 'Mission',
+    'sponsers' => 'Sponser',
+    'cost' => 'Cost'
 
 
 

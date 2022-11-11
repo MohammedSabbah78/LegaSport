@@ -151,5 +151,12 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Read-Plans', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Update-Plan', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Delete-Plan', 'guard_name' => 'admin']);
+
+
+
+        Permission::create(['name' => 'Create-Sponser', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Sponsers', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Sponser', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Sponser', 'guard_name' => 'admin']);
     }
 }
