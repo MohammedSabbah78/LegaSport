@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AboutTranslationController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\AchievementTranslationController;
 use App\Http\Controllers\CenterController;
@@ -22,8 +24,15 @@ use App\Http\Controllers\PaymenController;
 use App\Http\Controllers\PaymenTranslationController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\PlanTranslationController;
+use App\Http\Controllers\PolicieController;
+use App\Http\Controllers\PolicieTranslationController;
 use App\Http\Controllers\StoreCategoryController;
+use App\Http\Controllers\StorecategoryController as ControllersStorecategoryController;
 use App\Http\Controllers\StoreCategoryTranslationController;
+use App\Http\Controllers\StorecategoryTranslationController as ControllersStorecategoryTranslationController;
+use App\Http\Controllers\TermController;
+use App\Http\Controllers\TermTranslationController;
+use App\Models\About;
 use App\Models\StoreCategoryTranslation;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -180,32 +189,6 @@ Route::group([
         Route::delete('clubs/translations/{clubTranslation}', [ClubTranslationController::class, 'destroy'])->name('club-translations.destroy');
 
 
-
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Clubs Routes
-        |--------------------------------------------------------------------------
-        */
-        Route::get('storecategories', [StoreCategoryController::class, 'index'])->name('storecategories.index');
-        Route::get('storecategories/create', [StoreCategoryController::class, 'create'])->name('storecategories.create');
-        Route::post('storecategories', [StoreCategoryController::class, 'store'])->name('storecategories.store');
-        Route::delete('storecategories/{storecategorie}', [StoreCategoryController::class, 'destroy'])->name('storecategories.destroy');
-
-        Route::get('storecategories/translation/{language}', [StoreCategoryTranslationController::class, 'showByLanguage'])->name('storecategorie-translations.showByLanguage');
-        Route::get('storecategories/{storecategorie}/translation/create', [StoreCategoryTranslationController::class, 'create'])->name('storecategorie-translations.create');
-        Route::post('storecategories/{storecategorie}/translation', [StoreCategoryTranslationController::class, 'store'])->name('storecategorie-translations.store');
-        Route::get('storecategories/translations/{storecategorieTranslation}/edit', [StoreCategoryTranslationController::class, 'edit'])->name('storecategorie-translations.edit');
-        Route::put('storecategories/translations/{storecategorieTranslation}', [StoreCategoryTranslationController::class, 'update'])->name('storecategorie-translations.update');
-        Route::delete('storecategories/translations/{storecategorieTranslation}', [StoreCategoryTranslation::class, 'destroy'])->name('storecategorie-translations.destroy');
-
-
-
-
-
-
-
         /*
         |--------------------------------------------------------------------------
         | Faqs Routes
@@ -262,5 +245,59 @@ Route::group([
         Route::get('offices/translations/{OfficeTranslation}/edit', [OfficeTranslationController::class, 'edit'])->name('office-translations.edit');
         Route::put('offices/translations/{OfficeTranslation}', [OfficeTranslationController::class, 'update'])->name('office-translations.update');
         Route::delete('offices/translations/{OfficeTranslation}', [OfficeTranslationController::class, 'destroy'])->name('office-translations.destroy');
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Terms Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('terms', [TermController::class, 'index'])->name('terms.index');
+        Route::get('terms/create', [TermController::class, 'create'])->name('terms.create');
+        Route::post('terms', [TermController::class, 'store'])->name('terms.store');
+        Route::delete('terms/{term}', [TermController::class, 'destroy'])->name('terms.destroy');
+
+        Route::get('terms/translation/{language}', [TermTranslationController::class, 'showByLanguage'])->name('term-translations.showByLanguage');
+        Route::get('terms/{term}/translation/create', [TermTranslationController::class, 'create'])->name('term-translations.create');
+        Route::post('terms/{term}/translation', [TermTranslationController::class, 'store'])->name('term-translations.store');
+        Route::get('terms/translations/{termTranslation}/edit', [TermTranslationController::class, 'edit'])->name('term-translations.edit');
+        Route::put('terms/translations/{termTranslation}', [TermTranslationController::class, 'update'])->name('term-translations.update');
+        Route::delete('terms/translations/{termTranslation}', [TermTranslationController::class, 'destroy'])->name('term-translations.destroy');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Policies Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('policies', [PolicieController::class, 'index'])->name('policies.index');
+        Route::get('policies/create', [PolicieController::class, 'create'])->name('policies.create');
+        Route::post('policies', [PolicieController::class, 'store'])->name('policies.store');
+        Route::delete('policies/{policie}', [PolicieController::class, 'destroy'])->name('policies.destroy');
+
+        Route::get('policies/translation/{language}', [PolicieTranslationController::class, 'showByLanguage'])->name('policie-translations.showByLanguage');
+        Route::get('policies/{policie}/translation/create', [PolicieTranslationController::class, 'create'])->name('policie-translations.create');
+        Route::post('policies/{policie}/translation', [PolicieTranslationController::class, 'store'])->name('policie-translations.store');
+        Route::get('policies/translations/{policieTranslation}/edit', [PolicieTranslationController::class, 'edit'])->name('policie-translations.edit');
+        Route::put('policies/translations/{policieTranslation}', [PolicieTranslationController::class, 'update'])->name('policie-translations.update');
+        Route::delete('policies/translations/{policieTranslation}', [PolicieTranslationController::class, 'destroy'])->name('policie-translations.destroy');
+        /*
+        |--------------------------------------------------------------------------
+        | About-Us Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('abouts', [AboutController::class, 'index'])->name('abouts.index');
+        Route::get('abouts/create', [AboutController::class, 'create'])->name('abouts.create');
+        Route::post('abouts', [AboutController::class, 'store'])->name('abouts.store');
+        Route::delete('abouts/{about}', [AboutController::class, 'destroy'])->name('abouts.destroy');
+
+        Route::get('abouts/translation/{language}', [AboutTranslationController::class, 'showByLanguage'])->name('about-translations.showByLanguage');
+        Route::get('abouts/{about}/translation/create', [AboutTranslationController::class, 'create'])->name('about-translations.create');
+        Route::post('abouts/{about}/translation', [AboutTranslationController::class, 'store'])->name('about-translations.store');
+        Route::get('abouts/translations/{aboutTranslation}/edit', [AboutTranslationController::class, 'edit'])->name('about-translations.edit');
+        Route::put('abouts/translations/{aboutTranslation}', [AboutTranslationController::class, 'update'])->name('about-translations.update');
+        Route::delete('abouts/translations/{aboutTranslation}', [AboutTranslationController::class, 'destroy'])->name('about-translations.destroy');
     });
 });

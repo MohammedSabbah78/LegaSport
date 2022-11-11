@@ -126,9 +126,24 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Delete-Office', 'guard_name' => 'admin']);
 
 
-        Permission::create(['name' => 'Create-Faq', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Faqs', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Faq', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Faq', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Faq', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Faqs', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Faq', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Faq', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-Term', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Terms', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Term', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Term', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-Policie', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Policies', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Policie', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Policie', 'guard_name' => 'admin']);
+
+        Permission::create(['name' => 'Create-About', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Abouts', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-About', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-About', 'guard_name' => 'admin']);
     }
 }

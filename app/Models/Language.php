@@ -82,12 +82,6 @@ class Language extends Model
         return $this->hasMany(ClubTranslation::class, 'language_id', 'id');
     }
 
-
-    public function StoreCategoryTranslations()
-    {
-        return $this->hasMany(StoreCategoryTranslation::class, 'language_id', 'id');
-    }
-
     public function FaqsTranslations()
     {
         return $this->hasMany(FaqTranslation::class, 'language_id', 'id');
@@ -101,5 +95,27 @@ class Language extends Model
     public function OfficeTranslations()
     {
         return $this->hasMany(OfficeTranslation::class, 'language_id', 'id');
+    }
+
+
+
+    public function StorecategoryTranslations()
+    {
+        return $this->hasMany(StorecategoryTranslation::class, 'language_id', 'id');
+    }
+
+    public function TermTranslations()
+    {
+        return $this->hasMany(TermTranslation::class, 'language_id', 'id');
+    }
+
+    public function PolicieTranslations()
+    {
+        return $this->hasMany(PolicieTranslation::class, 'language_id', 'id');
+    }
+
+    public function AboutTranslations()
+    {
+        return $this->hasMany(AboutTranslation::class, 'language_id', 'id');
     }
 }

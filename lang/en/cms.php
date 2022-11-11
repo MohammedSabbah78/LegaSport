@@ -416,6 +416,9 @@ return [
     'address2' => 'ADDRESS 2',
     'work_from' => 'WORK_FROM',
     'work_to' => 'WORK_TO',
+    'term' => 'Term',
+    'policie' => 'Policies',
+    'mission' => 'Mission'
 
 
 
