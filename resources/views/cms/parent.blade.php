@@ -356,8 +356,8 @@ License: You must have a valid license purchased only from themeforest(the above
 							'Read-Ads','Create-On-Boarding',
 							'Read-On-Boardings','Create-Sport',
 							'Read-Sports','Create-Nationality','Read-Nationalities','Create-Event',
-							'Read-Events','Create-Achievement', 'Read-Achievements','Create-Plan',
-							'Read-Plans','Read-Centers', 'Create-Center','Create-Event', 'Read-Events'])
+							'Read-Events','Create-Achievement', 'Read-Achievements','Create_Plan',
+							'Read_Plans','Read-Centers', 'Create-Center','Create-Event', 'Read-Events'])
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.content_management')}}</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
@@ -703,7 +703,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</li>
 							@endcanany
 
-							@canany(['Create-Plan', 'Read-Plans'])
+							@canany(['Create_Plan', 'Read_Plans'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -733,7 +733,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.plans')}}</span>
 											</span>
 										</li>
-										@can('Create-Plan')
+										@can('Create_Plan')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('plans.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -743,7 +743,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											</a>
 										</li>
 										@endcan
-										@can('Read-Plans')
+										@can('Read_Plans')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('plans.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">

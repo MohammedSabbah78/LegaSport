@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Plan::class, 'plan');
+    }
     /**
      * Display a listing of the resource.
      *
