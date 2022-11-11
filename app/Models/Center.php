@@ -23,4 +23,15 @@ class Center extends Model
     {
         return $this->hasMany(CenterTranslation::class, 'center_id', 'id');
     }
+
+
+    public function Days()
+    {
+        return $this->belongsToMany(Day::class, 'day_centers', 'center_id', 'day_id')->withPivot('start_time', 'close_time');
+    }
+
+    public function dayWorks()
+    {
+        return $this->hasMany(DayCenter::class);
+    }
 }

@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.center'))
+@section('page-name',__('cms.days'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.center'))
+@section('sub-page',__('cms.days'))
 @section('page-name-small',__('cms.index'))
 
 @section('styles')
@@ -15,15 +15,15 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">{{__('cms.center')}}</span>
+            <span class="card-label font-weight-bolder text-dark">{{__('cms.days')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Center')
+        {{-- @can('Create-Day')
         <div class="card-toolbar">
-            <a href="{{route('centers.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.center')}}</a>
+            <a href="{{route('days.create')}}"
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.new_day')}}</a>
         </div>
-        @endcan
+        @endcan --}}
     </div>
     <!--end::Header-->
     <!--begin::Body-->
@@ -34,47 +34,31 @@
                 <thead>
                     <tr class="text-uppercase">
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
-                        <th style="min-width: 150px">{{__('cms.image')}}</th>
-                        <th style="min-width: 150px">{{__('cms.name')}}</th>
-                        <th style="min-width: 150px">{{__('cms.subscribtion_price')}}</th>
+                        <th class="pl-0" style="min-width: 100px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
-                        @can('Create-Center')
-                        <th style="min-width: 150px">{{__('cms.work_days')}}</th>
-                        @endcan
-                        @canany(['Update-Center','Delete-Center'])
+                        @canany(['Update-Day','Delete-Day'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
                         @endcanany
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $center)
+                    @foreach ($data as $day)
                     <tr>
-                        <td class="pl-0">
-                            <div class="symbol symbol-50 symbol-light mr-4">
-                                <span class="symbol-label">
-                                    <img src="{{Storage::url($center->image)}}" class="customImage h-75 align-self-end"
-                                        alt="">
-                                </span>
-                            </div>
-                        </td>
-
+                        {{-- <td class="pl-0">
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$day->id}}</a>
+                        </td> --}}
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$center->translations->first()?->name
-                                ?? ''}}</a>
-                        </td>
-
-                        <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$center->subscribtion_price
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$day->translations->first()?->name
                                 ?? ''}}</a>
                         </td>
 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$center->id}}_translations"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$center->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$center->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$center->id}}_translations" aria-hidden="true">
+                            <a href="#" data-toggle="modal" data-target="#day_{{$day->id}}_translations"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$day->translations_count}})</a>
+                            <div class="modal fade" id="day_{{$day->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="day_{{$day->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -93,7 +77,8 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($center->translations as $translation)
+
+                                                    @foreach ($day->translations as $translation)
                                                     <tr>
                                                         <td>
                                                             <span
@@ -104,8 +89,8 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            @can('Update-Center')
-                                                            <a href="{{route('center-translations.edit',$translation->id)}}"
+                                                            @can('Update-Day')
+                                                            <a href="{{route('day-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -130,7 +115,7 @@
                                                                 </span>
                                                             </a>
                                                             @endcan
-                                                            @can('Delete-Center')
+                                                            @can('Delete-Day')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -169,16 +154,10 @@
                                 </div>
                             </div>
                         </td>
-                        @can('Create-Center')
-                        <td>
-                            <a href="{{route('centers.day',$center->id)}}"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$center->dayWorks->count()}})</a>
-                        </td>
-                        @endcan
 
                         <td class="pr-0 text-right">
-                            @can('Create-Center')
-                            <a href="{{route('center-translations.create',$center->id)}}"
+                            @can('Create-Day')
+                            <a href="{{route('day-translations.create',$day->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg-->
@@ -196,8 +175,8 @@
                                 </span>
                             </a>
                             @endcan
-                            @can('Delete-Center')
-                            <a href="#" onclick="performSportsDestroy('{{$center->id}}', this)"
+                            {{-- @can('Delete-Day')
+                            <a href="#" onclick="performcityDestroy('{{$day->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -216,7 +195,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
+                            @endcan --}}
                         </td>
                     </tr>
                     @endforeach
@@ -232,11 +211,11 @@
 @section('scripts')
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
-    function performSportsDestroy(id,reference) {
-        confirmDestroy('/cms/admin/centers', id, reference);
+    function performcityDestroy(id,reference) {
+        confirmDestroy('/cms/admin/days', id, reference);
     }
     function performTranslationDestroy(id,reference) {
-        confirmDestroy('/cms/admin/centers/translations', id, reference);
+        confirmDestroy('/cms/admin/days/translations', id, reference);
     }
 </script>
 @endsection

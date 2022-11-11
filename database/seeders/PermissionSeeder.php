@@ -14,91 +14,100 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        Permission::create(['name' => 'Create-Role', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Roles', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Role', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Role', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Role', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Roles', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Role', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Role', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Permission', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Permissions', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Permission', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Permission', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Permission', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Permissions', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Permission', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Permission', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Admin', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Admins', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Admin', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Admin', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Admin', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Admins', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Admin', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Admin', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Language', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Languages', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Language', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Language', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Language', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Languages', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Language', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Language', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Country', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Countries', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Country', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Country', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Country', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Countries', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Country', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Country', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-City', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Cities', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-City', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-City', 'guard_name' => 'admin']);
-
-
-
-        Permission::create(['name' => 'Create-Sport', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Sports', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Sport', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Sport', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-City', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Cities', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-City', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-City', 'guard_name' => 'admin']);
 
 
 
-        Permission::create(['name' => 'Create-Ad', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Ads', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Ad', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Ad', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Sport', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Sports', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Sport', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Sport', 'guard_name' => 'admin']);
+
+
+
+        // Permission::create(['name' => 'Create-Ad', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Ads', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Ad', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Ad', 'guard_name' => 'admin']);
 
 
 
 
-        Permission::create(['name' => 'Create-On-Boarding', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-On-Boardings', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-On-Boarding', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-On-Boarding', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-On-Boarding', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-On-Boardings', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-On-Boarding', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-On-Boarding', 'guard_name' => 'admin']);
 
-        Permission::create(['name' => 'Create-Nationality', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Nationalities', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Nationality', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Nationality', 'guard_name' => 'admin']);
-
-
+        // Permission::create(['name' => 'Create-Nationality', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Nationalities', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Nationality', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Nationality', 'guard_name' => 'admin']);
 
 
 
 
 
-        Permission::create(['name' => 'Create-Center', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Centers', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Center', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Center', 'guard_name' => 'admin']);
 
 
-        Permission::create(['name' => 'Create-Plan', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Plans', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Plan', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Plan', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Center', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Centers', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Center', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Center', 'guard_name' => 'admin']);
 
 
-        Permission::create(['name' => 'Create-Achievement', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Achievements', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Achievement', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Achievement', 'guard_name' => 'admin']);
-
-        Permission::create(['name' => 'Create-Event', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Events', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Event', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Event', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Plan', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Plans', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Plan', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Plan', 'guard_name' => 'admin']);
 
 
+        // Permission::create(['name' => 'Create-Achievement', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Achievements', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Achievement', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Achievement', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-Event', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Events', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Event', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Event', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Day', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Days', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Day', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Day', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-DayWork', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-DayWorks', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-DayWork', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-DayWork', 'guard_name' => 'admin']);
     }
 }

@@ -66,4 +66,8 @@ class Language extends Model
     {
         return $this->hasMany(EventTranslation::class, 'language_id', 'id');
     }
+    public function dayTranslations()
+    {
+        return $this->hasMany(DayTranslation::class, 'language_id', 'id');
+    }
 }
