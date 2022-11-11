@@ -239,7 +239,7 @@
                                 </span>
                             </a>
                             @endcan
-                            @can('Delete-CouOfficentry')
+                            @can('Delete-Office')
                             <a href="#" onclick="performSportsDestroy('{{$office->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
