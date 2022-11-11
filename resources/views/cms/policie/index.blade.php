@@ -18,7 +18,7 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.policie')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Event')
+        @can('Create-Policie')
         <div class="card-toolbar">
             <a href="{{route('policies.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.policie')}}</a>
@@ -37,9 +37,9 @@
                         <th style="min-width: 150px">{{__('cms.title')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.body')}}</th>
-                        {{-- @canany(['Update-Country','Delete-Country']) --}}
+                        @canany(['Update-Policie','Delete-Policie'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
@@ -94,7 +94,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Country') --}}
+                                                            @can('Update-Policie')
                                                             <a href="{{route('policie-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -119,8 +119,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Country') --}}
+                                                            @endcan
+                                                            @can('Delete-Policie')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -144,7 +144,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -173,7 +173,7 @@
 
 
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Country') --}}
+                            @can('Create-Policie')
                             <a href="{{route('policie-translations.create',$policie->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -191,8 +191,8 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Country') --}}
+                            @endcan
+                            @can('Delete-Policie')
                             <a href="#" onclick="performSportsDestroy('{{$policie->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -212,7 +212,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
 
                     </tr>

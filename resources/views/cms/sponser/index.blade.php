@@ -41,9 +41,9 @@
 
 
 
-                        {{-- @canany(['Update-Country','Delete-Country']) --}}
+                        @canany(['Update-Sponser','Delete-Sponser'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
@@ -95,7 +95,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Country') --}}
+                                                            @can('Update-Sponser')
                                                             <a href="{{route('sponser-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -120,8 +120,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Country') --}}
+                                                            @endcan
+                                                            @can('Delete-Sponser')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -145,7 +145,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -180,7 +180,7 @@
 
 
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Country') --}}
+                            @can('Create-Sponser')
                             <a href="{{route('sponser-translations.create',$sponser->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -198,8 +198,8 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Country') --}}
+                            @endcan
+                            @can('Delete-Sponser')
                             <a href="#" onclick="performSportsDestroy('{{$sponser->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -219,7 +219,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
 
                     </tr>

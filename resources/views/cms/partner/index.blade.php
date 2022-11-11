@@ -18,7 +18,7 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.partner')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Event')
+        @can('Create-Partner')
         <div class="card-toolbar">
             <a href="{{route('partners.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.partner')}}</a>
@@ -48,9 +48,9 @@
                         <th style="min-width: 150px">{{__('cms.num_branch')}}</th>
 
 
-                        {{-- @canany(['Update-Country','Delete-Country']) --}}
+                        @canany(['Update-Partner','Delete-CounPartnertry'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
@@ -116,7 +116,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Country') --}}
+                                                            @can('Update-Partner')
                                                             <a href="{{route('partner-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -141,8 +141,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Country') --}}
+                                                            @endcan
+                                                            @can('Delete-Partner')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -166,7 +166,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -225,7 +225,7 @@
                         </td>
 
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Country') --}}
+                            @can('Create-Partner')
                             <a href="{{route('partner-translations.create',$partner->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -243,8 +243,8 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Country') --}}
+                            @endcan
+                            @can('Delete-Partner')
                             <a href="#" onclick="performSportsDestroy('{{$partner->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -264,7 +264,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
 
                     </tr>

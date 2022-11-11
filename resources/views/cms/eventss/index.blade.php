@@ -48,9 +48,9 @@
 
                         <th style="min-width: 150px">{{__('cms.end_date')}}</th>
                         <th style="min-width: 150px">{{__('cms.start_date')}}</th>
-                        {{-- @canany(['Update-Country','Delete-Country']) --}}
+                        @canany(['Update-Event','Delete-Event'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
@@ -113,7 +113,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Country') --}}
+                                                            @can('Update-Event')
                                                             <a href="{{route('event-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -138,8 +138,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Country') --}}
+                                                            @endcan
+                                                            @can('Delete-Event')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -163,7 +163,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -242,7 +242,7 @@
 
 
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Country') --}}
+                            @can('Create-Event')
                             <a href="{{route('event-translations.create',$event->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -260,8 +260,8 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Country') --}}
+                            @endcan
+                            @can('Delete-Event')
                             <a href="#" onclick="performSportsDestroy('{{$event->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -281,7 +281,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
 
                     </tr>

@@ -142,7 +142,7 @@ class ClubTranslationController extends Controller
     public function destroy(ClubTranslation $clubTranslation)
     {
         //
-        $count = ClubTranslation::where('club_id', $clubTranslation->sport_id)->count();
+        $count = ClubTranslation::where('club_id', $clubTranslation->club_id)->count();
         if ($count != 1) {
             $deleted = $clubTranslation->delete();
             return ControllersService::generateProcessResponse($deleted, 'DELETE');
