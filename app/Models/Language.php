@@ -140,4 +140,9 @@ class Language extends Model
     {
         return $this->hasMany(VotequestionTranslation::class, 'language_id', 'id');
     }
+
+    public function MercatoTranslations()
+    {
+        return $this->hasMany(MercatoTranslation::class, 'language_id', 'id');
+    }
 }

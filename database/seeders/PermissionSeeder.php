@@ -176,6 +176,12 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Create-Taskes_For_Point', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Read-Taskes_For_Points', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Update-Taskes_For_Point', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Taskes_For_Point', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Taskes_For_Point', 'guard_name' => 'admin']);
+
+
+        Permission::create(['name' => 'Create-Mercato', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Mercatos', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Mercato', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Mercato', 'guard_name' => 'admin']);
     }
 }

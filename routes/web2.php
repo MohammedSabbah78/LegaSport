@@ -16,6 +16,8 @@ use App\Http\Controllers\FaqsTranslationController;
 use App\Http\Controllers\FaqTranslationController;
 use App\Http\Controllers\FederationController;
 use App\Http\Controllers\FederationTranslationController;
+use App\Http\Controllers\MercatoController;
+use App\Http\Controllers\MercatoTranslationController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\OfferTranslationController;
 use App\Http\Controllers\OfficeController;
@@ -366,6 +368,25 @@ Route::group([
         Route::put('sponsers/translations/{sponserTranslation}', [SponserTranslationController::class, 'update'])->name('sponser-translations.update');
         Route::delete('sponsers/translations/{sponserTranslation}', [SponserTranslationController::class, 'destroy'])->name('sponser-translations.destroy');
 
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Mercatos Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('mercatos', [MercatoController::class, 'index'])->name('mercatos.index');
+        Route::get('mercatos/create', [MercatoController::class, 'create'])->name('mercatos.create');
+        Route::post('mercatos', [MercatoController::class, 'store'])->name('mercatos.store');
+        Route::delete('mercatos/{mercato}', [MercatoController::class, 'destroy'])->name('mercatos.destroy');
+
+        Route::get('mercatos/translation/{language}', [MercatoTranslationController::class, 'showByLanguage'])->name('mercato-translations.showByLanguage');
+        Route::get('mercatos/{mercato}/translation/create', [MercatoTranslationController::class, 'create'])->name('mercato-translations.create');
+        Route::post('mercatos/{mercato}/translation', [MercatoTranslationController::class, 'store'])->name('mercato-translations.store');
+        Route::get('mercatos/translations/{mercatoTranslation}/edit', [MercatoTranslationController::class, 'edit'])->name('mercato-translations.edit');
+        Route::put('mercatos/translations/{mercatoTranslation}', [MercatoTranslationController::class, 'update'])->name('mercato-translations.update');
+        Route::delete('mercatos/translations/{mercatoTranslation}', [MercatoTranslationController::class, 'destroy'])->name('mercato-translations.destroy');
 
 
 

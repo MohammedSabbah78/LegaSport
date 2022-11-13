@@ -423,8 +423,11 @@ return [
     'cost' => 'Cost',
     'taskesforpoint' => 'Taskes For Ppoint',
     'offers' => 'Offer',
-    'votequestions' => 'Vote Question'
-
+    'votequestions' => 'Vote Question',
+    'mercatos' => 'Mercatos',
+    'salary' => 'Salary',
+    'permanet' => 'Permanet',
+    'trmporary' => 'Trmporary'
 
 
 ];
