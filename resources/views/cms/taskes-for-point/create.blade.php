@@ -1,9 +1,9 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.plans'))
+@section('page-name',__('cms.taskesforpoint'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.plans'))
-@section('page-name-small',__('cms.plans'))
+@section('sub-page',__('cms.taskesforpoint'))
+@section('page-name-small',__('cms.taskesforpoint'))
 
 @section('styles')
 
@@ -49,40 +49,14 @@
                     <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.task_title')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" />
-                            <span class="form-text text-muted">{{__('cms.title')}} {{__('cms.title')}}</span>
+                            <input type="text" class="form-control" id="task_title" placeholder="{{__('cms.task_title')}}" />
+                            <span class="form-text text-muted">{{__('cms.task_title')}} {{__('cms.task_title')}}</span>
                         </div>
                     </div>
 
 
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.description')}}:</label>
-                        <div class="col-9">
-                            <input type="text" class="form-control" id="description" placeholder="{{__('cms.description')}}" />
-                            <span class="form-text text-muted">{{__('cms.description')}} {{__('cms.description')}}</span>
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.price')}}:</label>
-                        <div class="col-9">
-                            <input type="number" class="form-control" id="price" placeholder="{{__('cms.price')}}" />
-                            <span class="form-text text-muted">{{__('cms.price')}} {{__('cms.price')}}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.max_month')}}:</label>
-                        <div class="col-9">
-                            <input type="number" class="form-control" id="max_month" placeholder="{{__('cms.max_month')}}" />
-                            <span class="form-text text-muted">{{__('cms.max_month')}} {{__('cms.max_month')}}</span>
-                        </div>
-                    </div>
 
                     <div class="form-group row">
                         <label class="col-3 col-form-label">{{__('cms.type')}}</label>
@@ -92,7 +66,6 @@
                                         id="type" title="Choose one of the following..." tabindex="null" data-live-search="true">
                                         <option value="player">{{__('cms.player')}}</option>
                                         <option value="coach">{{{__('cms.coache')}}}</option>
-                                        <option value="academy">{{{__('cms.academy')}}}</option>
                                     </select>
                                     <div class="dropdown-menu ">
                                         <div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off"
@@ -109,20 +82,17 @@
                     </div>
 
 
-                    <div class="separator separator-dashed my-10"></div>
-                    <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
-                    <div class="form-group row">
-                        <label class="col-3 col-form-label">{{__('cms.active')}}</label>
-                        <div class="col-3">
-                            <span class="switch switch-outline switch-icon switch-success">
-                                <label>
-                                    <input type="checkbox" checked="checked" id="active">
-                                    <span></span>
-                                </label>
-                            </span>
+
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.point')}}:</label>
+                        <div class="col-9">
+                            <input type="number" class="form-control" id="point" placeholder="{{__('cms.point')}}" />
+                            <span class="form-text text-muted">{{__('cms.point')}} {{__('cms.point')}}</span>
                         </div>
                     </div>
-                    <div class="separator separator-dashed my-10"></div>
+
+
 
                 </div>
                 <div class="card-footer">
@@ -154,18 +124,19 @@
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('title',document.getElementById('title').value);
-formData.append('description',document.getElementById('description').value);
-formData.append('price',document.getElementById('price').value);
-formData.append('max_month',document.getElementById('max_month').value);
+formData.append('task_title',document.getElementById('task_title').value);
+formData.append('point',document.getElementById('point').value);
 formData.append('type',document.getElementById('type').value);
-formData.append('active',document.getElementById('active').checked ? 1:0);
+
+
+
+
 
 
 if(id == null) {
-    store('/cms/admin/plans',formData);
+    store('/cms/admin/taskes-for-points',formData);
     }else {
-    store('/cms/admin/plans/'+id+'/translation',formData);
+    store('/cms/admin/taskes-for-points/'+id+'/translation',formData);
     }
 
 }

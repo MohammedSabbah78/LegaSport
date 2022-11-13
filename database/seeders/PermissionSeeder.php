@@ -154,9 +154,22 @@ class PermissionSeeder extends Seeder
 
 
 
-        Permission::create(['name' => 'Create-Sponser', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Sponsers', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Sponser', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Sponser', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Sponser', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Sponsers', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Sponser', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Sponser', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Offer', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Offers', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Offer', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Offer', 'guard_name' => 'admin']);
+
+
+
+        // Permission::create(['name' => 'Create-Vote_Question', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Vote_Questions', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Vote_Question', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Vote_Question', 'guard_name' => 'admin']);
     }
 }

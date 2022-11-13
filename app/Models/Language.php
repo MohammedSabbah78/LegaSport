@@ -123,4 +123,21 @@ class Language extends Model
     {
         return $this->hasMany(SponserTranslation::class, 'language_id', 'id');
     }
+
+
+    public function TaskesForPointTranslations()
+    {
+        return $this->hasMany(TaskesForPointTranslation::class, 'language_id', 'id');
+    }
+
+
+    public function OfferTranslations()
+    {
+        return $this->hasMany(OfferTranslation::class, 'language_id', 'id');
+    }
+
+    public function VotequestionTranslations()
+    {
+        return $this->hasMany(VotequestionTranslation::class, 'language_id', 'id');
+    }
 }

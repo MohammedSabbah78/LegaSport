@@ -420,7 +420,10 @@ return [
     'policie' => 'Policies',
     'mission' => 'Mission',
     'sponsers' => 'Sponser',
-    'cost' => 'Cost'
+    'cost' => 'Cost',
+    'taskesforpoint' => 'Taskes For Ppoint',
+    'offers' => 'Offer',
+    'votequestions' => 'Vote Question'
 
 
 

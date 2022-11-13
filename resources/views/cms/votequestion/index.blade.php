@@ -1,8 +1,8 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.plans'))
+@section('page-name',__('cms.votequestions'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.plans'))
+@section('sub-page',__('cms.votequestions'))
 @section('page-name-small',__('cms.index'))
 
 @section('styles')
@@ -15,13 +15,13 @@
     <!--begin::Header-->
     <div class="card-header border-0 py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label font-weight-bolder text-dark">{{__('cms.plans')}}</span>
+            <span class="card-label font-weight-bolder text-dark">{{__('cms.votequestions')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create_Plan')
+        @can('Create-Event')
         <div class="card-toolbar">
-            <a href="{{route('plans.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.plans')}}</a>
+            <a href="{{route('votequestions.create')}}"
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.votequestions')}}</a>
         </div>
         @endcan
     </div>
@@ -35,58 +35,36 @@
                     <tr class="text-uppercase">
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
                         <th style="min-width: 150px">{{__('cms.title')}}</th>
-                        <th style="min-width: 150px">{{__('cms.description')}}</th>
-                        <th style="min-width: 150px">{{__('cms.price')}}</th>
-                        <th style="min-width: 150px">{{__('cms.date')}}</th>
-                        <th style="min-width: 150px">{{__('cms.type')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
-                        <th style="min-width: 150px">{{__('cms.active')}}</th>
-                        @canany(['Update_Plan','Delete_Plan'])
+                        <th style="min-width: 150px">{{__('cms.body')}}</th>
+                        {{-- @canany(['Update-Votequestion','Delete-Votequestion']) --}}
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        @endcanany
+                        {{-- @endcanany --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $plan)
+                    @foreach ($data as $votequestion)
                     <tr>
-                        <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->translations->first()?->title
-                                ?? ''}}</a>
-                        </td>
 
-                        <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->translations->first()?->description
-                                ?? ''}}</a>
-                        </td>
 
-                        <td class="pl-0">
-                            <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->price
-                                ?? ''}}</a>
-                        </td>
 
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->max_month
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$votequestion->translations->first()?->title
                                 ?? ''}}</a>
                         </td>
 
 
 
-                        <td class="pl-0">
-                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->type
-                                ?? ''}}</a>
-                        </td>
+
 
 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$plan->id}}_translations"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$plan->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$plan->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$plan->id}}_translations" aria-hidden="true">
+                            <a href="#" data-toggle="modal" data-target="#sports_{{$votequestion->id}}_translations"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$votequestion->translations_count}})</a>
+                            <div class="modal fade" id="sports_{{$votequestion->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="sports_{{$votequestion->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -105,7 +83,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($plan->translations as $translation)
+                                                    @foreach ($votequestion->translations as $translation)
                                                     <tr>
                                                         <td>
                                                             <span
@@ -116,8 +94,8 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            @can('Update_Plan')
-                                                            <a href="{{route('plan-translations.edit',$translation->id)}}"
+                                                            {{-- @can('Update-Votequestion') --}}
+                                                            <a href="{{route('votequestion-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -141,8 +119,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            @endcan
-                                                            @can('Delete_Plan')
+                                                            {{-- @endcan --}}
+                                                            {{-- @can('Delete-Votequestion') --}}
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -166,7 +144,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            @endcan
+                                                            {{-- @endcan --}}
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -181,14 +159,22 @@
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <span
-                                class="label label-lg @if($plan->active) label-light-success @else label-light-warning @endif label-inline">{{$plan->active_key}}</span>
+
+
+                        <td class="pl-0">
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$votequestion->type
+                                ?? ''}}</a>
                         </td>
 
+
+
+
+
+
                         <td class="pr-0 text-right">
-                            @can('Create_Plan')
-                            <a href="{{route('plan-translations.create',$plan->id)}}"
+                            {{-- @can('Create-Votequestion') --}}
+                            <a href="{{route('votequestion-translations.create',$votequestion->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg-->
@@ -205,9 +191,9 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
-                            @can('Delete_Plan')
-                            <a href="#" onclick="performSportsDestroy('{{$plan->id}}', this)"
+                            {{-- @endcan --}}
+                            {{-- @can('Delete-Votequestion') --}}
+                            <a href="#" onclick="performSportsDestroy('{{$votequestion->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -226,8 +212,9 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            @endcan
+                            {{-- @endcan --}}
                         </td>
+
                     </tr>
                     @endforeach
             </table>
@@ -243,10 +230,10 @@
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
     function performSportsDestroy(id,reference) {
-        confirmDestroy('/cms/admin/plans', id, reference);
+        confirmDestroy('/cms/admin/votequestions', id, reference);
     }
     function performTranslationDestroy(id,reference) {
-        confirmDestroy('/cms/admin/plans/translations', id, reference);
+        confirmDestroy('/cms/admin/votequestions/translations', id, reference);
     }
 </script>
 @endsection

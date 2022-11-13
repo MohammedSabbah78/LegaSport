@@ -158,7 +158,7 @@ class OfficeController extends Controller
                 $translation->Office_id = $office->id;
                 $translation->save();
             }
-            return ControllersService::generateProcessResponse($isSaved, 'CREATE');
+            return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
         }

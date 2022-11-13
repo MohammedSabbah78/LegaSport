@@ -16,6 +16,8 @@ use App\Http\Controllers\FaqsTranslationController;
 use App\Http\Controllers\FaqTranslationController;
 use App\Http\Controllers\FederationController;
 use App\Http\Controllers\FederationTranslationController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\OfferTranslationController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\OfficeTranslationController;
 use App\Http\Controllers\PartnerController;
@@ -32,8 +34,12 @@ use App\Http\Controllers\StoreCategoryController;
 use App\Http\Controllers\StorecategoryController as ControllersStorecategoryController;
 use App\Http\Controllers\StoreCategoryTranslationController;
 use App\Http\Controllers\StorecategoryTranslationController as ControllersStorecategoryTranslationController;
+use App\Http\Controllers\TaskesForPointController;
+use App\Http\Controllers\TaskesForPointTranslationController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\TermTranslationController;
+use App\Http\Controllers\VotequestionController;
+use App\Http\Controllers\VotequestionTranslationController;
 use App\Models\About;
 use App\Models\StoreCategoryTranslation;
 use Illuminate\Support\Facades\Route;
@@ -250,6 +256,46 @@ Route::group([
 
 
 
+        /*
+        |--------------------------------------------------------------------------
+        | Offers Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('offers', [OfferController::class, 'index'])->name('offers.index');
+        Route::get('offers/create', [OfferController::class, 'create'])->name('offers.create');
+        Route::post('offers', [OfferController::class, 'store'])->name('offers.store');
+        Route::delete('offers/{offer}', [OfferController::class, 'destroy'])->name('offers.destroy');
+
+        Route::get('offers/translation/{language}', [OfferTranslationController::class, 'showByLanguage'])->name('offer-translations.showByLanguage');
+        Route::get('offers/{offer}/translation/create', [OfferTranslationController::class, 'create'])->name('offer-translations.create');
+        Route::post('offers/{offer}/translation', [OfferTranslationController::class, 'store'])->name('offer-translations.store');
+        Route::get('offers/translations/{offerTranslation}/edit', [OfferTranslationController::class, 'edit'])->name('offer-translations.edit');
+        Route::put('offers/translations/{offerTranslation}', [OfferTranslationController::class, 'update'])->name('offer-translations.update');
+        Route::delete('offers/translations/{offerTranslation}', [OfferTranslationController::class, 'destroy'])->name('offer-translations.destroy');
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Votequestions Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('votequestions', [VotequestionController::class, 'index'])->name('votequestions.index');
+        Route::get('votequestions/create', [VotequestionController::class, 'create'])->name('votequestions.create');
+        Route::post('votequestions', [VotequestionController::class, 'store'])->name('votequestions.store');
+        Route::delete('votequestions/{votequestion}', [VotequestionController::class, 'destroy'])->name('votequestions.destroy');
+
+        Route::get('votequestions/translation/{language}', [VotequestionTranslationController::class, 'showByLanguage'])->name('votequestion-translations.showByLanguage');
+        Route::get('votequestions/{votequestion}/translation/create', [VotequestionTranslationController::class, 'create'])->name('votequestion-translations.create');
+        Route::post('votequestions/{votequestion}/translation', [VotequestionTranslationController::class, 'store'])->name('votequestion-translations.store');
+        Route::get('votequestions/translations/{votequestionTranslation}/edit', [VotequestionTranslationController::class, 'edit'])->name('votequestion-translations.edit');
+        Route::put('votequestions/translations/{votequestionTranslation}', [VotequestionTranslationController::class, 'update'])->name('votequestion-translations.update');
+        Route::delete('votequestions/translations/{votequestionTranslation}', [VotequestionTranslationController::class, 'destroy'])->name('votequestion-translations.destroy');
+
+
+
+
 
         /*
         |--------------------------------------------------------------------------
@@ -319,5 +365,28 @@ Route::group([
         Route::get('sponsers/translations/{sponserTranslation}/edit', [SponserTranslationController::class, 'edit'])->name('sponser-translations.edit');
         Route::put('sponsers/translations/{sponserTranslation}', [SponserTranslationController::class, 'update'])->name('sponser-translations.update');
         Route::delete('sponsers/translations/{sponserTranslation}', [SponserTranslationController::class, 'destroy'])->name('sponser-translations.destroy');
+
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Taskes-For-Point Routes
+        |--------------------------------------------------------------------------
+        */
+        // Route::get('taskes-for-points', [TaskesForPointController::class, 'index'])->name('taskes-for-points.index');
+        // Route::get('taskes-for-points/create', [TaskesForPointController::class, 'create'])->name('taskes-for-points.create');
+        // Route::post('taskes-for-points', [TaskesForPointController::class, 'store'])->name('taskes-for-points.store');
+        // Route::delete('taskes-for-points/{taskesforpoint}', [TaskesForPointController::class, 'destroy'])->name('taskes-for-points.destroy');
+
+        // Route::get('taskes-for-points/translation/{language}', [TaskesForPointTranslationController::class, 'showByLanguage'])->name('taskes-for-point-translations.showByLanguage');
+        // Route::get('taskes-for-points/{taskesforpoint}/translation/create', [TaskesForPointTranslationController::class, 'create'])->name('taskes-for-point-translations.create');
+        // Route::post('taskes-for-points/{taskesforpoint}/translation', [TaskesForPointTranslationController::class, 'store'])->name('taskes-for-point-translations.store');
+        // Route::get('taskes-for-points/translations/{taskesforpointTranslation}/edit', [TaskesForPointTranslationController::class, 'edit'])->name('taskes-for-point-translations.edit');
+        // Route::put('taskes-for-points/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'update'])->name('taskes-for-point-translations.update');
+        // Route::delete('taskes-for-points/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'destroy'])->name('taskes-for-point-translations.destroy');
+
+
     });
 });
