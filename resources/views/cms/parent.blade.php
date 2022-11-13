@@ -352,12 +352,28 @@ License: You must have a valid license purchased only from themeforest(the above
 							</li>
 							@endcanany
 
-							@canany(['Create-Language','Read-Languages','Create-Ad',
-							'Read-Ads','Create-On-Boarding',
-							'Read-On-Boardings','Create-Sport',
-							'Read-Sports','Create-Nationality','Read-Nationalities','Create-Event',
-							'Read-Events','Create-Achievement', 'Read-Achievements','Create_Plan',
-							'Read_Plans','Read-Centers', 'Create-Center','Create-Event', 'Read-Events'])
+							@canany([
+                            'Create-Language','Read-Languages',
+                            'Create-Ad','Read-Ads',
+                            'Create-On-Boarding','Read-On-Boardings',
+                            'Create-Sport','Read-Sports',
+                            'Create-Nationality','Read-Nationalities',
+                            'Create-Event','Read-Events',
+                            'Create-Achievement', 'Read-Achievements' ,
+                            'Create_Plan','Read_Plans',
+                            'Read-Centers', 'Create-Center',
+                            'Create-Event', 'Read-Events',
+                            'Create-Federation', 'Read-Federations',
+                            'Create-Partner', 'Read-Partners',
+                            'Create-Paymen', 'Read-Paymens',
+                            'Create-Office', 'Read-Offices',
+                            'Create-Faq', 'Read-Faqs',
+                            'Create-Term', 'Read-Terms',
+                            'Create-Policie', 'Read-Policies',
+                            'Create-About', 'Read-Abouts',
+
+
+                            ])
 							<li class="menu-section">
 								<h4 class="menu-text">{{__('cms.content_management')}}</h4>
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>

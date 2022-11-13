@@ -80,7 +80,7 @@
                         <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" />
-                            <span class="form-text text-muted">{{__('cms.title')}} {{__('cms.title')}}</span>
+                            <span class="form-text text-muted">{{__('cms.title')}} </span>
                         </div>
                     </div>
 
@@ -113,15 +113,16 @@
                         <label class="col-3 col-form-label">{{__('cms.from')}}:</label>
                         <div class="col-9">
                             <input type="number" class="form-control" id="form" placeholder="{{__('cms.from')}}" />
-                            <span class="form-text text-muted">{{__('cms.from')}} {{__('cms.from')}}</span>
+                            <span class="form-text text-muted">{{__('cms.from')}} </span>
                         </div>
+
                     </div>
 
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.to')}}:</label>
                         <div class="col-9">
                             <input type="number" class="form-control" id="to" placeholder="{{__('cms.to')}}" />
-                            <span class="form-text text-muted">{{__('cms.to')}} {{__('cms.to')}}</span>
+                            <span class="form-text text-muted">{{__('cms.to')}} </span>
                         </div>
                     </div>
 
@@ -129,26 +130,23 @@
                         <label class="col-3 col-form-label">{{__('cms.start_date')}}:</label>
                         <div class="col-9">
                             <input type="date" class="form-control" id="start_date" placeholder="{{__('cms.start_date')}}" />
-                            <span class="form-text text-muted">{{__('cms.start_date')}} {{__('cms.start_date')}}</span>
+                            <span class="form-text text-muted">{{__('cms.start_date')}}</span>
                         </div>
                     </div>
-
 
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.end_date')}}:</label>
                         <div class="col-9">
                             <input type="date" class="form-control" id="end_date" placeholder="{{__('cms.end_date')}}" />
-                            <span class="form-text text-muted">{{__('cms.end_date')}} {{__('cms.end_date')}}</span>
+                            <span class="form-text text-muted">{{__('cms.end_date')}} </span>
                         </div>
                     </div>
-
-
 
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.salary')}}:</label>
                         <div class="col-9">
                             <input type="number" class="form-control" id="salary" placeholder="{{__('cms.salary')}}" />
-                            <span class="form-text text-muted">{{__('cms.salary')}} {{__('cms.salary')}}</span>
+                            <span class="form-text text-muted">{{__('cms.salary')}} </span>
                         </div>
                     </div>
 

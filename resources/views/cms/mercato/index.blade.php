@@ -38,7 +38,7 @@
                         <th style="min-width: 150px">{{__('cms.title')}}</th>
                         <th style="min-width: 150px">{{__('cms.type')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
-                        <th style="min-width: 150px">{{__('cms.form')}}</th>
+                        <th style="min-width: 150px">{{__('cms.from')}}</th>
                         <th style="min-width: 150px">{{__('cms.to')}}</th>
                         <th style="min-width: 150px">{{__('cms.start_date')}}</th>
                         <th style="min-width: 150px">{{__('cms.end_date')}}</th>

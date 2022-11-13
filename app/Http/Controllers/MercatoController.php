@@ -7,6 +7,7 @@ use App\Models\Language;
 use App\Models\Mercato;
 use App\Models\MercatoTranslation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MercatoController extends Controller
 {
@@ -174,6 +175,7 @@ class MercatoController extends Controller
     {
         $deleted = $mercato->delete();
         if ($deleted) {
+            Storage::delete($mercato->image);
             $translations = MercatoTranslation::where('mercato_id', $mercato->id)->get();
             foreach ($translations as $translation) {
                 $translation->delete();
