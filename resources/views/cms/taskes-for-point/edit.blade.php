@@ -35,7 +35,7 @@
                                 <select class="form-control selectpicker" data-size="7" id="language"
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     @foreach ($languages as $language)
-                                        <option value="{{$language->id}}" @selected($eventTranslation->language_id == $language->id)>{{$language->name}}</option>
+                                        <option value="{{$language->id}}" @selected($taskesforpointTranslation->language_id == $language->id)>{{$language->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -49,34 +49,13 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" value="{{$eventTranslation->title}}"/>
+                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" value="{{$taskesforpointTranslation->title}}"/>
                             <span class="form-text text-muted">{{__('cms.please_enter')}} {{__('cms.title')}}</span>
                         </div>
                     </div>
 
 
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.description')}}:</label>
-                        <div class="col-9">
-                            <input type="text" class="form-control" id="description" placeholder="{{__('cms.description')}}"
-                                value="{{$eventTranslation->description}}" />
-                            <span class="form-text text-muted">{{__('cms.description')}} {{__('cms.description')}}</span>
-                        </div>
-                    </div>
 
-                    <div class="separator separator-dashed my-10"></div>
-                    <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
-                    <div class="form-group row">
-                        <label class="col-3 col-form-label">{{__('cms.active')}}</label>
-                        <div class="col-3">
-                            <span class="switch switch-outline switch-icon switch-success">
-                                <label>
-                                    <input type="checkbox" checked="checked" id="active">
-                                    <span></span>
-                                </label>
-                            </span>
-                        </div>
-                    </div>
                 </div>
                 <div class="card-footer">
                     <div class="row">
@@ -105,9 +84,8 @@
         let data = {
             language: document.getElementById('language').value,
             title: document.getElementById('title').value,
-            description : document.getElementById('description').value,
         }
-        update('/cms/admin/events/translations/{{$eventTranslation->id}}', data, '/cms/admin/events');
+        update('/cms/admin/taskesforpoints/translations/{{$taskesforpointTranslation->id}}', data, '/cms/admin/taskesforpoints');
     }
 </script>
 @endsection

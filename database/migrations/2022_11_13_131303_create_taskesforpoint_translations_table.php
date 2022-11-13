@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sponsers', function (Blueprint $table) {
+        Schema::create('taskesforpoint_translations', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 50);
+            $table->foreignId('language_id')->constrained();
+            $table->foreignId('taskesforpoint_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sponsers');
+        Schema::dropIfExists('taskesforpoint_translations');
     }
 };

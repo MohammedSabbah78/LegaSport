@@ -18,7 +18,7 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.votequestions')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Event')
+        @can('Create-Vote_Question')
         <div class="card-toolbar">
             <a href="{{route('votequestions.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.votequestions')}}</a>
@@ -37,9 +37,9 @@
                         <th style="min-width: 150px">{{__('cms.title')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.body')}}</th>
-                        {{-- @canany(['Update-Votequestion','Delete-Votequestion']) --}}
+                        @canany(['Update-Vote_Question','Delete-Vote_Question'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
@@ -173,7 +173,7 @@
 
 
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Votequestion') --}}
+                            @can('Create-Vote_Question')
                             <a href="{{route('votequestion-translations.create',$votequestion->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -191,8 +191,8 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Votequestion') --}}
+                            @endcan
+                            @can('Delete-Vote_Question')
                             <a href="#" onclick="performSportsDestroy('{{$votequestion->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -212,7 +212,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
 
                     </tr>

@@ -168,8 +168,14 @@ class PermissionSeeder extends Seeder
 
 
         // Permission::create(['name' => 'Create-Vote_Question', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Vote_Questions', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Vote_Questions', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Update-Vote_Question', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Delete-Vote_Question', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Taskes_For_Point', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Taskes_For_Points', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Taskes_For_Point', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Taskes_For_Point', 'guard_name' => 'admin']);
     }
 }

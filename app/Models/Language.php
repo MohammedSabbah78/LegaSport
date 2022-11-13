@@ -125,9 +125,9 @@ class Language extends Model
     }
 
 
-    public function TaskesForPointTranslations()
+    public function TaskesforpointTranslations()
     {
-        return $this->hasMany(TaskesForPointTranslation::class, 'language_id', 'id');
+        return $this->hasMany(TaskesforpointTranslation::class, 'language_id', 'id');
     }
 
 

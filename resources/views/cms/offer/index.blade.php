@@ -18,7 +18,7 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.offers')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Office')
+        @can('Create-Offer')
         <div class="card-toolbar">
             <a href="{{route('offers.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.offers')}}</a>
@@ -39,7 +39,7 @@
                         <th style="min-width: 150px">{{__('cms.description')}}</th>
 
 
-                        @canany(['Update-Office','Delete-Office'])
+                        @canany(['Update-Offer','Delete-Offer'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
                         @endcanany
                     </tr>
@@ -97,7 +97,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            @can('Update-Office')
+                                                            @can('Update-Offer')
                                                             <a href="{{route('offer-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -123,7 +123,7 @@
                                                                 </span>
                                                             </a>
                                                             @endcan
-                                                            @can('Delete-Office')
+                                                            @can('Delete-Offer')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -174,7 +174,7 @@
 
 
                         <td class="pr-0 text-right">
-                            @can('Create-Office')
+                            @can('Create-Offer')
                             <a href="{{route('offer-translations.create',$offer->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -193,7 +193,7 @@
                                 </span>
                             </a>
                             @endcan
-                            @can('Delete-Office')
+                            @can('Delete-Offer')
                             <a href="#" onclick="performSportsDestroy('{{$offer->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">

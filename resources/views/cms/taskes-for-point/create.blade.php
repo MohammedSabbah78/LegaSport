@@ -101,7 +101,7 @@
 
                         </div>
                         <div class="col-9">
-                            <button type="button" onclick="performStore({{$plan->id ?? null}})"
+                            <button type="button" onclick="performStore({{$taskesforpoints->id ?? null}})"
                                 class="btn btn-primary mr-2">{{__('cms.save')}}</button>
                             <button type="reset" class="btn btn-secondary">{{__('cms.cancel')}}</button>
                         </div>
@@ -124,7 +124,7 @@
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('task_title',document.getElementById('task_title').value);
+formData.append('title',document.getElementById('task_title').value);
 formData.append('point',document.getElementById('point').value);
 formData.append('type',document.getElementById('type').value);
 
@@ -134,9 +134,9 @@ formData.append('type',document.getElementById('type').value);
 
 
 if(id == null) {
-    store('/cms/admin/taskes-for-points',formData);
+    store('/cms/admin/taskesforpoints',formData);
     }else {
-    store('/cms/admin/taskes-for-points/'+id+'/translation',formData);
+    store('/cms/admin/taskesforpoints/'+id+'/translation',formData);
     }
 
 }

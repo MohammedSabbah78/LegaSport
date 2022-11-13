@@ -1,9 +1,9 @@
 @extends('cms.parent')
 
-@section('page-name',__('cms.events'))
+@section('page-name',__('cms.taskesforpoint'))
 @section('main-page',__('cms.content_management'))
-@section('sub-page',__('cms.events'))
-@section('page-name-small',__('cms.events'))
+@section('sub-page',__('cms.taskesforpoint'))
+@section('page-name-small',__('cms.taskesforpoint'))
 
 @section('styles')
 
@@ -13,7 +13,7 @@
 <!--begin::Container-->
 <div class="row">
     <div class="col-lg-12">
-       {{-- {{dd(isset($data['country']));}} --}}
+        {{-- {{dd(isset($data['country']));}} --}}
         <!--begin::Card-->
         <div class="card card-custom gutter-b example example-compact">
             <div class="card-header">
@@ -36,7 +36,7 @@
                                 <select class="form-control selectpicker" data-size="7" id="language"
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     @foreach ($languages as $language)
-                                        <option value="{{$language->id}}">{{$language->name}}</option>
+                                    <option value="{{$language->id}}">{{$language->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -51,10 +51,12 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="task_title" placeholder="{{__('cms.title')}}" />
+                            <input type="text" class="form-control" id="title"
+                                placeholder="{{__('cms.title')}}" />
                             <span class="form-text text-muted">{{__('cms.title')}} {{__('cms.title')}}</span>
                         </div>
                     </div>
+
 
 
 
@@ -88,17 +90,22 @@
 </script>
 <script>
     function performStore(id){
+
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('task_title',document.getElementById('task_title').value);
+formData.append('title',document.getElementById('title').value);
+
+
+
+
+
 
 
 if(id == null) {
-    store('/cms/admin/taskes-for-points',formData);
+    store('/cms/admin/taskesforpoints',formData);
     }else {
 
-    store('/cms/admin/taskes-for-points/'+id+'/translation',formData);
-    }
+store('/cms/admin/taskesforpoints/'+id+'/translation',formData, '/cms/admin/taskesforpoints');    }
 
 }
 </script>

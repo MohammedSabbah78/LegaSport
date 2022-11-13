@@ -18,9 +18,9 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.taskesforpoint')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Event')
+        @can('Create-Vote_Question')
         <div class="card-toolbar">
-            <a href="{{route('taskes-for-points.create')}}"
+            <a href="{{route('taskesforpoints.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.taskesforpoint')}}</a>
         </div>
         @endcan
@@ -38,18 +38,18 @@
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.points')}}</th>
                         <th style="min-width: 150px">{{__('cms.type')}}</th>
-                        {{-- @canany(['Update-Event','Delete-Event']) --}}
+                        @canany(['Update-Vote_Question','Delete-Vote_Question'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $taskes_for_point)
+                    @foreach ($data as $taskesforpoint)
                     <tr>
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$taskes_for_point->translations->first()?->task_title
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$taskesforpoint->translations->first()?->title
                                 ?? ''}}</a>
                         </td>
 
@@ -58,10 +58,10 @@
 
 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$taskes_for_point->id}}_translations"
-                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$taskes_for_point->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$taskes_for_point->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$taskes_for_point->id}}_translations" aria-hidden="true">
+                            <a href="#" data-toggle="modal" data-target="#sports_{{$taskesforpoint->id}}_translations"
+                                class="btn btn-light-primary font-weight-bolder font-size-sm">({{$taskesforpoint->translations_count}})</a>
+                            <div class="modal fade" id="sports_{{$taskesforpoint->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="sports_{{$taskesforpoint->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -80,19 +80,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($taskes_for_point->translations as $translation)
+                                                    @foreach ($taskesforpoint->translations as $translation)
                                                     <tr>
                                                         <td>
                                                             <span
-                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->task_title}}</span>
+                                                                class="text-info font-weight-bolder d-block font-size-lg">{{$translation->title}}</span>
                                                         </td>
                                                         <td>
                                                             <span
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            @can('Update-Event')
-                                                            <a href="{{route('taskes-for-point-translations.create',$translation->id)}}"
+                                                            @can('Update-Vote_Question')
+                                                            <a href="{{route('taskesforpoint-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
@@ -117,7 +117,7 @@
                                                                 </span>
                                                             </a>
                                                             @endcan
-                                                            @can('Delete-Event')
+                                                            @can('Delete-Vote_Question')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -160,20 +160,20 @@
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$taskes_for_point->type
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$taskesforpoint->type
                                 ?? ''}} </a>
                         </td>
 
                         <td class="pl-0">
-                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$taskes_for_point->point
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$taskesforpoint->point
                              ??''}}</a>
                         </td>
 
 
 
                         <td class="pr-0 text-right">
-                            @can('Create-Event')
-                            <a href="{{route('taskes-for-point-translations.create',$taskes_for_point->id)}}"
+                            @can('Create-Vote_Question')
+                            <a href="{{route('taskesforpoint-translations.create',$taskesforpoint->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\legacy\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg-->
@@ -191,8 +191,8 @@
                                 </span>
                             </a>
                             @endcan
-                            @can('Delete-Event')
-                            <a href="#" onclick="performSportsDestroy('{{$taskes_for_point->id}}', this)"
+                            @can('Delete-Vote_Question')
+                            <a href="#" onclick="performSportsDestroy('{{$taskesforpoint->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
@@ -229,10 +229,10 @@
 <script src="{{asset('assets/js/pages/widgets.js')}}"></script>
 <script>
     function performSportsDestroy(id,reference) {
-        confirmDestroy('/cms/admin/taskes-for-points', id, reference);
+        confirmDestroy('/cms/admin/taskesforpoints', id, reference);
     }
     function performTranslationDestroy(id,reference) {
-        confirmDestroy('/cms/admin/taskes-for-points/translations', id, reference);
+        confirmDestroy('/cms/admin/taskesforpoints/translations', id, reference);
     }
 </script>
 @endsection

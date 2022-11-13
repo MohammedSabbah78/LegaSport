@@ -372,21 +372,19 @@ Route::group([
 
         /*
         |--------------------------------------------------------------------------
-        | Taskes-For-Point Routes
+        | taskesforpoint Routes
         |--------------------------------------------------------------------------
         */
-        // Route::get('taskes-for-points', [TaskesForPointController::class, 'index'])->name('taskes-for-points.index');
-        // Route::get('taskes-for-points/create', [TaskesForPointController::class, 'create'])->name('taskes-for-points.create');
-        // Route::post('taskes-for-points', [TaskesForPointController::class, 'store'])->name('taskes-for-points.store');
-        // Route::delete('taskes-for-points/{taskesforpoint}', [TaskesForPointController::class, 'destroy'])->name('taskes-for-points.destroy');
+        Route::get('taskesforpoints', [TaskesForPointController::class, 'index'])->name('taskesforpoints.index');
+        Route::get('taskesforpoints/create', [TaskesForPointController::class, 'create'])->name('taskesforpoints.create');
+        Route::post('taskesforpoints', [TaskesForPointController::class, 'store'])->name('taskesforpoints.store');
+        Route::delete('taskesforpoints/{taskesforpoint}', [TaskesForPointController::class, 'destroy'])->name('taskesforpoints.destroy');
 
-        // Route::get('taskes-for-points/translation/{language}', [TaskesForPointTranslationController::class, 'showByLanguage'])->name('taskes-for-point-translations.showByLanguage');
-        // Route::get('taskes-for-points/{taskesforpoint}/translation/create', [TaskesForPointTranslationController::class, 'create'])->name('taskes-for-point-translations.create');
-        // Route::post('taskes-for-points/{taskesforpoint}/translation', [TaskesForPointTranslationController::class, 'store'])->name('taskes-for-point-translations.store');
-        // Route::get('taskes-for-points/translations/{taskesforpointTranslation}/edit', [TaskesForPointTranslationController::class, 'edit'])->name('taskes-for-point-translations.edit');
-        // Route::put('taskes-for-points/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'update'])->name('taskes-for-point-translations.update');
-        // Route::delete('taskes-for-points/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'destroy'])->name('taskes-for-point-translations.destroy');
-
-
+        Route::get('taskesforpoints/translation/{language}', [TaskesForPointTranslationController::class, 'showByLanguage'])->name('taskesforpoint-translations.showByLanguage');
+        Route::get('taskesforpoints/{taskesforpoint}/translation/create', [TaskesForPointTranslationController::class, 'create'])->name('taskesforpoint-translations.create');
+        Route::post('taskesforpoints/{taskesforpoint}/translation', [TaskesForPointTranslationController::class, 'store'])->name('taskesforpoint-translations.store');
+        Route::get('taskesforpoints/translations/{taskesforpointTranslation}/edit', [TaskesForPointTranslationController::class, 'edit'])->name('taskesforpoint-translations.edit');
+        Route::put('taskesforpoints/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'update'])->name('taskesforpoint-translations.update');
+        Route::delete('taskesforpoints/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'destroy'])->name('taskesforpoint-translations.destroy');
     });
 });

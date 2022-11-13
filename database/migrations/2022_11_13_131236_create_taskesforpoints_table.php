@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sponsers', function (Blueprint $table) {
+        Schema::create('taskesforpoints', function (Blueprint $table) {
             $table->id();
+            $table->enum('type', ['player', 'coach']);
+            $table->integer('point');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sponsers');
+        Schema::dropIfExists('taskesforpoints');
     }
 };
