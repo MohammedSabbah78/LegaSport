@@ -37,6 +37,8 @@
                         <th class="pl-0" style="min-width: 100px">{{__('cms.image')}}</th>
                         <th style="min-width: 150px">{{__('cms.title')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
+                        <th style="min-width: 150px">{{__('cms.countries')}}</th>
+                        <th style="min-width: 150px">{{__('cms.city')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
                         @canany(['Update-Sport','Delete-Sport'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
@@ -157,6 +159,18 @@
                                     </div>
                                 </div>
                             </div>
+                        </td>
+
+                        <td class="pl-0">
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$sport->translations->first()?->city->name
+                                ?? ''}}</a>
+                        </td>
+
+                        <td class="pl-0">
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$sport->translations->first()?->country->name
+                                ?? ''}}</a>
                         </td>
                         <td>
                             <span

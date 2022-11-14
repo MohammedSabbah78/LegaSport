@@ -16,6 +16,11 @@ class NationalityTranslation extends Model
         return $this->belongsTo(Nationality::class, 'nationality_id', 'id');
     }
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
+
     public function language()
     {
         return $this->belongsTo(Language::class, 'language_id', 'id');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ControllersService;
+use App\Models\City;
+use App\Models\Country;
 use App\Models\Language;
 use App\Models\Sport;
 use App\Models\SportTranslation;
@@ -40,7 +42,9 @@ class SportController extends Controller
     {
         //
         $languages = Language::all();
-        return response()->view('cms.sport.create', ['languages' => $languages]);
+        $citys = City::where('active', '=', true)->get();
+        $countrys = Country::where('active', '=', true)->get();
+        return response()->view('cms.sport.create', ['languages' => $languages, 'countrys' => $countrys, 'citys' => $citys]);
     }
 
     /**
@@ -54,6 +58,8 @@ class SportController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
+            'city' => 'required|numeric|exists:cities,id',
+            'country' => 'required|numeric|exists:countries,id',
             'title' => 'required|string|min:3|max:30',
             'active' => 'required|boolean',
             'image' => 'required|image|mimes:jpg,png',
@@ -70,6 +76,8 @@ class SportController extends Controller
             if ($isSaved) {
                 $translation = new SportTranslation();
                 $translation->title = $request->input('title');
+                $translation->city_id = $request->input('city');
+                $translation->country_id = $request->input('country');
                 $translation->language_id = $request->input('language');
                 $translation->sport_id = $sport->id;
                 $translation->save();

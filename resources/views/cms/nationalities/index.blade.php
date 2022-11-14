@@ -36,6 +36,7 @@
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
                         <th class="pl-0" style="min-width: 100px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
+                        <th class="pl-0" style="min-width: 100px">{{__('cms.country')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
                         @canany(['Update-Nationality','Delete-Nationality'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
@@ -151,6 +152,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </td>
+
+
+                        <td class="pl-0">
+                            <a href="#"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$nationality->translations->first()?->country->name
+                                ?? ''}}</a>
                         </td>
                         <td>
                             <span
