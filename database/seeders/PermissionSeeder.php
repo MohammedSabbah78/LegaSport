@@ -109,5 +109,94 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Read-DayWorks', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Update-DayWork', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Delete-DayWork', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Federation', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Federations', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Federation', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Federation', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Partner', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Partners', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Partner', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Partner', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Club', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Clubs', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Club', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Club', 'guard_name' => 'admin']);
+
+
+
+
+        // Permission::create(['name' => 'Create-Paymen', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Paymens', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Paymen', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Paymen', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Office', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Offices', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Office', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Office', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Faq', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Faqs', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Faq', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Faq', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-Term', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Terms', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Term', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Term', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-Policie', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Policies', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Policie', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Policie', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-About', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Abouts', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-About', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-About', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Plan', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Plans', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Plan', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Plan', 'guard_name' => 'admin']);
+
+
+
+        // Permission::create(['name' => 'Create-Sponser', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Sponsers', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Sponser', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Sponser', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Offer', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Offers', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Offer', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Offer', 'guard_name' => 'admin']);
+
+
+
+        // Permission::create(['name' => 'Create-Vote_Question', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Vote_Questions', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Vote_Question', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Vote_Question', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Taskes_For_Point', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Taskes_For_Points', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Taskes_For_Point', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Taskes_For_Point', 'guard_name' => 'admin']);
+
+
+        Permission::create(['name' => 'Create-Mercato', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Read-Mercatos', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Update-Mercato', 'guard_name' => 'admin']);
+        Permission::create(['name' => 'Delete-Mercato', 'guard_name' => 'admin']);
     }
 }

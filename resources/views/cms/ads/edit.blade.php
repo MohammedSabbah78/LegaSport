@@ -26,7 +26,7 @@
                         <label class="col-3 col-form-label">{{__('cms.image')}}:</label>
                         <div class="col-9">
                             <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
-                                style="background-image: url({{Storage::url($admin->image)}})">
+                                style="background-image: url({{Storage::url($ad->image)}})">
                                 <div class="image-input-wrapper"></div>
 
                                 <label

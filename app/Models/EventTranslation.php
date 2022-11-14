@@ -15,6 +15,12 @@ class EventTranslation extends Model
         return $this->belongsTo(Event::class, 'event_id', 'id');
     }
 
+
+    public function sponser()
+    {
+        return $this->hasMany(Sponser::class, 'event_id', 'id');
+    }
+
     public function language()
     {
         return $this->belongsTo(Language::class, 'language_id', 'id');

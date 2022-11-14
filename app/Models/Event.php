@@ -11,7 +11,7 @@ class Event extends Model
     use HasFactory;
     public function name(): Attribute
     {
-        return new Attribute(get: fn () => $this->translations->first()->name ?? '-');
+        return new Attribute(get: fn () => $this->translations->first()->title ?? '-');
     }
 
     public function privateKey(): Attribute

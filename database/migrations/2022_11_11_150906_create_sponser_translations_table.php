@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('sponser_translations', function (Blueprint $table) {
+            $table->id();
+            $table->string('cost');
+            $table->foreignId('partner_id')->constrained();
+            $table->foreignId('event_id')->constrained();
+            $table->foreignId('language_id')->constrained();
+            $table->foreignId('sponser_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('sponser_translations');
+    }
+};

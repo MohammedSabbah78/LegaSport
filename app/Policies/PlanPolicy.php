@@ -19,7 +19,7 @@ class PlanPolicy
     public function viewAny($user)
     {
         //
-        return $user->hasPermissionTo('Read-Plans')
+        return $user->hasPermissionTo('Read_Plans')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -34,7 +34,7 @@ class PlanPolicy
     public function view($user, plan $plan)
     {
         //
-        return $user->hasPermissionTo('Read-Plans')
+        return $user->hasPermissionTo('Read_Plans')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -48,7 +48,7 @@ class PlanPolicy
     public function create($user)
     {
         //
-        return $user->hasPermissionTo('Create-Plan')
+        return $user->hasPermissionTo('Create_Plan')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -63,7 +63,7 @@ class PlanPolicy
     public function update($user, plan $plan)
     {
         //
-        return $user->hasPermissionTo('Update-Plan')
+        return $user->hasPermissionTo('Update_Plan')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }
@@ -78,7 +78,7 @@ class PlanPolicy
     public function delete($user, plan $plan)
     {
         //
-        return $user->hasPermissionTo('Delete-Plan')
+        return $user->hasPermissionTo('Delete_Plan')
             ? $this->allow()
             : $this->deny(__('cms.permissionreadeeroor'));
     }

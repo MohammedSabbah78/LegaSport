@@ -29,4 +29,9 @@ class Country extends Model
     {
         return $this->hasMany(City::class, 'country_id', 'id');
     }
+
+    public function federationTranslation()
+    {
+        return $this->hasMany(FederationTranslation::class, 'city_id', 'id');
+    }
 }

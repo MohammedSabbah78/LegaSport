@@ -401,7 +401,34 @@ return [
 
     'male' => 'Male',
     'feMale' => 'Female',
-    'max_month' => 'Max Month'
+    'max_month' => 'Max Month',
+    'federations' => 'Federations',
+    'webist' => 'Webist',
+    'compony_record' => 'Compony Record',
+    'num_branch' => 'Num Branch',
+    'partner' => 'Partner',
+    'clubs' => 'Club',
+    'name_manger' => 'NAME MANGER',
+    'member_num' => 'MEMBER NUM',
+    'representative' => 'Representative',
+    'offices' => 'Office',
+    'address1' => 'ADDRESS 1',
+    'address2' => 'ADDRESS 2',
+    'work_from' => 'WORK_FROM',
+    'work_to' => 'WORK_TO',
+    'term' => 'Term',
+    'policie' => 'Policies',
+    'mission' => 'Mission',
+    'sponsers' => 'Sponser',
+    'cost' => 'Cost',
+    'taskesforpoint' => 'Taskes For Ppoint',
+    'offers' => 'Offer',
+    'votequestions' => 'Vote Question',
+    'mercatos' => 'Mercatos',
+    'salary' => 'Salary',
+    'permanet' => 'Permanet',
+    'trmporary' => 'Trmporary',
+    'add' => 'ADD'
 
 
 ];

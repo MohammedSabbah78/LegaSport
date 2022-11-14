@@ -15,6 +15,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CenterController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Center::class, 'center');
+    }
     /**
      * Display a listing of the resource.
      *

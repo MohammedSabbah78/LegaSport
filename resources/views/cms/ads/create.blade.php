@@ -122,7 +122,6 @@ formData.append('active',document.getElementById('active').checked ? 1:0);
 
 
 store('/cms/admin/ads',formData);
-window.location.href='/cms/admin/ads'
 }
 </script>
 @endsection

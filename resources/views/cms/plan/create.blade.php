@@ -84,6 +84,30 @@
                         </div>
                     </div>
 
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">{{__('cms.type')}}</label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="dropdown bootstrap-select form-control dropup">
+                                <div class="dropdown bootstrap-select form-control"><select class="form-control selectpicker" data-size="7"
+                                        id="type" title="Choose one of the following..." tabindex="null" data-live-search="true">
+                                        <option value="player">{{__('cms.player')}}</option>
+                                        <option value="coach">{{{__('cms.coache')}}}</option>
+                                        <option value="academy">{{{__('cms.academy')}}}</option>
+                                    </select>
+                                    <div class="dropdown-menu ">
+                                        <div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off"
+                                                role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list">
+                                        </div>
+                                        <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
+                                            <ul class="dropdown-menu inner show" role="presentation"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="form-text text-muted">Please select Type</span>
+                        </div>
+                    </div>
+
 
                     <div class="separator separator-dashed my-10"></div>
                     <h3 class="text-dark font-weight-bold mb-10">{{__('cms.settings')}}</h3>
@@ -134,6 +158,7 @@ formData.append('title',document.getElementById('title').value);
 formData.append('description',document.getElementById('description').value);
 formData.append('price',document.getElementById('price').value);
 formData.append('max_month',document.getElementById('max_month').value);
+formData.append('type',document.getElementById('type').value);
 formData.append('active',document.getElementById('active').checked ? 1:0);
 
 

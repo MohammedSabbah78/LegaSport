@@ -395,6 +395,36 @@ return [
     'male' => 'ذكر',
     'feMale' => 'إنثى',
 
-    'max_month' => 'عدد الاشهر'
+    'max_month' => 'عدد الاشهر',
+    'federations' => 'الإتحادات',
+
+    'webist' => 'الرابط الإلكتروني',
+    'compony_record' => 'سجل الشركة',
+    'num_branch' => 'عدد الافرع',
+    'partner' => 'الشركاء',
+    'clubs' => 'النادي',
+    'name_manger' => 'اسم المدير',
+    'member_num' => 'عدد الأعضاء',
+    'representative' => 'وكيل',
+    'offices' => 'مكتب',
+    'address1' => 'العنوان 1',
+    'address2' => 'العنوان 2',
+    'work_from' => 'العمل من',
+    'work_to' => 'العمل الى',
+    'term' => 'الشروط',
+    'policie' => 'السياسات والإجراءات',
+    'mission' => 'البعثة',
+    'sponsers' => 'الرعاة',
+    'cost' => 'الزي',
+    'taskesforpoint' => 'Taskes For Ppoint',
+    'offers' => 'عرض',
+    'votequestions' => 'سؤال التصويت',
+    'mercatos' => 'كرة ',
+    'salary' => 'مرتب',
+    'permanet' => 'دائم',
+    'trmporary' => 'مؤقت',
+    'add' => 'يضيف'
+
+
 
 ];

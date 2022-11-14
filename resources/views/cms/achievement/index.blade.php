@@ -38,9 +38,9 @@
                         <th style="min-width: 150px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
-                        {{-- @canany(['Update-Country','Delete-Country']) --}}
+                        @canany(['Update-Achievement','Delete-Achievement'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
@@ -95,7 +95,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Achievement_Language') --}}
+                                                            @can('Update-Achievement')
                                                             <a href="{{route('achievement-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -120,8 +120,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Achievement_Language') --}}
+                                                            @endcan
+                                                            @can('Delete-Achievement')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$achievements->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -145,7 +145,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -165,7 +165,7 @@
                                 class="label label-lg @if($achievements->active) label-light-success @else label-light-warning @endif label-inline">{{$achievements->active_key}}</span>
                         </td>
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Achievement_Language') --}}
+                            @can('Create-Achievement')
                             <a href="{{route('achievement-translations.create',$achievements->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -183,8 +183,8 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Achievement') --}}
+                            @endcan
+                            @can('Delete-Achievement')
                             <a href="#" onclick="performSportsDestroy('{{$achievements->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -204,7 +204,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
                     </tr>
                     @endforeach
