@@ -48,7 +48,7 @@
 
                         <th style="min-width: 150px">{{__('cms.end_date')}}</th>
                         <th style="min-width: 150px">{{__('cms.start_date')}}</th>
-                        @canany(['Update-Event','Delete-Event'])
+                        @canany(['Update_Event','Delete_Event'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
                         @endcanany
                     </tr>
@@ -113,7 +113,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            @can('Update-Event')
+                                                            @can('Update_Event')
                                                             <a href="{{route('event-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -139,7 +139,7 @@
                                                                 </span>
                                                             </a>
                                                             @endcan
-                                                            @can('Delete-Event')
+                                                            @can('Delete_Event')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -242,7 +242,7 @@
 
 
                         <td class="pr-0 text-right">
-                            @can('Create-Event')
+                            @can('Create_Event')
                             <a href="{{route('event-translations.create',$event->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -261,7 +261,7 @@
                                 </span>
                             </a>
                             @endcan
-                            @can('Delete-Event')
+                            @can('Delete_Event')
                             <a href="#" onclick="performSportsDestroy('{{$event->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">

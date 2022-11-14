@@ -29,7 +29,7 @@ class EventTranslationController extends Controller
     public function create(Event $event)
     {
         //
-        if (auth('admin')->user()->can('Create-Event')) {
+        if (auth('admin')->user()->can('Create_Event')) {
             $languages = Language::whereDoesntHave('eventTranslations', function ($query) use ($event) {
                 $query->where('event_id', '=', $event->id);
             })->get();
@@ -86,7 +86,7 @@ class EventTranslationController extends Controller
      */
     public function edit(EventTranslation $eventTranslation)
     {
-        if (auth('admin')->user()->can('Update-Event')) {
+        if (auth('admin')->user()->can('Update_Event')) {
             $languages = Language::all();
             return response()->view('cms.eventss.edit', ['eventTranslation' => $eventTranslation, 'languages' => $languages]);
         } else {
