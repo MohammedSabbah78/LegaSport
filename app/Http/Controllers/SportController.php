@@ -133,7 +133,7 @@ class SportController extends Controller
                 $translation->sport_id = $sport->id;
                 $translation->save();
             }
-            return ControllersService::generateProcessResponse($isSaved, 'CREATE');
+            return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
         }

@@ -66,4 +66,83 @@ class Language extends Model
     {
         return $this->hasMany(EventTranslation::class, 'language_id', 'id');
     }
+
+    public function federationTranslations()
+    {
+        return $this->hasMany(FederationTranslation::class, 'language_id', 'id');
+    }
+
+    public function partnerTranslations()
+    {
+        return $this->hasMany(PartnerTranslation::class, 'language_id', 'id');
+    }
+
+    public function clubTranslations()
+    {
+        return $this->hasMany(ClubTranslation::class, 'language_id', 'id');
+    }
+
+    public function FaqsTranslations()
+    {
+        return $this->hasMany(FaqTranslation::class, 'language_id', 'id');
+    }
+
+    public function PaymenTranslations()
+    {
+        return $this->hasMany(PaymenTranslation::class, 'language_id', 'id');
+    }
+
+    public function OfficeTranslations()
+    {
+        return $this->hasMany(OfficeTranslation::class, 'language_id', 'id');
+    }
+
+
+
+    public function StorecategoryTranslations()
+    {
+        return $this->hasMany(StorecategoryTranslation::class, 'language_id', 'id');
+    }
+
+    public function TermTranslations()
+    {
+        return $this->hasMany(TermTranslation::class, 'language_id', 'id');
+    }
+
+    public function PolicieTranslations()
+    {
+        return $this->hasMany(PolicieTranslation::class, 'language_id', 'id');
+    }
+
+    public function AboutTranslations()
+    {
+        return $this->hasMany(AboutTranslation::class, 'language_id', 'id');
+    }
+
+    public function SponserTranslations()
+    {
+        return $this->hasMany(SponserTranslation::class, 'language_id', 'id');
+    }
+
+
+    public function TaskesforpointTranslations()
+    {
+        return $this->hasMany(TaskesforpointTranslation::class, 'language_id', 'id');
+    }
+
+
+    public function OfferTranslations()
+    {
+        return $this->hasMany(OfferTranslation::class, 'language_id', 'id');
+    }
+
+    public function VotequestionTranslations()
+    {
+        return $this->hasMany(VotequestionTranslation::class, 'language_id', 'id');
+    }
+
+    public function MercatoTranslations()
+    {
+        return $this->hasMany(MercatoTranslation::class, 'language_id', 'id');
+    }
 }

@@ -29,4 +29,10 @@ class City extends Model
     {
         return $this->hasMany(CityTranslation::class, 'city_id', 'id');
     }
+
+
+    public function office()
+    {
+        return $this->belongsTo(OfficeTranslation::class, 'city_id', 'id');
+    }
 }

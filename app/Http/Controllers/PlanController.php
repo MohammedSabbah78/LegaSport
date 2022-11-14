@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Plan::class, 'plan');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -52,12 +57,14 @@ class PlanController extends Controller
             'description' => 'required|string|min:3|max:30',
             'price' => 'required|numeric',
             'max_month' => 'required|string',
+            'type' => 'required|string|in:player,coach,academy',
             'active' => 'required|boolean',
         ]);
         if (!$validator->fails()) {
             $plan = new Plan();
             $plan->price = $request->input('price');
             $plan->max_month = $request->input('max_month');
+            $plan->type = $request->input('type');
             $plan->active = $request->input('active');
             $isSaved = $plan->save();
             if ($isSaved) {
@@ -112,11 +119,13 @@ class PlanController extends Controller
             'description' => 'required|string|min:3|max:30',
             'price' => 'required|numeric',
             'max_month' => 'required|string|min:3|max:30',
+            'type' => 'required|string|in:player,coach,academy',
             'active' => 'required|boolean',
         ]);
         if (!$validator->fails()) {
             $plan->price = $request->input('price');
             $plan->max_month = $request->input('max_month');
+            $plan->type = $request->input('type');
             $plan->active = $request->input('active');
             $isSaved = $plan->save();
             if ($isSaved) {
@@ -127,7 +136,7 @@ class PlanController extends Controller
                 $translation->plan_id = $plan->id;
                 $translation->save();
             }
-            return ControllersService::generateProcessResponse($isSaved, 'CREATE');
+            return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
         }

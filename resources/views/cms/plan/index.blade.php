@@ -18,7 +18,7 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.plans')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Plan')
+        @can('Create_Plan')
         <div class="card-toolbar">
             <a href="{{route('plans.create')}}"
                 class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.plans')}}</a>
@@ -38,11 +38,12 @@
                         <th style="min-width: 150px">{{__('cms.description')}}</th>
                         <th style="min-width: 150px">{{__('cms.price')}}</th>
                         <th style="min-width: 150px">{{__('cms.date')}}</th>
+                        <th style="min-width: 150px">{{__('cms.type')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.active')}}</th>
-                        {{-- @canany(['Update-Country','Delete-Country']) --}}
+                        @canany(['Update_Plan','Delete_Plan'])
                         <th class="pr-0 text-right" style="min-width: 160px">{{__('cms.actions')}}</th>
-                        {{-- @endcanany --}}
+                        @endcanany
                     </tr>
                 </thead>
                 <tbody>
@@ -72,6 +73,15 @@
                                 class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->max_month
                                 ?? ''}}</a>
                         </td>
+
+
+
+                        <td class="pl-0">
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$plan->type
+                                ?? ''}}</a>
+                        </td>
+
+
                         <td>
                             <a href="#" data-toggle="modal" data-target="#sports_{{$plan->id}}_translations"
                                 class="btn btn-light-primary font-weight-bolder font-size-sm">({{$plan->translations_count}})</a>
@@ -106,7 +116,7 @@
                                                                 class="text-primary font-weight-bolder d-block font-size-lg">{{$translation->language->name}}</span>
                                                         </td>
                                                         <td class="pr-0 text-right">
-                                                            {{-- @can('Update-Country') --}}
+                                                            @can('Update_Plan')
                                                             <a href="{{route('plan-translations.edit',$translation->id)}}"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
                                                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -131,8 +141,8 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
-                                                            {{-- @can('Delete-Country') --}}
+                                                            @endcan
+                                                            @can('Delete_Plan')
                                                             <a href="#"
                                                                 onclick="performTranslationDestroy('{{$translation->id}}', this)"
                                                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
@@ -156,7 +166,7 @@
                                                                     <!--end::Svg Icon-->
                                                                 </span>
                                                             </a>
-                                                            {{-- @endcan --}}
+                                                            @endcan
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -177,7 +187,7 @@
                         </td>
 
                         <td class="pr-0 text-right">
-                            {{-- @can('Create-Country') --}}
+                            @can('Create_Plan')
                             <a href="{{route('plan-translations.create',$plan->id)}}"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -195,8 +205,8 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
-                            {{-- @can('Delete-Country') --}}
+                            @endcan
+                            @can('Delete_Plan')
                             <a href="#" onclick="performSportsDestroy('{{$plan->id}}', this)"
                                 class="btn btn-icon btn-light btn-hover-primary btn-sm">
                                 <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -216,7 +226,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </a>
-                            {{-- @endcan --}}
+                            @endcan
                         </td>
                     </tr>
                     @endforeach

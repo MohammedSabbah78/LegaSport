@@ -12,6 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AchievementController extends Controller
 {
+
+    public  function __construct()
+    {
+        $this->authorizeResource(Achievement::class, 'achievement');
+    }
     /**
      * Display a listing of the resource.
      *

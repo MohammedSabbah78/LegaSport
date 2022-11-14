@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\Admin;
+use App\Models\paymen;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class PaymenPolicy
+{
+    use HandlesAuthorization;
+
+    /**
+     * Determine whether the user can view any models.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function viewAny($user)
+    {
+        //
+        return $user->hasPermissionTo('Read-Paymens')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\paymen  $paymen
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function view($user, paymen $paymen)
+    {
+        //
+        return $user->hasPermissionTo('Read-Paymens')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
+    }
+
+    /**
+     * Determine whether the user can create models.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function create($user)
+    {
+        //
+        return $user->hasPermissionTo('Create-Paymen')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\paymen  $paymen
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function update($user, paymen $paymen)
+    {
+        //
+        return $user->hasPermissionTo('Update-Paymen')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\paymen  $paymen
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function delete($user, paymen $paymen)
+    {
+        return $user->hasPermissionTo('Delete-Paymen')
+            ? $this->allow()
+            : $this->deny(__('cms.permissionreadeeroor'));
+    }
+    /**
+     * Determine whether the user can restore the model.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\paymen  $paymen
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function restore(Admin $admin, paymen $paymen)
+    {
+        //
+    }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\paymen  $paymen
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function forceDelete(Admin $admin, paymen $paymen)
+    {
+        //
+    }
+}

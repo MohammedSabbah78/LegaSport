@@ -155,7 +155,7 @@
 @section('scripts')
 <script>
     var image = new KTImageInput('kt_image_5');
-   
+
 </script>
 <script>
     controlFormInputs(true);
