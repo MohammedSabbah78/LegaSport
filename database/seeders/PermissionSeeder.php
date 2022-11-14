@@ -195,8 +195,23 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Delete-Mercato', 'guard_name' => 'admin']);
 
 
+        // Permission::create(['name' => 'Create_Plan', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read_Plans', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update_Plan', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete_Plan', 'guard_name' => 'admin']);
 
-        $permAdmin = Permission::where('guard_name','admin')->get();
-        (Role::where('name','Super-Admin')->first())->givePermissionTo($permAdmin);
+        // Permission::create(['name' => 'Create_Event', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read_Events', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update_Event', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete_Event', 'guard_name' => 'admin']);
+
+
+
+
+
+
+
+        // $permAdmin = Permission::where('guard_name', 'admin')->get();
+        // (Role::where('name', 'Super-Admin')->first())->givePermissionTo($permAdmin);
     }
 }
