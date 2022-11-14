@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Helpers\ControllersService;
 use App\Models\Center;
 use App\Models\CenterTranslation;
+use App\Models\Day;
+use App\Models\DayCenter;
+use App\Models\DayTranslation;
 use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
 
 class CenterController extends Controller
 {
@@ -168,5 +172,60 @@ class CenterController extends Controller
             }
         }
         return ControllersService::generateProcessResponse($deleted, 'DELETE');
+    }
+
+
+
+
+    //----------------- Day Work Center -----------------
+    public function getDayWorkByLang(Language $language)
+    {
+        $dayTrans = DayTranslation::where('language_id', $language->id)->get();
+        // if (count($dayTrans) < 7) {
+        // $dayTrans = DayTranslation::where('language_id', 1)->get();
+        // }
+
+        return response()->json(['data' => $dayTrans], Response::HTTP_OK);
+    }
+
+    public function dayWork(Center $center)
+    {
+        if (!auth()->user()->can('Create-DayWork')) {
+            return abort(403);
+        }
+        $languages = Language::all();
+        $days = Day::all();
+        return view('cms.center.days', ['languages' => $languages, 'center' => $center, 'days' => $days]);
+    }
+
+    public function centerDayWork(Request $request, Center $center)
+    {
+        foreach (json_decode($request->input('day')) as $d) {
+            $isSaved = false;
+            $dayCenter = DayCenter::where('day_id', $d->day_id)->where('center_id', $center->id)->first();
+            if ($dayCenter == null) {
+                $newDayCenter = new DayCenter();
+                $newDayCenter->center_id = $center->id;
+                $newDayCenter->day_id = $d->day_id;
+                $newDayCenter->start_time = $d->start_time;
+                $newDayCenter->close_time = $d->close_time;
+                $newDayCenter->save();
+            } else {
+                $dayCenter->day_id = $d->day_id;
+                $dayCenter->start_time = $d->start_time;
+                $dayCenter->close_time = $d->close_time;
+                $dayCenter->save();
+            }
+            // $dayCenter = DayCenter::updateOrCreate([
+            //     'center_id' => $center->id,
+            //     'day_id' => $d->day_id
+            // ], [
+            //     // 'day_id' => $d->day_id,
+            //     'start_time' => $d->start_time,
+            //     'close_time' => $d->close_time,
+            // ]);
+        }
+        $isSaved = true;
+        return ControllersService::generateProcessResponse($isSaved, 'CREATE');
     }
 }

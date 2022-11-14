@@ -94,6 +94,21 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Update-Achievement', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Delete-Achievement', 'guard_name' => 'admin']);
 
+        // Permission::create(['name' => 'Create-Event', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Events', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Event', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Event', 'guard_name' => 'admin']);
+
+
+        // Permission::create(['name' => 'Create-Day', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Days', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Day', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Day', 'guard_name' => 'admin']);
+
+        // Permission::create(['name' => 'Create-DayWork', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-DayWorks', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-DayWork', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-DayWork', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Create-Federation', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Read-Federations', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Update-Federation', 'guard_name' => 'admin']);

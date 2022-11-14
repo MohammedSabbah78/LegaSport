@@ -3,11 +3,14 @@
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CenterController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CityTranslationController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\CountryTranslationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DayController;
+use App\Http\Controllers\DayTranslationController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\NationalityController;
 use App\Http\Controllers\NationalityTranslationController;
@@ -158,7 +161,28 @@ Route::group([
         Route::put('on-boarding-screens/translations/{onBoardingScreenTranslation}', [OnBoardingScreenTranslationController::class, 'update'])->name('on-boarding-screen-translations.update');
         Route::delete('on-boarding-screens/translations/{onBoardingScreenTranslation}', [OnBoardingScreenTranslationController::class, 'destroy'])->name('on-boarding-screen-translations.destroy');
 
+        /*
+        |--------------------------------------------------------------------------
+        | Days Routes
+        |--------------------------------------------------------------------------
+        */
 
+        Route::resource('days', DayController::class);
+
+        Route::get('days/{day}/translation/create', [DayTranslationController::class, 'create'])->name('day-translations.create');
+        Route::post('days/{day}/translation', [DayTranslationController::class, 'store'])->name('day-translations.store');
+        Route::get('days/translations/{day_translation}/edit', [DayTranslationController::class, 'edit'])->name('day-translations.edit');
+        Route::put('days/translations/{day_translation}', [DayTranslationController::class, 'update'])->name('day-translations.update');
+        Route::delete('days/translations/{day_translation}', [DayTranslationController::class, 'destroy'])->name('day-translations.destroy');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Center Day Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('centers/daywork/{center}', [CenterController::class, 'dayWork'])->name('centers.day');
+        Route::post('centers/daywork/{center}', [CenterController::class, 'centerDayWork']);
+        Route::get('centers/get-daywork/{language}', [CenterController::class, 'getDayWorkByLang']);
 
         /*
         |--------------------------------------------------------------------------
