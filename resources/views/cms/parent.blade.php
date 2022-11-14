@@ -181,6 +181,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
 							@endcanany
+
 							@canany(['Read-Admins','Create-Admin'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
@@ -247,6 +248,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
 							@endcanany
+
+
 							@canany(['Read-Roles','Create-Role'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
@@ -301,6 +304,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								</div>
 							</li>
 							@endcanany
+
+
 							@canany(['Read-Permissions'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
@@ -358,11 +363,11 @@ License: You must have a valid license purchased only from themeforest(the above
                             'Create-On-Boarding','Read-On-Boardings',
                             'Create-Sport','Read-Sports',
                             'Create-Nationality','Read-Nationalities',
-                            'Create-Event','Read-Events',
+
                             'Create-Achievement', 'Read-Achievements' ,
                             'Create_Plan','Read_Plans',
                             'Read-Centers', 'Create-Center',
-                            'Create-Event', 'Read-Events',
+                            'Create_Event', 'Read_Events',
                             'Create-Federation', 'Read-Federations',
                             'Create-Partner', 'Read-Partners',
                             'Create-Paymen', 'Read-Paymens',
@@ -879,7 +884,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</li>
 							@endcanany
 
-							@canany(['Create-Event', 'Read-Events'])
+							@canany(['Create_Event', 'Read_Events'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
 									<span class="svg-icon menu-icon">
@@ -910,7 +915,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<span class="menu-text">{{__('cms.events')}}</span>
 											</span>
 										</li>
-										@can('Create-Event')
+										@can('Create_Event')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('events.create')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -920,7 +925,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											</a>
 										</li>
 										@endcan
-										@can('Read-Events')
+										@can('Read_Events')
 										<li class="menu-item" aria-haspopup="true">
 											<a href="{{route('events.index')}}" class="menu-link">
 												<i class="menu-bullet menu-bullet-dot">
@@ -1425,6 +1430,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								<i class="menu-icon ki ki-bold-more-hor icon-md"></i>
 							</li>
 							@endcanany
+
+
 							@canany(['Create-Country','Read-Countries'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">
@@ -1592,7 +1599,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                             </li>
                             @endcanany
-                            
+
 
                             @canany(['Create-Paymen', 'Read-Paymens'])
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">

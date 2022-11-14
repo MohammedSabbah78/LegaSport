@@ -18,7 +18,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        if (auth('admin')->user()->can('Read-Events')) {
+        if (auth('admin')->user()->can('Read_Events')) {
             if (auth('admin')->check()) {
                 $data = Event::with('translations')->withCount(['translations'])->get();
                 return response()->view('cms.eventss.index', ['data' => $data]);
@@ -36,7 +36,7 @@ class EventController extends Controller
     public function create()
     {
         //
-        if (auth('admin')->user()->can('Create-Event')) {
+        if (auth('admin')->user()->can('Create_Event')) {
             if (auth('admin')->check()) {
                 $languages = Language::all();
                 return response()->view('cms.eventss.create', ['languages' => $languages]);
@@ -147,7 +147,7 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         //
-        if (auth('admin')->user()->can('Delete-Event')) {
+        if (auth('admin')->user()->can('Delete_Event')) {
             if (auth('admin')->check()) {
                 $deleted = $event->delete();
                 if ($deleted) {
