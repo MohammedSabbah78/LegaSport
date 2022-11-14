@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ControllersService;
+use App\Models\Country;
 use App\Models\Language;
 use App\Models\Nationality;
 use App\Models\NationalityTranslation;
@@ -38,7 +39,8 @@ class NationalityController extends Controller
     public function create()
     {
         $languages = Language::all();
-        return response()->view('cms.nationalities.create', ['languages' => $languages]);
+        $countrys = Country::where('active', '=', true)->get();
+        return response()->view('cms.nationalities.create', ['languages' => $languages, 'countrys' => $countrys]);
     }
 
     /**
@@ -51,18 +53,22 @@ class NationalityController extends Controller
     {
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
+            'country' => 'required|numeric|exists:countries,id',
             'name' => 'required|string|min:3|max:30',
             'active' => 'required|boolean',
         ]);
-
         if (!$validator->fails()) {
             $nationality = new Nationality();
             $nationality->active = $request->input('active');
             $isSaved = $nationality->save();
-            $isSaved ? $nationality->translations()->create([
-                'name' => $request->input('name'),
-                'language_id' => $request->input('language'),
-            ]) : $nationality->delete();
+            if ($isSaved) {
+                $translation = new NationalityTranslation();
+                $translation->name = $request->input('name');
+                $translation->country_id = $request->input('country');
+                $translation->language_id = $request->input('language');
+                $translation->nationality_id = $nationality->id;
+                $translation->save();
+            }
             return ControllersService::generateProcessResponse($isSaved, 'CREATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());

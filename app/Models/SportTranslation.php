@@ -14,6 +14,15 @@ class SportTranslation extends Model
     {
         return $this->belongsTo(Sport::class, 'sport_id', 'id');
     }
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
 
     public function language()
     {

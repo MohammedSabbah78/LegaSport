@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\ControllersService;
+use App\Models\Country;
 use App\Models\Language;
 use App\Models\Nationality;
 use App\Models\NationalityTranslation;
@@ -31,7 +32,8 @@ class NationalityTranslationController extends Controller
         $languages = Language::whereDoesntHave('nationalityTranslations', function ($query) use ($nationality) {
             $query->where('nationality_id', '=', $nationality->id);
         })->get();
-        return response()->view('cms.nationalities.create', ['languages' => $languages, 'nationality' => $nationality]);
+        $countrys = Country::where('active', '=', true)->get();
+        return response()->view('cms.nationalities.create', ['languages' => $languages, 'countrys' => $countrys, 'nationality' => $nationality]);
     }
 
     /**
@@ -45,11 +47,13 @@ class NationalityTranslationController extends Controller
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'name' => 'required|string|min:3|max:30',
+            'country' => 'required|numeric|exists:countries,id',
         ]);
 
         if (!$validator->fails()) {
             $nationalityTranslation = new NationalityTranslation();
             $nationalityTranslation->name = $request->input('name');
+            $nationalityTranslation->country_id = $request->input('country');
             $nationalityTranslation->language_id = $request->input('language');
             $nationalityTranslation->nationality_id = $nationality->id;
             $isSaved = $nationalityTranslation->save();
@@ -79,7 +83,8 @@ class NationalityTranslationController extends Controller
     public function edit(NationalityTranslation $nationalityTranslation)
     {
         $languages = Language::all();
-        return response()->view('cms.nationalities.edit', ['nationality' => $nationalityTranslation, 'languages' => $languages]);
+        $countrys = Country::where('active', '=', true)->get();
+        return response()->view('cms.nationalities.edit', ['nationality' => $nationalityTranslation, 'countrys' => $countrys, 'languages' => $languages]);
     }
     /**
      * Display the specified resource.
@@ -108,9 +113,11 @@ class NationalityTranslationController extends Controller
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'name' => 'required|string|min:3|max:30',
+            'country' => 'required|numeric|exists:countries,id',
         ]);
 
         if (!$validator->fails()) {
+            $nationalityTranslation->country_id = $request->input('country');
             $nationalityTranslation->name = $request->input('name');
             $nationalityTranslation->language_id = $request->input('language');
             $isSaved = $nationalityTranslation->save();

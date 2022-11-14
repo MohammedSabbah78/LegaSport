@@ -39,6 +39,23 @@
                                 {{__('cms.type')}}</span>
                         </div>
                     </div>
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.country')}}:<span class="text-danger">*</span></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="dropdown bootstrap-select form-control dropup">
+                                <select class="form-control selectpicker" data-size="7" id="country" title="Choose one of the following..."
+                                    tabindex="null" data-live-search="true" disabled>
+                                    @foreach ($countrys as $country)
+                                    <option value="{{$country->id}}" @selected($nationality->country_id ==
+                                        $country->id)>{{$country->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <span class="form-text text-muted">{{__('cms.please_select')}}
+                                {{__('cms.type')}}</span>
+                        </div>
+                    </div>
                     <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
@@ -91,7 +108,9 @@
     function performEdit(){
         let data = {
             language: document.getElementById('language').value,
+            country: document.getElementById('country').value,
             name: document.getElementById('name').value,
+
         }
         update('/cms/admin/nationalities/translations/{{$nationality->id}}', data, '/cms/admin/nationalities');
     }
