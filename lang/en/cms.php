@@ -427,7 +427,8 @@ return [
     'mercatos' => 'Mercatos',
     'salary' => 'Salary',
     'permanet' => 'Permanet',
-    'trmporary' => 'Trmporary'
+    'trmporary' => 'Trmporary',
+    'add' => 'ADD'
 
 
 ];

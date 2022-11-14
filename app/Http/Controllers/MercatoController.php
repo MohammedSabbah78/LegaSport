@@ -6,6 +6,7 @@ use App\Helpers\ControllersService;
 use App\Models\Language;
 use App\Models\Mercato;
 use App\Models\MercatoTranslation;
+use App\Models\Votequestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,10 +40,11 @@ class MercatoController extends Controller
     public function create()
     {
         //
-
+        $votequestions = Votequestion::all();
         $languages = Language::all();
         return response()->view('cms.mercato.create', [
             'languages' => $languages,
+            'votequestions' => $votequestions,
         ]);
     }
 

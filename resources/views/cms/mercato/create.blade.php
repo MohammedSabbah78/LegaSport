@@ -151,6 +151,38 @@
                     </div>
 
 
+                    <div class="form-group row">
+                        <table class="table table-head-custom table-vertical-center table-hover" id="kt_advance_table_widget_2">
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th style="min-width: 150px">{{__('cms.name')}}</th>
+                                    <th style="min-width: 120px">{{__('cms.add_today')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($votequestions as $votequestion)
+                                <tr>
+                                    <td class="pl-0">
+                                        <a href="#"
+                                            class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$votequestion->name}}</a>
+                                    </td>
+
+                                    <td class="pl-0">
+                                        <div class="checkbox-inline">
+                                            <label class="checkbox checkbox-success">
+                                                <input type="checkbox" name="votequestion_{{$votequestion->id}}" @if($votequestion->granted)
+                                                checked="checked"
+                                                @endif onclick="grantvotequestion()">
+                                                <span></span>{{__('cms.add')}}</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+
 
 
 
@@ -205,5 +237,14 @@ if(id == null) {
     }
 
 }
+</script>
+
+<script>
+    function grantvotequestion() {
+        let data = {
+            
+        }
+        store('/cms/admin/',data);
+    }
 </script>
 @endsection

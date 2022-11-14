@@ -415,7 +415,16 @@ return [
     'policie' => 'السياسات والإجراءات',
     'mission' => 'البعثة',
     'sponsers' => 'الرعاة',
-    'cost' => 'الزي'
+    'cost' => 'الزي',
+    'taskesforpoint' => 'Taskes For Ppoint',
+    'offers' => 'عرض',
+    'votequestions' => 'سؤال التصويت',
+    'mercatos' => 'كرة ',
+    'salary' => 'مرتب',
+    'permanet' => 'دائم',
+    'trmporary' => 'مؤقت',
+    'add' => 'يضيف'
+
 
 
 ];
