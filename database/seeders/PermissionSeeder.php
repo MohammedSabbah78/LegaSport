@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionSeeder extends Seeder
 {
@@ -162,12 +163,6 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Delete-About', 'guard_name' => 'admin']);
 
 
-        // Permission::create(['name' => 'Create-Plan', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Read-Plans', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Update-Plan', 'guard_name' => 'admin']);
-        // Permission::create(['name' => 'Delete-Plan', 'guard_name' => 'admin']);
-
-
 
         // Permission::create(['name' => 'Create-Sponser', 'guard_name' => 'admin']);
         // Permission::create(['name' => 'Read-Sponsers', 'guard_name' => 'admin']);
@@ -194,9 +189,14 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'Delete-Taskes_For_Point', 'guard_name' => 'admin']);
 
 
-        Permission::create(['name' => 'Create-Mercato', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Read-Mercatos', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Update-Mercato', 'guard_name' => 'admin']);
-        Permission::create(['name' => 'Delete-Mercato', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Create-Mercato', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Read-Mercatos', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Update-Mercato', 'guard_name' => 'admin']);
+        // Permission::create(['name' => 'Delete-Mercato', 'guard_name' => 'admin']);
+
+
+
+        $permAdmin = Permission::where('guard_name','admin')->get();
+        (Role::where('name','Super-Admin')->first())->givePermissionTo($permAdmin);
     }
 }
