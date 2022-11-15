@@ -73,8 +73,9 @@ class CenterController extends Controller
             if ($request->hasFile('image')) {
                 $imageName = time() . '_' . str_replace(' ', '', $center->name) . '.' . $request->file('image')->extension();
                 $request->file('image')->storePubliclyAs('center', $imageName, ['disk' => 'public']);
-                $center->image = 'image/' . $imageName;
+                $center->image = 'center/' . $imageName;
             }
+
             $isSaved = $center->save();
             if ($isSaved) {
                 $translation = new CenterTranslation();
