@@ -63,6 +63,9 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
 
+    Route::fallback(function () {
+        return response()->view('cms.auth.notfond');
+    });
     Route::prefix('cms/admin/')->middleware('auth:admin')->group(function () {
         // Mohammed Bhessy
 
@@ -401,14 +404,5 @@ Route::group([
         Route::get('taskesforpoints/translations/{taskesforpointTranslation}/edit', [TaskesForPointTranslationController::class, 'edit'])->name('taskesforpoint-translations.edit');
         Route::put('taskesforpoints/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'update'])->name('taskesforpoint-translations.update');
         Route::delete('taskesforpoints/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'destroy'])->name('taskesforpoint-translations.destroy');
-
-
-
-
-
-
-        Route::fallback(function () {
-            return response()->view('cms.auth.notfond');
-        });
     });
 });
