@@ -84,12 +84,6 @@ Route::group([
         Route::delete('achievements/translations/{achievementTranslation}', [AchievementTranslationController::class, 'destroy'])->name('achievement-translations.destroy');
 
 
-
-
-
-
-
-
         /*
         |--------------------------------------------------------------------------
         | Plans Routes
@@ -215,8 +209,6 @@ Route::group([
         Route::get('faqs/translations/{faqTranslation}/edit', [FaqTranslationController::class, 'edit'])->name('faq-translations.edit');
         Route::put('faqs/translations/{faqTranslation}', [FaqTranslationController::class, 'update'])->name('faq-translations.update');
         Route::delete('faqs/translations/{faqTranslation}', [FaqTranslationController::class, 'destroy'])->name('faq-translations.destroy');
-
-
 
 
 

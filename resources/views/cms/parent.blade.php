@@ -1203,7 +1203,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </svg>
                                         <!--end::Svg Icon-->
                                     </span>
-                                    <span class="menu-text">{{__('cms.offers')}}</span>
+                                    <span class="menu-text">{{__('cms.offer')}}</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                                 <div class="menu-submenu">
@@ -1211,7 +1211,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <ul class="menu-subnav">
                                         <li class="menu-item menu-item-parent" aria-haspopup="true">
                                             <span class="menu-link">
-                                                <span class="menu-text">{{__('cms.sponsers')}}</span>
+                                                <span class="menu-text">{{__('cms.offer')}}</span>
                                             </span>
                                         </li>
                                         @can('Create-Offer')

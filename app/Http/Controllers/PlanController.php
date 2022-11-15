@@ -54,7 +54,7 @@ class PlanController extends Controller
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'title' => 'required|string|min:3|max:30',
-            'description' => 'required|string|min:3|max:30',
+            'description' => 'required|string|min:3',
             'price' => 'required|numeric',
             'max_month' => 'required|string',
             'type' => 'required|string|in:player,coach,academy',
@@ -116,7 +116,7 @@ class PlanController extends Controller
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
             'title' => 'required|string|min:3|max:30',
-            'description' => 'required|string|min:3|max:30',
+            'description' => 'required|string|min:3',
             'price' => 'required|numeric',
             'max_month' => 'required|string|min:3|max:30',
             'type' => 'required|string|in:player,coach,academy',

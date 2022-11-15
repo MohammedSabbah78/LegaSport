@@ -21,7 +21,7 @@
         @can('Create-Office')
         <div class="card-toolbar">
             <a href="{{route('offices.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.offices')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>

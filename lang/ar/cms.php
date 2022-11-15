@@ -417,14 +417,17 @@ return [
     'sponsers' => 'الرعاة',
     'cost' => 'الزي',
     'taskesforpoint' => 'مهام بلنقطة',
-    'offers' => 'عرض',
+    'offers' => 'عروض',
     'votequestions' => 'سؤال التصويت',
     'mercatos' => 'مركاتو ',
     'salary' => 'مرتب',
     'permanet' => 'دائم',
     'trmporary' => 'مؤقت',
-    'add' => 'يضيف'
-
+    'add' => 'يضيف',
+    'player' => 'لاعب',
+    'coache' => 'مدرب',
+    'offer' => 'العرض',
+    'task_title' => 'عنوان المهمة'
 
 
 ];
