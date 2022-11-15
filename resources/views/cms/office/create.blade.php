@@ -72,7 +72,7 @@
                     <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.city')}}:<span
+                        <label class="col-3 col-form-label">{{__('cms.country')}}:<span
                                 class="text-danger">*</span></label>
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">

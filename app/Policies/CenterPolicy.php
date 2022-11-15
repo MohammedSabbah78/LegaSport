@@ -76,7 +76,7 @@ class CenterPolicy
      * @param  \App\Models\center  $center
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(user $user, center $center)
+    public function delete($user, center $center)
     {
         //
         return $user->hasPermissionTo('Delete-Center')

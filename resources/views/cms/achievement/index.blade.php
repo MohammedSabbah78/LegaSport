@@ -21,7 +21,7 @@
         @can('Create-Achievement')
         <div class="card-toolbar">
             <a href="{{route('achievements.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.achievements')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>

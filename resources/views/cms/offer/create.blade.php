@@ -54,10 +54,10 @@
 
                     <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.title')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.offer')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.title')}}" />
-                            <span class="form-text text-muted">{{__('cms.title')}} {{__('cms.title')}}</span>
+                            <input type="text" class="form-control" id="title" placeholder="{{__('cms.offer')}}" />
+                            <span class="form-text text-muted">{{__('cms.offer')}}</span>
                         </div>
                     </div>
 

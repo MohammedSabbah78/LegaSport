@@ -63,6 +63,9 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
 
+    Route::fallback(function () {
+        return response()->view('cms.auth.notfond');
+    });
     Route::prefix('cms/admin/')->middleware('auth:admin')->group(function () {
         // Mohammed Bhessy
 
@@ -82,12 +85,6 @@ Route::group([
         Route::get('achievements/translations/{achievementTranslation}/edit', [AchievementTranslationController::class, 'edit'])->name('achievement-translations.edit');
         Route::put('achievements/translations/{achievementTranslation}', [AchievementTranslationController::class, 'update'])->name('achievement-translations.update');
         Route::delete('achievements/translations/{achievementTranslation}', [AchievementTranslationController::class, 'destroy'])->name('achievement-translations.destroy');
-
-
-
-
-
-
 
 
         /*

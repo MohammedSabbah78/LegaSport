@@ -21,7 +21,7 @@
         @can('Create-Federation')
         <div class="card-toolbar">
             <a href="{{route('federations.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.federations')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>

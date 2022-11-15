@@ -18,10 +18,10 @@
             <span class="card-label font-weight-bolder text-dark">{{__('cms.term')}}</span>
             <span class="text-muted mt-3 font-weight-bold font-size-sm"></span>
         </h3>
-        @can('Create-Event')
+        @can('Create-Term')
         <div class="card-toolbar">
             <a href="{{route('terms.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.term')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>

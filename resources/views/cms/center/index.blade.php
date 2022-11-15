@@ -21,7 +21,7 @@
         @can('Create-Center')
         <div class="card-toolbar">
             <a href="{{route('centers.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.center')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>
@@ -38,6 +38,7 @@
                         <th style="min-width: 150px">{{__('cms.name')}}</th>
                         <th style="min-width: 150px">{{__('cms.subscribtion_price')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
+                        <th style="min-width: 150px">{{__('cms.link')}}</th>
                         @can('Create-Center')
                         <th style="min-width: 150px">{{__('cms.work_days')}}</th>
                         @endcan
@@ -67,7 +68,7 @@
                         <td class="pl-0">
                             <a href="#"
                                 class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$center->subscribtion_price
-                                ?? ''}}</a>
+                                ?? ''}}$</a>
                         </td>
 
                         <td>
@@ -169,6 +170,13 @@
                                 </div>
                             </div>
                         </td>
+
+
+                        <td class="pl-0">
+                            <a href="{{$center->url_website
+                                ?? ''}}" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{__('cms.webist')}}</a>
+                        </td>
+
                         @can('Create-Center')
                         <td>
                             <a href="{{route('centers.day',$center->id)}}"
@@ -240,3 +248,4 @@
     }
 </script>
 @endsection
+

@@ -49,8 +49,8 @@ class FaqTranslationController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'qs' => 'required|string|min:3|max:30',
-            'answer' => 'required|string|min:3|max:30',
+            'qs' => 'required|string|min:3',
+            'answer' => 'required|string|min:3',
         ]);
 
         if (!$validator->fails()) {
@@ -105,8 +105,8 @@ class FaqTranslationController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'qs' => 'required|string|min:3|max:30',
-            'answer' => 'required|string|min:3|max:30',
+            'qs' => 'required|string|min:3',
+            'answer' => 'required|string|min:3',
         ]);
 
         if (!$validator->fails()) {

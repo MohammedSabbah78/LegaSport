@@ -21,7 +21,7 @@
         @can('Create-Offer')
         <div class="card-toolbar">
             <a href="{{route('offers.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.offers')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>

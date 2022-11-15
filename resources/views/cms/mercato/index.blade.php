@@ -21,7 +21,7 @@
         @can('Create-Mercato')
         <div class="card-toolbar">
             <a href="{{route('mercatos.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.mercatos')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>

@@ -21,7 +21,7 @@
         @can('Create-Vote_Question')
         <div class="card-toolbar">
             <a href="{{route('votequestions.create')}}"
-                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.votequestions')}}</a>
+                class="btn btn-info font-weight-bolder font-size-sm">{{__('cms.create')}}</a>
         </div>
         @endcan
     </div>
