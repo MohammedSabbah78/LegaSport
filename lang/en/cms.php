@@ -428,7 +428,8 @@ return [
     'salary' => 'Salary',
     'permanet' => 'Permanet',
     'trmporary' => 'Trmporary',
-    'add' => 'ADD'
+    'add' => 'ADD',
+    'error' => 'OOPS! Something went wrong here'
 
 
 ];

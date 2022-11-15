@@ -212,6 +212,8 @@ Route::group([
 
 
 
+
+
         /*
         |--------------------------------------------------------------------------
         | Paymens Routes
@@ -399,5 +401,14 @@ Route::group([
         Route::get('taskesforpoints/translations/{taskesforpointTranslation}/edit', [TaskesForPointTranslationController::class, 'edit'])->name('taskesforpoint-translations.edit');
         Route::put('taskesforpoints/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'update'])->name('taskesforpoint-translations.update');
         Route::delete('taskesforpoints/translations/{taskesforpointTranslation}', [TaskesForPointTranslationController::class, 'destroy'])->name('taskesforpoint-translations.destroy');
+
+
+
+
+
+
+        Route::fallback(function () {
+            return response()->view('cms.auth.notfond');
+        });
     });
 });
