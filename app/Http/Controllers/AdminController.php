@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 use Spatie\Permission\Models\Role;
-use Str;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {

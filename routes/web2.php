@@ -64,7 +64,7 @@ Route::group([
 ], function () {
 
     Route::fallback(function () {
-        return response()->view('cms.auth.notfond');
+        return response()->view('cms.auth.NotFound');
     });
     Route::prefix('cms/admin/')->middleware('auth:admin')->group(function () {
         // Mohammed Bhessy

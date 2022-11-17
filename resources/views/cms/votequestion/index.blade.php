@@ -61,10 +61,10 @@
 
 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$votequestion->id}}_translations"
+                            <a href="#" data-toggle="modal" data-target="#votequestions_{{$votequestion->id}}_translations"
                                 class="btn btn-light-primary font-weight-bolder font-size-sm">({{$votequestion->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$votequestion->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$votequestion->id}}_translations" aria-hidden="true">
+                            <div class="modal fade" id="terms_{{$votequestion->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="terms_{{$votequestion->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
