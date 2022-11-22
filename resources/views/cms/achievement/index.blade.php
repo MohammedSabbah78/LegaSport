@@ -61,10 +61,10 @@
                                 ?? ''}}</a>
                         </td>
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$achievements->id}}_translations"
+                            <a href="#" data-toggle="modal" data-target="#achievements_{{$achievements->id}}_translations"
                                 class="btn btn-light-primary font-weight-bolder font-size-sm">({{$achievements->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$achievements->id}}_translations" tabindex="-1"
-                                role="dialog" aria-labelledby="sports_{{$achievements->id}}_translations"
+                            <div class="modal fade" id="achievements_{{$achievements->id}}_translations" tabindex="-1"
+                                role="dialog" aria-labelledby="achievements_{{$achievements->id}}_translations"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">

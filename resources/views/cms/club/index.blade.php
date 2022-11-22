@@ -78,10 +78,10 @@
 
 
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#sports_{{$club->id}}_translations"
+                            <a href="#" data-toggle="modal" data-target="#clubs_{{$club->id}}_translations"
                                 class="btn btn-light-primary font-weight-bolder font-size-sm">({{$club->translations_count}})</a>
-                            <div class="modal fade" id="sports_{{$club->id}}_translations" tabindex="-1" role="dialog"
-                                aria-labelledby="sports_{{$club->id}}_translations" aria-hidden="true">
+                            <div class="modal fade" id="clubs_{{$club->id}}_translations" tabindex="-1" role="dialog"
+                                aria-labelledby="clubs_{{$club->id}}_translations" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
