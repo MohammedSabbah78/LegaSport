@@ -52,7 +52,7 @@
                         <label class="col-3 col-form-label">{{__('cms.task_title')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="task_title" placeholder="{{__('cms.task_title')}}" />
-                            <span class="form-text text-muted">{{__('cms.task_title')}} {{__('cms.task_title')}}</span>
+                            <span class="form-text text-muted">{{__('cms.task_title')}}</span>
                         </div>
                     </div>
 
@@ -85,10 +85,10 @@
 
 
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.point')}}:</label>
+                        <label class="col-3 col-form-label">{{__('cms.points')}}:</label>
                         <div class="col-9">
-                            <input type="number" class="form-control" id="point" placeholder="{{__('cms.point')}}" />
-                            <span class="form-text text-muted">{{__('cms.point')}} {{__('cms.point')}}</span>
+                            <input type="number" class="form-control" id="point" placeholder="{{__('cms.points')}}" />
+                            <span class="form-text text-muted">{{__('cms.points')}}</span>
                         </div>
                     </div>
 

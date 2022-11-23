@@ -66,9 +66,9 @@ class RolePermissionController extends Controller
     public function show($id)
     {
         //
-        if (!auth()->user()->can('Update-Role')) {
-            return abort(403, 'unauthorized');
-        }
+        // if (!auth()->user()->can('Update-Role')) {
+        //     return abort(403, 'unauthorized');
+        // }
         $role = Role::findOrFail($id);
         $rolePermissions = $role->permissions;
         $permissions = Permission::where('guard_name', $role->guard_name)->get();

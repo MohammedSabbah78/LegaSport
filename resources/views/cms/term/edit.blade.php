@@ -61,11 +61,11 @@
 
 
                     <div class="separator separator-dashed my-10"></div>
-
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.body')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="body" placeholder="{{__('cms.body')}}" value="{{$termTranslation->body}}"/>
+                            <textarea type="text" class="form-control" id="body" placeholder="{{__('cms.body')}}" rows="4"
+                                cols="5">{{$termTranslation->body}}</textarea>
                             <span class="form-text text-muted">{{__('cms.body')}}</span>
                         </div>
                     </div>

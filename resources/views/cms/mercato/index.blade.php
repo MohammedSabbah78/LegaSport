@@ -36,7 +36,7 @@
                         {{-- <th class="pl-0" style="min-width: 100px">id</th> --}}
                         <th style="min-width: 120px">{{__('cms.image')}}</th>
                         <th style="min-width: 150px">{{__('cms.title')}}</th>
-                        <th style="min-width: 150px">{{__('cms.type')}}</th>
+                        <th style="min-width: 150px">{{__('cms.typemercato')}}</th>
                         <th style="min-width: 150px">{{__('cms.translations')}}</th>
                         <th style="min-width: 150px">{{__('cms.from')}}</th>
                         <th style="min-width: 150px">{{__('cms.to')}}</th>

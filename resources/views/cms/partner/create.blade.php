@@ -118,13 +118,40 @@
                         </div>
                     </div>
 
+                    <div class="form-group col-12">
+                        <label class="col-12 col-form-label">{{__('cms.image')}}:</label>
+                        <div class="col-12">
+                            <div class="image-input image-input-empty image-input-outline" id="kt_image_5"
+                                style="background-image: url(https://abraj.mr-dev.tech/assets/media/users/blank.png)">
+                                <div class="image-input-wrapper"></div>
+
+                                <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                    data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                    <i class="fa fa-pen icon-sm text-muted"></i>
+                                    <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                    <input type="hidden" name="profile_avatar_remove">
+                                </label>
+
+                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                    data-action="cancel" data-toggle="tooltip" title="" data-original-title="Cancel avatar">
+                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                </span>
+
+                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                    data-action="remove" data-toggle="tooltip" title="" data-original-title="Remove avatar">
+                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
 
                 <div class="separator separator-dashed my-10"></div>
                 <div class="form-group row mt-4">
                     <label class="col-3 col-form-label">{{__('cms.date')}}:</label>
                     <div class="col-9">
                         <input type="date" class="form-control" id="incorporation_date" placeholder="{{__('cms.date')}}" />
-                        <span class="form-text text-muted">{{__('cms.date')}} {{__('cms.date')}}</span>
+                        <span class="form-text text-muted">{{__('cms.date')}} </span>
                     </div>
                 </div>
 
@@ -133,7 +160,7 @@
                         <label class="col-3 col-form-label">{{__('cms.mobile')}}:</label>
                         <div class="col-9">
                             <input type="number" class="form-control" id="representative_mobile" placeholder="{{__('cms.mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
+                            <span class="form-text text-muted">{{__('cms.mobile')}} </span>
                         </div>
                     </div>
 
@@ -141,8 +168,8 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.num_branch')}}:</label>
                         <div class="col-9">
-                            <input type="number" class="form-control" id="num_branch" placeholder="{{__('cms.mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
+                            <input type="number" class="form-control" id="num_branch" placeholder="{{__('cms.num_branch')}}" />
+                            <span class="form-text text-muted">{{__('cms.num_branch')}}</span>
                         </div>
                     </div>
 
@@ -153,7 +180,7 @@
                         <label class="col-3 col-form-label">{{__('cms.webist')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="webiste" placeholder="{{__('cms.link')}}" />
-                            <span class="form-text text-muted">{{__('cms.link')}} {{__('cms.link')}}</span>
+                            <span class="form-text text-muted">{{__('cms.link')}} </span>
                         </div>
                     </div>
 

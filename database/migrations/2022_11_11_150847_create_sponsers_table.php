@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sponsers', function (Blueprint $table) {
             $table->id();
+            $table->double('cost');
             $table->timestamps();
         });
     }

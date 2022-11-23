@@ -95,7 +95,7 @@
                                 <div class="form-group row mt-4">
                                     <label class="col-3 col-form-label">{{__('cms.cost')}}:</label>
                                     <div class="col-9">
-                                        <input type="text" class="form-control" id="cost" placeholder="{{__('cms.cost')}}" />
+                                        <input type="number" class="form-control" id="cost" placeholder="{{__('cms.cost')}}" />
                                         <span class="form-text text-muted">{{__('cms.cost')}} </span>
                                     </div>
                                 </div>

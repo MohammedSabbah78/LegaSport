@@ -94,7 +94,7 @@
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" />
-                            <span class="form-text text-muted">{{__('cms.name')}} {{__('cms.name')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@
                         <label class="col-3 col-form-label">{{__('cms.email')}}:</label>
                         <div class="col-9">
                             <input type="email" class="form-control" id="email" placeholder="{{__('cms.email')}}" />
-                            <span class="form-text text-muted">{{__('cms.email')}} {{__('cms.email')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.email')}}</span>
                         </div>
                     </div>
 
@@ -116,7 +116,7 @@
                         <div class="col-9">
                             <input type="text" class="form-control" id="address1"
                                 placeholder="{{__('cms.address1')}}" />
-                            <span class="form-text text-muted">{{__('cms.address1')}} {{__('cms.address1')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.address1')}}</span>
                         </div>
                     </div>
 
@@ -127,7 +127,7 @@
                         <div class="col-9">
                             <input type="text" class="form-control" id="address2"
                                 placeholder="{{__('cms.address2')}}" />
-                            <span class="form-text text-muted">{{__('cms.address2')}} {{__('cms.address2')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.address2')}}</span>
                         </div>
                     </div>
 
@@ -136,29 +136,48 @@
                         <label class="col-3 col-form-label">{{__('cms.mobile')}}:</label>
                         <div class="col-9">
                             <input type="number" class="form-control" id="mobile" placeholder="{{__('cms.mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.mobile')}}</span>
                         </div>
                     </div>
 
 
                     <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.work_from')}}:</label>
-                        <div class="col-9">
-                            <input type="date" class="form-control" id="work_from"
-                                placeholder="{{__('cms.work_from')}}" />
-                            <span class="form-text text-muted">{{__('cms.work_from')}} {{__('cms.work_from')}}</span>
+                        <label class="col-3 col-form-label">{{__('cms.work_from')}}:<span class="text-danger">*</span></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="dropdown bootstrap-select form-control dropup">
+                                <select class="form-control selectpicker" data-size="7" id="work_from" title="Choose one of the following..."
+                                    tabindex="null" data-live-search="true">
+                                    <option value="{{__('cms.sat')}}">{{__('cms.sat')}}</option>
+                                    <option value="{{__('cms.sun')}}">{{__('cms.sun')}}</option>
+                                    <option value="{{__('cms.mon')}}">{{__('cms.mon')}}</option>
+                                    <option value="{{__('cms.tue')}}">{{__('cms.tue')}}</option>
+                                    <option value="{{__('cms.wed')}}">{{__('cms.wed')}}</option>
+                                    <option value="{{__('cms.thu')}}">{{__('cms.thu')}}</option>
+                                </select>
+                            </div>
+                            <span class="form-text text-muted">{{__('cms.please_select')}}
+                                {{__('cms.work_from')}}</span>
                         </div>
                     </div>
 
-
-
                     <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.work_to')}}:</label>
-                        <div class="col-9">
-                            <input type="date" class="form-control" id="work_to" placeholder="{{__('cms.work_to')}}" />
-                            <span class="form-text text-muted">{{__('cms.work_to')}} {{__('cms.work_to')}}</span>
+                        <label class="col-3 col-form-label">{{__('cms.work_to')}}:<span class="text-danger">*</span></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="dropdown bootstrap-select form-control dropup">
+                                <select class="form-control selectpicker" data-size="7" id="work_to"
+                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
+                                    <option value="{{__('cms.sat')}}">{{__('cms.sat')}}</option>
+                                    <option value="{{__('cms.sun')}}">{{__('cms.sun')}}</option>
+                                    <option value="{{__('cms.mon')}}">{{__('cms.mon')}}</option>
+                                    <option value="{{__('cms.tue')}}">{{__('cms.tue')}}</option>
+                                    <option value="{{__('cms.wed')}}">{{__('cms.wed')}}</option>
+                                    <option value="{{__('cms.thu')}}">{{__('cms.thu')}}</option>
+                                </select>
+                            </div>
+                            <span class="form-text text-muted">{{__('cms.please_select')}}
+                                {{__('cms.work_to')}}</span>
                         </div>
                     </div>
 

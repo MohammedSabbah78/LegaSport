@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('sponser_translations', function (Blueprint $table) {
             $table->id();
-            $table->string('cost');
             $table->foreignId('partner_id')->constrained();
             $table->foreignId('event_id')->constrained();
             $table->foreignId('language_id')->constrained();

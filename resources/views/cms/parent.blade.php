@@ -1262,7 +1262,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </svg>
                                         <!--end::Svg Icon-->
                                     </span>
-                                    <span class="menu-text">{{__('cms.votequestions')}}</span>
+                                    <span class="menu-text">{{__('cms.votequestion')}}</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                                 <div class="menu-submenu">
@@ -1270,7 +1270,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <ul class="menu-subnav">
                                         <li class="menu-item menu-item-parent" aria-haspopup="true">
                                             <span class="menu-link">
-                                                <span class="menu-text">{{__('cms.votequestions')}}</span>
+                                                <span class="menu-text">{{__('cms.votequestion')}}</span>
                                             </span>
                                         </li>
                                         @can('Create-Vote_Question')
@@ -1414,7 +1414,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                             </li>
                             @endcanany
-                            
+
 							@canany(['Create-Federation', 'Read-Federations'])
 							<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
 								<a href="javascript:;" class="menu-link menu-toggle">

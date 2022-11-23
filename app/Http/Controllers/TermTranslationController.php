@@ -19,7 +19,7 @@ class TermTranslationController extends Controller
     public function index()
     {
         //
-        
+
     }
 
     /**
@@ -46,8 +46,8 @@ class TermTranslationController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'title' => 'required|string|min:3|max:30',
-            'body' => 'required|string|min:3|max:30',
+            'title' => 'required|string|min:3',
+            'body' => 'required|string|min:3',
         ]);
 
         if (!$validator->fails()) {
@@ -99,8 +99,8 @@ class TermTranslationController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'title' => 'required|string|min:3|max:30',
-            'body' => 'required|string|min:3|max:30',
+            'title' => 'required|string|min:3',
+            'body' => 'required|string|min:3',
         ]);
 
         if (!$validator->fails()) {

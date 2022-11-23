@@ -67,6 +67,8 @@ class MercatoController extends Controller
             'salary' => 'required|numeric',
             'start_date' => 'required|string',
             'end_date' => 'required|string|after:start_date',
+            'time' => 'required|date_format:H:i',
+
 
         ]);
         if (!$validator->fails()) {
@@ -82,6 +84,7 @@ class MercatoController extends Controller
             $mercato->salary = $request->input('salary');
             $mercato->start_date = $request->input('start_date');
             $mercato->end_date = $request->input('end_date');
+            $mercato->time = $request->input('time');
             $isSaved = $mercato->save();
             if ($isSaved) {
                 $MercatoTranslation = new MercatoTranslation();
@@ -139,6 +142,8 @@ class MercatoController extends Controller
             'salary' => 'required|numeric',
             'start_date' => 'required|string',
             'end_date' => 'required|string|after:start_date',
+            'time' => 'required|date_format:H:i',
+
 
         ]);
         if (!$validator->fails()) {
@@ -153,6 +158,7 @@ class MercatoController extends Controller
             $mercato->salary = $request->input('salary');
             $mercato->start_date = $request->input('start_date');
             $mercato->end_date = $request->input('end_date');
+            $mercato->time = $request->input('time');
             $isSaved = $mercato->save();
             if ($isSaved) {
                 $MercatoTranslation = new MercatoTranslation();

@@ -93,7 +93,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.mobile')}}:</label>
                         <div class="col-9">
-                            <input type="number" class="form-control" id="member_num" placeholder="{{__('cms.mobile')}}" />
+                            <input type="text" class="form-control" id="member_num" placeholder="{{__('cms.mobile')}}" />
                             <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
                         </div>
                     </div>

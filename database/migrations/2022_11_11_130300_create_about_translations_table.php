@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('about_translations', function (Blueprint $table) {
             $table->id();
-            $table->string('vision', 50);
-            $table->string('mission', 50);
-            $table->string('message', 50);
+            $table->longText('vision');
+            $table->longText('mission');
+            $table->longText('message');
             $table->foreignId('language_id')->constrained();
             $table->foreignId('about_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

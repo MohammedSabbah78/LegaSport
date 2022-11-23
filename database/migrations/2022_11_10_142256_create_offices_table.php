@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
-            $table->date('work_from');
-            $table->date('work_to');
+            $table->string('work_from');
+            $table->string('work_to');
             $table->string('email')->unique();
             $table->string('mobile');
             $table->timestamps();
