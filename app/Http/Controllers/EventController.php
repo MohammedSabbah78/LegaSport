@@ -66,7 +66,7 @@ class EventController extends Controller
             'date' => 'required|string',
             'max_user' => 'required|numeric',
             'price' => 'required|numeric',
-            'event_link' => 'required|string',
+            'event_link' => 'required|url',
             'start' => 'required|date_format:H:i',
             'end' => 'required|date_format:H:i|after:start',
 

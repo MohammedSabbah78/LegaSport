@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\ControllersService;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Day;
 use App\Models\Language;
 use App\Models\Office;
 use App\Models\OfficeTranslation;
@@ -43,12 +44,12 @@ class OfficeController extends Controller
         $languages = Language::all();
         $citys = City::where('active', '=', true)->get();
         $Countrys = Country::where('active', '=', true)->get();
-
-
+        $days = Day::all();
         return response()->view('cms.office.create', [
             'languages' => $languages,
             'citys' => $citys,
             'Countrys' => $Countrys,
+            'days' => $days,
         ]);
     }
 

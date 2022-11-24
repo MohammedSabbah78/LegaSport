@@ -143,43 +143,64 @@
 
                     <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.work_from')}}:<span class="text-danger">*</span></label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <div class="dropdown bootstrap-select form-control dropup">
-                                <select class="form-control selectpicker" data-size="7" id="work_from" title="Choose one of the following..."
-                                    tabindex="null" data-live-search="true">
-                                    <option value="{{__('cms.sat')}}">{{__('cms.sat')}}</option>
-                                    <option value="{{__('cms.sun')}}">{{__('cms.sun')}}</option>
-                                    <option value="{{__('cms.mon')}}">{{__('cms.mon')}}</option>
-                                    <option value="{{__('cms.tue')}}">{{__('cms.tue')}}</option>
-                                    <option value="{{__('cms.wed')}}">{{__('cms.wed')}}</option>
-                                    <option value="{{__('cms.thu')}}">{{__('cms.thu')}}</option>
-                                </select>
-                            </div>
-                            <span class="form-text text-muted">{{__('cms.please_select')}}
-                                {{__('cms.work_from')}}</span>
-                        </div>
+                        <label class="col-3 col-form-label">{{__('cms.work_from')}}:</label>
+                        <table>
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th style="min-width: 150px">{{__('cms.name')}}</th>
+                                    <th style="min-width: 80px">{{__('cms.status')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($days as $day)
+                                <tr>
+                                    <td class="pl-0">
+                                        <span href="#"
+                                            class="text-dark-50 font-weight-bolder text-hover-primary font-size-lg">{{$day->name}}</span>
+                                    </td>
+                                    <td class="pl-0">
+                                        <div class="checkbox-inline">
+                                            <label class="checkbox checkbox-success">
+                                                <input type="checkbox" name="day_{{$day->id}}">
+                                                <span></span>Granted</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.work_to')}}:<span class="text-danger">*</span></label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <div class="dropdown bootstrap-select form-control dropup">
-                                <select class="form-control selectpicker" data-size="7" id="work_to"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
-                                    <option value="{{__('cms.sat')}}">{{__('cms.sat')}}</option>
-                                    <option value="{{__('cms.sun')}}">{{__('cms.sun')}}</option>
-                                    <option value="{{__('cms.mon')}}">{{__('cms.mon')}}</option>
-                                    <option value="{{__('cms.tue')}}">{{__('cms.tue')}}</option>
-                                    <option value="{{__('cms.wed')}}">{{__('cms.wed')}}</option>
-                                    <option value="{{__('cms.thu')}}">{{__('cms.thu')}}</option>
-                                </select>
-                            </div>
-                            <span class="form-text text-muted">{{__('cms.please_select')}}
-                                {{__('cms.work_to')}}</span>
-                        </div>
-                    </div>
+
+                   <div class="separator separator-dashed my-10"></div>
+                <div class="form-group row mt-4">
+                    <label class="col-3 col-form-label">{{__('cms.work_to')}}:</label>
+                    <table>
+                        <thead>
+                            <tr class="text-uppercase">
+                                <th style="min-width: 150px">{{__('cms.name')}}</th>
+                                <th style="min-width: 80px">{{__('cms.status')}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($days as $day)
+                            <tr>
+                                <td class="pl-0">
+                                    <span href="#"
+                                        class="text-dark-50 font-weight-bolder text-hover-primary font-size-lg">{{$day->name}}</span>
+                                </td>
+                                <td class="pl-0">
+                                    <div class="checkbox-inline">
+                                        <label class="checkbox checkbox-success">
+                                            <input type="checkbox" name="work_to_{{$day->id}}">
+                                            <span></span>Granted</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
 
 
