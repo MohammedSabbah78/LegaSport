@@ -160,8 +160,8 @@
                                     </td>
                                     <td class="pl-0">
                                         <div class="checkbox-inline">
-                                            <label class="checkbox checkbox-success">
-                                                <input type="checkbox" name="day_{{$day->id}}">
+                                            <label onclick="data"  class="checkbox checkbox-success" for="day_{{$day->id}}_check_box">
+                                                <input type="checkbox" id="day_{{$day->id}}_check_box"/>
                                                 <span></span>Granted</label>
                                         </div>
                                     </td>
@@ -245,7 +245,7 @@ formData.append('email',document.getElementById('email').value);
 formData.append('address1',document.getElementById('address1').value);
 formData.append('address2',document.getElementById('address2').value);
 formData.append('work_from',document.getElementById('work_from').value);
-formData.append('work_to',document.getElementById('work_to').value);
+formData.append('work_to',document.getElementById('work_to').chktArr);
 formData.append('mobile',document.getElementById('mobile').value);
 
 
