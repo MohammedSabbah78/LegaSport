@@ -1125,7 +1125,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-                           
+
 
 
                             @canany(['Create-Offer', 'Read-Offers'])
@@ -1691,7 +1691,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-text">{{__('cms.votequestions')}}</span>
+									<span class="menu-text">{{__('cms.votequestion')}}</span>
 									<i class="menu-arrow"></i>
 								</a>
 								<div class="menu-submenu">
