@@ -159,10 +159,15 @@
                                             class="text-dark-50 font-weight-bolder text-hover-primary font-size-lg">{{$day->name}}</span>
                                     </td>
                                     <td class="pl-0">
-                                        <div class="checkbox-inline">
-                                            <label onclick="data"  class="checkbox checkbox-success" for="day_{{$day->id}}_check_box">
-                                                <input type="checkbox" id="day_{{$day->id}}_check_box"/>
-                                                <span></span>Granted</label>
+                                        <div class="form-group row">
+                                            <div class="col-3">
+                                                <span class="switch switch-outline switch-icon switch-success">
+                                                    <label>
+                                                        <input type="checkbox"  value="{{$day->id}}" class="days">
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
@@ -172,41 +177,14 @@
                     </div>
 
 
-                   <div class="separator separator-dashed my-10"></div>
+                  <div class="separator separator-dashed my-10"></div>
                 <div class="form-group row mt-4">
                     <label class="col-3 col-form-label">{{__('cms.work_to')}}:</label>
-                    <table>
-                        <thead>
-                            <tr class="text-uppercase">
-                                <th style="min-width: 150px">{{__('cms.name')}}</th>
-                                <th style="min-width: 80px">{{__('cms.status')}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($days as $day)
-                            <tr>
-                                <td class="pl-0">
-                                    <span href="#"
-                                        class="text-dark-50 font-weight-bolder text-hover-primary font-size-lg">{{$day->name}}</span>
-                                </td>
-                                <td class="pl-0">
-                                    <div class="checkbox-inline">
-                                        <label class="checkbox checkbox-success">
-                                            <input type="checkbox" name="work_to_{{$day->id}}">
-                                            <span></span>Granted</label>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div class="col-9">
+                        <input type="number" class="form-control" id="work_to" placeholder="{{__('cms.work_to')}}" />
+                        <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.work_to')}}</span>
+                    </div>
                 </div>
-
-
-
-
-
-
 
                 </div>
                 <div class="card-footer">
@@ -235,6 +213,11 @@
     var image = new KTImageInput('kt_image_5');
 </script>
 <script>
+    let days = $('.days:checked').map((i,e) => {
+    return $(e).val();
+    }).get();
+</script>
+<script>
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
@@ -244,11 +227,9 @@ formData.append('name',document.getElementById('name').value);
 formData.append('email',document.getElementById('email').value);
 formData.append('address1',document.getElementById('address1').value);
 formData.append('address2',document.getElementById('address2').value);
-formData.append('work_from',document.getElementById('work_from').value);
-formData.append('work_to',document.getElementById('work_to').chktArr);
+formData.append('work_from',days.input.checked);
+formData.append('work_to',document.getElementById('work_to').value);
 formData.append('mobile',document.getElementById('mobile').value);
-
-
 
 
 

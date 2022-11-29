@@ -24,4 +24,9 @@ class Office extends Model
 
         return $this->hasMany(OfficeTranslation::class, 'office_id', 'id');
     }
+
+    public function Days()
+    {
+        return $this->belongsToMany(Day::class, 'day_offices', 'office_id', 'day_id')->withPivot('work_from', 'work_to');
+    }
 }
