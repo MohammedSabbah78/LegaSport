@@ -25,4 +25,8 @@ class Sport extends Model
     {
         return $this->hasMany(SportTranslation::class, 'sport_id', 'id');
     }
+
+    public function users(){
+        return $this->belongsToMany(User::class,'sport_users','user_id','sport_id');
+    }
 }
