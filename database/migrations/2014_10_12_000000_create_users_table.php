@@ -15,10 +15,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->enum('type',['player', 'coach', 'academy'])->nullable()->default(null);
+            $table->boolean('certification_account')->default(false);
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('mobile')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('status',['verefy','unVerefy','blocked'])->default('unVerefy');
+            $table->string('verification_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

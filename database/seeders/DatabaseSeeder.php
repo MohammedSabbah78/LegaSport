@@ -19,15 +19,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Admin::create([
-        //     'name' => 'Super Admin',
-        //     'user_name' => 'admin',
-        //     'email' => 'email@app.com',
-        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-        // ]);
-        // $this->call(PermissionSeeder::class);
-        // $this->call(RoleSeeder::class);
-
-        // $this->call(DaySeeder::class);
+        
+        $this->call(PermissionSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(AdminSeeder::class);
+        $this->call(LangSeeder::class);
+        $this->call(DaySeeder::class);
     }
 }
