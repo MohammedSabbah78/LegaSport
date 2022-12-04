@@ -421,15 +421,28 @@ return [
     'mission' => 'Mission',
     'sponsers' => 'Sponser',
     'cost' => 'Cost',
-    'taskesforpoint' => 'Taskes For Ppoint',
+    'taskesforpoint' => 'Taskes For Point',
     'offers' => 'Offer',
     'votequestions' => 'Vote Question',
+    'votequestion' => 'Vote Question',
     'mercatos' => 'Mercatos',
     'salary' => 'Salary',
     'permanet' => 'Permanet',
     'trmporary' => 'Trmporary',
     'add' => 'ADD',
-    'error' => 'OOPS! Something went wrong here'
+    'error' => 'OOPS! Something went wrong here',
+    'offer' => 'Offer',
+    'points' => 'POINTS',
+    'task_title' => 'Task Title',
+    'sat' => 'Saturday',
+    'sun' => 'Sunday',
+    'mon' => 'Monday',
+    'tue' => 'Tuesday',
+    'wed' => 'Wednesday',
+    'thu' => 'Thursday',
+
+
+
 
 
 ];

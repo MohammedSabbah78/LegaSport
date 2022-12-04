@@ -89,7 +89,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.website_title')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="url_website"
+                            <input type="url" class="form-control" id="url_website"
                                 placeholder="{{__('cms.website_title')}}" />
                             <span class="form-text text-muted">{{__('cms.website_title')}} {{__('cms.website_title')}}</span>
                         </div>

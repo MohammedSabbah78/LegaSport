@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Day;
+use App\Models\Office;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +15,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('about_translations', function (Blueprint $table) {
+        Schema::create('day_offices', function (Blueprint $table) {
             $table->id();
-            $table->longText('vision');
-            $table->longText('mission');
-            $table->longText('message');
-            $table->foreignId('language_id')->constrained();
-            $table->foreignId('about_id')->constrained()->cascadeOnDelete();
+            $table->time('work_from')->nullable();
+            $table->time('work_to')->nullable();
+            $table->foreignIdFor(Day::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Office::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('about_translations');
+        Schema::dropIfExists('day_offices');
     }
 };

@@ -173,7 +173,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.link')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="link" placeholder="{{__('cms.link')}}" />
+                            <input type="url" class="form-control" id="link" placeholder="{{__('cms.link')}}" />
                             <span class="form-text text-muted">{{__('cms.link')}} {{__('cms.link')}}</span>
                         </div>
                     </div>

@@ -115,7 +115,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.webist')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="webist" placeholder="{{__('cms.webist')}}" />
+                            <input type="url" class="form-control" id="webist" placeholder="{{__('cms.webist')}}" />
                             <span class="form-text text-muted">{{__('cms.webist')}} {{__('cms.webist')}}</span>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.twitter')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="twitter" placeholder="{{__('cms.twitter')}}" />
+                            <input type="url" class="form-control" id="twitter" placeholder="{{__('cms.twitter')}}" />
                             <span class="form-text text-muted">{{__('cms.twitter')}}</span>
                         </div>
                     </div>

@@ -94,7 +94,7 @@
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" />
-                            <span class="form-text text-muted">{{__('cms.name')}} {{__('cms.name')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.name')}}</span>
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@
                         <label class="col-3 col-form-label">{{__('cms.email')}}:</label>
                         <div class="col-9">
                             <input type="email" class="form-control" id="email" placeholder="{{__('cms.email')}}" />
-                            <span class="form-text text-muted">{{__('cms.email')}} {{__('cms.email')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.email')}}</span>
                         </div>
                     </div>
 
@@ -116,7 +116,7 @@
                         <div class="col-9">
                             <input type="text" class="form-control" id="address1"
                                 placeholder="{{__('cms.address1')}}" />
-                            <span class="form-text text-muted">{{__('cms.address1')}} {{__('cms.address1')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.address1')}}</span>
                         </div>
                     </div>
 
@@ -127,7 +127,7 @@
                         <div class="col-9">
                             <input type="text" class="form-control" id="address2"
                                 placeholder="{{__('cms.address2')}}" />
-                            <span class="form-text text-muted">{{__('cms.address2')}} {{__('cms.address2')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.address2')}}</span>
                         </div>
                     </div>
 
@@ -136,7 +136,7 @@
                         <label class="col-3 col-form-label">{{__('cms.mobile')}}:</label>
                         <div class="col-9">
                             <input type="number" class="form-control" id="mobile" placeholder="{{__('cms.mobile')}}" />
-                            <span class="form-text text-muted">{{__('cms.mobile')}} {{__('cms.mobile')}}</span>
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.mobile')}}</span>
                         </div>
                     </div>
 
@@ -144,29 +144,47 @@
                     <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.work_from')}}:</label>
-                        <div class="col-9">
-                            <input type="date" class="form-control" id="work_from"
-                                placeholder="{{__('cms.work_from')}}" />
-                            <span class="form-text text-muted">{{__('cms.work_from')}} {{__('cms.work_from')}}</span>
-                        </div>
+                        <table>
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th style="min-width: 150px">{{__('cms.name')}}</th>
+                                    <th style="min-width: 80px">{{__('cms.status')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($days as $day)
+                                <tr>
+                                    <td class="pl-0">
+                                        <span href="#"
+                                            class="text-dark-50 font-weight-bolder text-hover-primary font-size-lg">{{$day->name}}</span>
+                                    </td>
+                                    <td class="pl-0">
+                                        <div class="form-group row">
+                                            <div class="col-3">
+                                                <span class="switch switch-outline switch-icon switch-success">
+                                                    <label>
+                                                        <input type="checkbox"  value="{{$day->id}}" class="days">
+                                                        <span></span>
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
 
 
-
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.work_to')}}:</label>
-                        <div class="col-9">
-                            <input type="date" class="form-control" id="work_to" placeholder="{{__('cms.work_to')}}" />
-                            <span class="form-text text-muted">{{__('cms.work_to')}} {{__('cms.work_to')}}</span>
-                        </div>
+                  <div class="separator separator-dashed my-10"></div>
+                <div class="form-group row mt-4">
+                    <label class="col-3 col-form-label">{{__('cms.work_to')}}:</label>
+                    <div class="col-9">
+                        <input type="number" class="form-control" id="work_to" placeholder="{{__('cms.work_to')}}" />
+                        <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.work_to')}}</span>
                     </div>
-
-
-
-
-
-
+                </div>
 
                 </div>
                 <div class="card-footer">
@@ -195,6 +213,11 @@
     var image = new KTImageInput('kt_image_5');
 </script>
 <script>
+    let days = $('.days:checked').map((i,e) => {
+    return $(e).val();
+    }).get();
+</script>
+<script>
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
@@ -204,11 +227,9 @@ formData.append('name',document.getElementById('name').value);
 formData.append('email',document.getElementById('email').value);
 formData.append('address1',document.getElementById('address1').value);
 formData.append('address2',document.getElementById('address2').value);
-formData.append('work_from',document.getElementById('work_from').value);
+formData.append('work_from',days.input.checked);
 formData.append('work_to',document.getElementById('work_to').value);
 formData.append('mobile',document.getElementById('mobile').value);
-
-
 
 
 

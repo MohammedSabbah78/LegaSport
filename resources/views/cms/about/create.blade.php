@@ -49,7 +49,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.vision')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="vision" placeholder="{{__('cms.vision')}}" />
+                            <textarea type="text" class="form-control" id="vision" placeholder="{{__('cms.vision')}}" rows="4" cols="50"></textarea>
                             <span class="form-text text-muted">{{__('cms.vision')}}</span>
                         </div>
                     </div>
@@ -59,7 +59,8 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.mission')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="mission" placeholder="{{__('cms.mission')}}" />
+                            <textarea type="text" class="form-control" id="mission" placeholder="{{__('cms.mission')}}" rows="4"
+                                cols="50"></textarea>
                             <span class="form-text text-muted">{{__('cms.mission')}}</span>
                         </div>
                     </div>
@@ -68,7 +69,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.message')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="message" placeholder="{{__('cms.message')}}" />
+                            <textarea type="text" class="form-control" id="message" placeholder="{{__('cms.message')}}" rows="4" class="5" ></textarea>
                             <span class="form-text text-muted">{{__('cms.body')}}</span>
                         </div>
                     </div>

@@ -64,10 +64,11 @@ class SponserController extends Controller
             'language' => 'required|numeric|exists:languages,id',
             'event' => 'required|numeric|exists:events,id',
             'partner' => 'required|numeric|exists:partners,id',
-            'cost' => 'required|string|min:3|max:30',
+            'cost' => 'required|numeric',
         ]);
         if (!$validator->fails()) {
             $sponser = new Sponser();
+            $sponser->cost = $request->input('cost');
             $isSaved = $sponser->save();
             if ($isSaved) {
                 $translation = new SponserTranslation();
@@ -120,13 +121,14 @@ class SponserController extends Controller
             'language' => 'required|numeric|exists:languages,id',
             'event' => 'required|numeric|exists:events,id',
             'partner' => 'required|numeric|exists:partners,id',
-            'cost' => 'required|string|min:3|max:30',
+            'cost' => 'required|numeric',
         ]);
         if (!$validator->fails()) {
+            $sponser = new Sponser();
+            $sponser->cost = $request->input('cost');
             $isSaved = $sponser->save();
             if ($isSaved) {
                 $translation = new SponserTranslation();
-                $translation->cost = $request->input('cost');
                 $translation->partner_id = $request->input('partner');
                 $translation->event_id = $request->input('event');
                 $translation->language_id = $request->input('language');

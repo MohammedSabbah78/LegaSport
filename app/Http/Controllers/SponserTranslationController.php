@@ -65,7 +65,6 @@ class SponserTranslationController extends Controller
 
         if (!$validator->fails()) {
             $sponserTranslation = new SponserTranslation();
-            $sponserTranslation->cost = $request->input('cost');
             $sponserTranslation->partner_id = $request->input('partner');
             $sponserTranslation->event_id = $request->input('event');
             $sponserTranslation->language_id = $request->input('language');

@@ -23,4 +23,9 @@ class Day extends Model
     {
         return $this->belongsToMany(Center::class, 'day_centers', 'day_id', 'center_id');
     }
+
+    public function Office()
+    {
+        return $this->belongsToMany(Office::class, 'day_offices', 'day_id', 'office_id');
+    }
 }

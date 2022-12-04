@@ -210,8 +210,8 @@
                         </td>
 
                         <td class="pl-0">
-                            <a href="$"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$partner->compony_record ?? ''}}</a>
+                            <a href="{{$partner->compony_record ?? ''}}"
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{__('cms.link')}}</a>
                         </td>
 
                         <td class="pl-0">

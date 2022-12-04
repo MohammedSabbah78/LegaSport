@@ -70,9 +70,9 @@ class FederationController extends Controller
             'country' => 'required|numeric|exists:country_translations,id',
             'sport' => 'required|numeric|exists:sports,id',
             'name' => 'required|string|min:3|max:30',
-            'website' => 'required|string|min:3',
+            'website' => 'required|url|min:3',
             'mobile' => 'required|numeric',
-            'twitter' => 'required|string|min:3',
+            'twitter' => 'required|url|min:3',
 
 
         ]);

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('term_translations', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
-            $table->string('body', 50);
+            $table->longText('title');
+            $table->longText('body');
             $table->foreignId('language_id')->constrained();
             $table->foreignId('term_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

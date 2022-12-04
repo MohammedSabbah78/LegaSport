@@ -86,7 +86,7 @@
 
 
                    <div class="form-group row">
-                        <label class="col-3 col-form-label">{{__('cms.type')}}</label>
+                        <label class="col-3 col-form-label">{{__('cms.typemercato')}}</label>
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">
                                 <div class="dropdown bootstrap-select form-control"><select class="form-control selectpicker" data-size="7"
@@ -142,6 +142,15 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.start_time')}}:</label>
+                        <div class="col-9">
+                            <input type="time" class="form-control" id="time" placeholder="{{__('cms.start_time')}}" />
+                            <span class="form-text text-muted">{{__('cms.start_time')}} </span>
+                        </div>
+                    </div>
+
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.salary')}}:</label>
                         <div class="col-9">
@@ -194,6 +203,9 @@ formData.append('to',document.getElementById('to').value);
 formData.append('start_date',document.getElementById('start_date').value);
 formData.append('salary',document.getElementById('salary').value);
 formData.append('end_date',document.getElementById('end_date').value);
+formData.append('time',document.getElementById('time').value);
+
+
 
 
 

@@ -60,8 +60,10 @@
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.description')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="description" placeholder="{{__('cms.description')}}" />
+                            <textarea type="textarea" class="form-control" id="description" placeholder="{{__('cms.description')}}" rows="4"
+                                cols="50"></textarea>
                             <span class="form-text text-muted">{{__('cms.description')}} {{__('cms.description')}}</span>
+
                         </div>
                     </div>
 

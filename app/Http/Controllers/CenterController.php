@@ -61,7 +61,7 @@ class CenterController extends Controller
             'subscribtion_price' => 'required|numeric',
             'long' => 'required|numeric',
             'lat' => 'required|numeric',
-            'url_website' => 'required',
+            'url_website' => 'required|url',
             'image' => 'required|image|mimes:jpg,png',
         ]);
         if (!$validator->fails()) {

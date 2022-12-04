@@ -93,7 +93,7 @@
                         <label class="col-3 col-form-label">{{__('cms.name')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="name" placeholder="{{__('cms.name')}}" />
-                            <span class="form-text text-muted">{{__('cms.name')}} {{__('cms.name')}}</span>
+                            <span class="form-text text-muted">{{__('cms.name')}}</span>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
                         <label class="col-3 col-form-label">{{__('cms.representative')}}:</label>
                         <div class="col-9">
                             <input type="text" class="form-control" id="representative" placeholder="{{__('cms.representative')}}" />
-                            <span class="form-text text-muted">{{__('cms.representative')}} {{__('cms.representative')}}</span>
+                            <span class="form-text text-muted">{{__('cms.representative')}}</span>
                         </div>
                     </div>
 

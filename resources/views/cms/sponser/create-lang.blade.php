@@ -87,14 +87,7 @@
                     </div>
 
 
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.cost')}}:</label>
-                        <div class="col-9">
-                            <input type="text" class="form-control" id="cost" placeholder="{{__('cms.cost')}}" />
-                            <span class="form-text text-muted">{{__('cms.cost')}} </span>
-                        </div>
-                    </div>
+
 
 
 
@@ -133,7 +126,6 @@ let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
 formData.append('event',document.getElementById('event').value);
 formData.append('partner',document.getElementById('partner').value);
-formData.append('cost',document.getElementById('cost').value);
 
 
 

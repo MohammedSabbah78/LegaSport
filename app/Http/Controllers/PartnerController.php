@@ -71,10 +71,10 @@ class PartnerController extends Controller
             'name' => 'required|string|min:3|max:30',
             'representative' => 'required|string|min:3|max:30',
             'logo' => 'nullable', 'logo|mimes:jpg,png',
-            'webiste' => 'required|string|min:3',
+            'webiste' => 'required|url|min:3',
             'num_branch' => 'required|numeric',
             'representative_mobile' => 'required|numeric',
-            'compony_record' => 'required|string|min:3|max:30',
+            'compony_record' => 'required|url|min:3',
             'incorporation_date' => 'required|string',
 
 

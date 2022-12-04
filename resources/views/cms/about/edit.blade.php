@@ -46,38 +46,35 @@
 
 
 
-
-
                     <div class="separator separator-dashed my-10"></div>
-
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.vision')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="vision" placeholder="{{__('cms.vision')}}"
-                                value="{{$aboutTranslation->vision}}" />
-                            <span class="form-text text-muted">{{__('cms.vision')}} {{__('cms.vision')}}</span>
+                            <textarea type="text" class="form-control" id="vision" placeholder="{{__('cms.vision')}}" rows="4"
+                                cols="50">{{$aboutTranslation->vision}}</textarea>
+                            <span class="form-text text-muted">{{__('cms.vision')}}</span>
                         </div>
                     </div>
 
 
                     <div class="separator separator-dashed my-10"></div>
-
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.mission')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="mission" placeholder="{{__('cms.mission')}}" value="{{$aboutTranslation->mission}}"/>
+                            <textarea type="text" class="form-control" id="mission" placeholder="{{__('cms.mission')}}" rows="4"
+                                cols="50">{{$aboutTranslation->mission}}</textarea>
                             <span class="form-text text-muted">{{__('cms.mission')}}</span>
                         </div>
                     </div>
 
-                    <div class="separator separator-dashed my-10"></div>
 
+                    <div class="separator separator-dashed my-10"></div>
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.message')}}:</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" id="message" placeholder="{{__('cms.message')}}"
-                                value="{{$aboutTranslation->message}}" />
-                            <span class="form-text text-muted">{{__('cms.message')}}</span>
+                            <textarea type="text" class="form-control" id="message" placeholder="{{__('cms.message')}}" rows="4"
+                                class="5">{{$aboutTranslation->message}}</textarea>
+                            <span class="form-text text-muted">{{__('cms.body')}}</span>
                         </div>
                     </div>
 
