@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class AdsResource extends JsonResource
 {
@@ -16,7 +17,7 @@ class AdsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'image_ads' => $this->image
+            'image_ads' => Storage::url($this->image)
         ];
     }
 }

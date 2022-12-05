@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\ControllersService;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ErrorResponse;
 use App\Http\Resources\SuccessResponse;
@@ -63,7 +64,7 @@ class ProfileController extends Controller
 
             return response()->json(new SuccessResponse('SUCCESS_SEND',null,false));
         } else {
-            return response()->json(new ErrorResponse($validator->getMessageBag()->first()));
+            return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
 
         }
 
@@ -122,7 +123,7 @@ class ProfileController extends Controller
 
             return response()->json(new SuccessResponse('SUCCESS_SEND',null,false));
         } else {
-            return response()->json(new ErrorResponse($validator->getMessageBag()->first()));
+            return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
 
         }
         
@@ -170,7 +171,7 @@ class ProfileController extends Controller
 
             return response()->json(new SuccessResponse('SUCCESS_SEND',null,false));
         } else {
-            return response()->json(new ErrorResponse($validator->getMessageBag()->first()));
+            return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
 
         }
         
