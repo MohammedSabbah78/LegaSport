@@ -30,6 +30,7 @@ class SportController extends Controller
             $sportUser = new SportUser();
             $sportUser->user_id = auth()->user()->id;
             $sportUser->sport_id = $request->input('sport_id');
+            $sportUser->save();
             return response()->json(new SuccessResponse('SUCCESS_SEND',[],false));
         } else {
             return response()->json(new ErrorResponse('ERROR_SEND'));
