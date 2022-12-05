@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class SportController extends Controller
 {
     public function sports(Request $request){
-        $selectLang = $request->header('lang') ?? 'ar';
+        $selectLang = $request->header('lang') ?? config('app.locale');
         $lang = Language::where('code', $selectLang)->first();
         $data = SportTranslation::where('language_id',$lang->id)->get();
         return response()->json(new SuccessResponse('SUCCESS_GET',SportResource::collection($data)));
