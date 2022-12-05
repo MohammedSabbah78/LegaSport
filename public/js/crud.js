@@ -18,6 +18,7 @@ function confirmDestroy(url, id, reference, callback) {
     });
 }
 
+
 function deleteItem(url, id, reference, deleteCallback) {
     let lang = $("html").attr("lang");
     axios
