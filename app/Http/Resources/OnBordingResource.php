@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class OnBordingResource extends JsonResource
 {
@@ -19,7 +20,7 @@ class OnBordingResource extends JsonResource
             'title' => $this->title,
             'body' => $this->body,
             'order' => $this->onBoardingScreen->ordering_screen,
-            'image' => $this->onBoardingScreen->image,
+            'image' => Storage::url($this->onBoardingScreen->image),
             'ads' => AdsResource::collection($this->onBoardingScreen->ads)
         ];
     }

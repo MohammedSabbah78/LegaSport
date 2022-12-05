@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class CountryResource extends JsonResource
 {
@@ -16,7 +17,8 @@ class CountryResource extends JsonResource
     {
         return [
             'countryId' => $this->country->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'image' => Storage::url($this->image)
         ];
     }
 }
