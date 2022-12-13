@@ -55,7 +55,7 @@
                         <td class="pl-0">
                             <div class="symbol symbol-50 symbol-light mr-4">
                                 <span class="symbol-label">
-                                    <img src="{{Storage::url($club->logo)}}" class="customImage h-75 align-self-end" alt="">
+                                    <img src="{{Storage::url($club->image)}}" class="customImage h-75 align-self-end" alt="">
                                 </span>
                             </div>
                         </td>

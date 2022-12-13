@@ -108,6 +108,7 @@ class LanguageController extends Controller
             $language->name = $request->input('name');
             $language->code = $request->input('code');
             $language->active = $request->input('active');
+            $language->is_rtl = $request->input('is_rtl');
             $saved = $language->save();
             return ControllersService::generateProcessResponse($saved, 'UPDATE');
         } else {

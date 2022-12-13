@@ -44,7 +44,7 @@
                         <div class="col-3">
                             <span class="switch switch-outline switch-icon switch-success">
                                 <label>
-                                    <input type="checkbox" @checked($language->active) id="rtl">
+                                    <input type="checkbox" @checked($language->is_rtl) id="rtl">
                                     <span></span>
                                 </label>
                             </span>

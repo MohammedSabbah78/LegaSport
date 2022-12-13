@@ -86,7 +86,7 @@ class EventController extends Controller
             $event->end = $request->input('end');
             if ($request->hasFile('poster')) {
                 $posterName = time() . '_' . str_replace(' ', '', $event->name) . '.' . $request->file('poster')->extension();
-                $request->file('poster')->storePubliclyAs('event', $posterName, ['disk' => 'public']);
+                $request->file('poster')->storePubliclyAs('poster', $posterName, ['disk' => 'public']);
                 $event->poster = 'poster/' . $posterName;
             }
             $isSaved = $event->save();
