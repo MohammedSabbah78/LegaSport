@@ -39,7 +39,7 @@ class Messages
         'LOGGED_OUT_FAILED' => 'فشل تسجيل الخروج, حاول مرة ثانية',
         'LOGGED_IN_SUCCESSFULLY' => 'تم تسجيل الدخول بنجاح',
         'LOGIN_IN_FAILED' => 'تعذر تسجيل الدخول, حاول مرة أخرى',
-        'NO_ACCOUNT' => 'رقم الموظف المدخل غير مسجل!',
+        'NO_ACCOUNT' => 'الحساب المدخل غير مسجل!',
         'ACCOUNT_EXIST' => 'البريد الإلكتروني المدخل مسجل مسبقا!',
         'MOBILE_EXIST' => 'الجوال المدخل المدخل مسجل مسبقا!',
         'AUTH_CODE_SENT' => 'تم إرسال رمز التفعيل بنجاح',
@@ -49,6 +49,7 @@ class Messages
         'NOT_VERIFIED' => 'يجب تفعيل الحساب لتتمكن من تنفيذ اي عملية عليه.',
         'SUCCESS_CHECKED' => 'تم التحقق بنجاح',
         'FAILD_CHECKED' => 'فشل التحقق',
+        'ERROR_PASSWORD' => 'كملة المرور غير صحيحى',
 
         //PASSWORD
         'FORGET_PASSWORD_SUCCESS' => 'تم إرسال رمز الإستعادة بنجاح',
@@ -103,6 +104,8 @@ class Messages
 
         'ORDER_CREATED' => 'تم ارسال طلبك بنجاح، سيتم تنبيهك في كل تجديد في الحالة الخاصة به',
         'ORDER_FAILED' => 'حصل خلل في إنشاء الطلب، حاول مرة ثانية',
+        'ACCOUNT_NOT_EXISTS' => 'الحساب غير موجود'
+
     ];
 
     private static $enMessages = [
@@ -132,7 +135,7 @@ class Messages
         'LOGGED_OUT_FAILED' => 'Logout failed, please try again',
         'LOGGED_IN_SUCCESSFULLY' => 'Great, Logged in successfully',
         'LOGIN_IN_FAILED' => 'Login failed, try again!',
-        'NO_ACCOUNT' => 'Employee ID not registered!',
+        'NO_ACCOUNT' => 'Account not registered!',
         'AUTH_CODE_SENT' => 'Auth code sent successfully',
         'ACCOUNT_EXIST' => 'Email registered before!',
         'MOBILE_EXIST' => 'Mobile registered before!',
@@ -169,6 +172,7 @@ class Messages
         'PASSWORD_SEND_FAILED' => 'Failed to sent password, please try again',
         'PASSWORD_ALREADY_SET' => 'Password has been set before!',
         "PASSWORD_NOT_SET" => 'Please request your account password!',
+        'ERROR_PASSWORD' => 'The password is incorrect',
 
         'MULTI_ACCESS_ERROR' => 'It is not possible to log in to the same account from two devices at once!',
         'SECURITY_CHECK_SUCCESS' => 'Your status has been sent successfully, keep safe',
@@ -198,6 +202,7 @@ class Messages
 
         'ORDER_CREATED' => 'Your request has been sent successfully, and you will be notified in every renewal in its own status',
         'ORDER_FAILED' => 'There was an error creating the request, try again',
+        'ACCOUNT_NOT_EXISTS' => 'Account not found'
     ];
 
     public static function getMessage($code)

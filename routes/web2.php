@@ -350,7 +350,7 @@ Route::group([
 
         /*
         |--------------------------------------------------------------------------
-        | About-Us Routes
+        | Sponser Routes
         |--------------------------------------------------------------------------
         */
         Route::get('sponsers', [SponserController::class, 'index'])->name('sponsers.index');

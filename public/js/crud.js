@@ -1,3 +1,16 @@
+function blockUI() {
+    KTApp.blockPage({
+        overlayColor: 'blue',
+        opacity: 0.1,
+        state: 'primary' // a bootstrap color
+    });
+}
+
+function unBlockUI() {
+    KTApp.unblockPage();
+}
+
+
 function confirmDestroy(url, id, reference, callback) {
     let lang = $("html").attr("lang");
     Swal.fire({
@@ -52,12 +65,14 @@ function showMessage(message, error = false) {
     });
 }
 
-function store(url, data, redirectRoute) {
+
+async function store(url, data, redirectRoute) {
     let lang = $("html").attr("lang");
-    axios
+    blockUI();
+    await axios
         .post("/" + lang + url, data)
         .then(function (response) {
-            console.log(response);
+            unBlockUI();
             if (redirectRoute != undefined) {
                 window.location.href = redirectRoute;
             } else {
@@ -66,18 +81,19 @@ function store(url, data, redirectRoute) {
             }
         })
         .catch(function (error) {
-            console.log(error);
+            unBlockUI();
             toastr.error(error.response.data.message);
         });
 }
 
-function update(url, data, redirectRoute, updateCallback) {
+async function update(url, data, redirectRoute, updateCallback) {
     let lang = $("html").attr("lang");
-    axios
+    blockUI();
+    await axios
         .put("/" + lang + url, data)
         .then(function (response) {
+            unBlockUI();
             // handle success 2xx
-            console.log(response);
             if (redirectRoute != undefined) {
                 window.location.href = redirectRoute;
             } else {
@@ -87,11 +103,13 @@ function update(url, data, redirectRoute, updateCallback) {
             if (updateCallback != undefined) {
                 callback(true);
             }
+
         })
         .catch(function (error) {
             // handle error 4xx - 5xx
-            console.log(error);
+            unBlockUI();
             toastr.error(error.response.data.message);
+
         });
 }
 
@@ -116,3 +134,5 @@ function showToaster(message, error = false) {
     if (error) toastr.error(message);
     else toastr.success(message);
 }
+
+

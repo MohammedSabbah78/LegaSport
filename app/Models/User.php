@@ -42,4 +42,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sports(){
+        return $this->belongsToMany(Sport::class,'sport_users','sport_id','user_id');
+    }
+
+    public function language(){
+        return $this->belongsTo(Language::class,'language_id','id');
+    }
+
+    public function player(){
+        return $this->hasOne(Player::class,'user_id','id');
+    }
+
+    public function coach(){
+        return $this->hasOne(Coach::class,'user_id','id');
+    }
+
+    public function academy(){
+        return $this->hasOne(Academy::class,'user_id','id');
+    }
+
 }
