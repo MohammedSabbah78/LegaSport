@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\HelpersProvider;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -197,6 +198,7 @@ return [
 
 
         Spatie\Permission\PermissionServiceProvider::class,
+        HelpersProvider::class
 
     ],
 

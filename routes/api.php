@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ApiAuthController;
 use App\Http\Controllers\Api\AppController;
+use App\Http\Controllers\Api\GeneralController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\SportController;
 use Illuminate\Http\Request;
@@ -60,6 +61,37 @@ Route::prefix('v1')->middleware(['auth:user-api'])->group(function(){
     });
     // Profile Route
 
+    Route::controller(GeneralController::class)->group(function(){
+        Route::get('general/terms','terms');
+        Route::get('general/policy','policy');
+        Route::get('general/about','about');
+
+        Route::get('general/support/faqs','fqs');
+        Route::get('general/support/email','emailSupport');
+        Route::get('general/support/offices','offices');
+
+        Route::get('general/federations/defualt','federationsDefualt');
+        Route::get('general/federations/country/{country}/sport/{sport}','federationsBySport');
+        Route::get('general/federations/sports','federationsSports');
+        Route::get('general/federations/locations','federationsLocations');
+
+        Route::post('general/change/email','changeEmail');
+        Route::post('general/change/phone','changePhone');
+        Route::post('general/change/password','changePassword');
+        Route::post('general/change/lang','changeLang');
+
+        Route::get('general/invest','invest');
+        Route::post('general/invest','setDataInvest');
+
+        Route::get('general/payments','payments');
+        Route::post('general/payments/checkout','sendCheckOut');
+
+        Route::get('general/account/verefication','accountVerefication');
+        Route::post('general/account/verefication','setAccountVerefication');
+
+        Route::get('general/favorites','favorites');
+
+    });
 
     
     

@@ -48,7 +48,22 @@
 
 
 
-
+                    <div class="form-group row mt-4">
+                        <label class="col-3 col-form-label">{{__('cms.country')}}:<span
+                                class="text-danger">*</span></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="dropdown bootstrap-select form-control dropup">
+                                <select class="form-control selectpicker" data-size="7" id="country"
+                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
+                                    @foreach ($Countrys as $Country)
+                                    <option value="{{$Country->id}}">{{$Country->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <span class="form-text text-muted">{{__('cms.please_select')}}
+                                {{__('cms.type')}}</span>
+                        </div>
+                    </div>
                     <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row mt-4">
@@ -60,26 +75,6 @@
                                     title="Choose one of the following..." tabindex="null" data-live-search="true">
                                     @foreach ($citys as $city)
                                     <option value="{{$city->id}}">{{$city->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <span class="form-text text-muted">{{__('cms.please_select')}}
-                                {{__('cms.type')}}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="separator separator-dashed my-10"></div>
-
-                    <div class="form-group row mt-4">
-                        <label class="col-3 col-form-label">{{__('cms.country')}}:<span
-                                class="text-danger">*</span></label>
-                        <div class="col-lg-4 col-md-9 col-sm-12">
-                            <div class="dropdown bootstrap-select form-control dropup">
-                                <select class="form-control selectpicker" data-size="7" id="country"
-                                    title="Choose one of the following..." tabindex="null" data-live-search="true">
-                                    @foreach ($Countrys as $Country)
-                                    <option value="{{$Country->id}}">{{$Country->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -142,46 +137,20 @@
 
 
                     <div class="separator separator-dashed my-10"></div>
+                   
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.work_from')}}:</label>
-                        <table>
-                            <thead>
-                                <tr class="text-uppercase">
-                                    <th style="min-width: 150px">{{__('cms.name')}}</th>
-                                    <th style="min-width: 80px">{{__('cms.status')}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($days as $day)
-                                <tr>
-                                    <td class="pl-0">
-                                        <span href="#"
-                                            class="text-dark-50 font-weight-bolder text-hover-primary font-size-lg">{{$day->name}}</span>
-                                    </td>
-                                    <td class="pl-0">
-                                        <div class="form-group row">
-                                            <div class="col-3">
-                                                <span class="switch switch-outline switch-icon switch-success">
-                                                    <label>
-                                                        <input type="checkbox"  value="{{$day->id}}" class="days">
-                                                        <span></span>
-                                                    </label>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="col-9">
+                            <input type="time" class="form-control" id="work_from" placeholder="{{__('cms.work_from')}}" />
+                            <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.work_from')}}</span>
+                        </div>
                     </div>
-
 
                   <div class="separator separator-dashed my-10"></div>
                 <div class="form-group row mt-4">
                     <label class="col-3 col-form-label">{{__('cms.work_to')}}:</label>
                     <div class="col-9">
-                        <input type="number" class="form-control" id="work_to" placeholder="{{__('cms.work_to')}}" />
+                        <input type="time" class="form-control" id="work_to" placeholder="{{__('cms.work_to')}}" />
                         <span class="form-text text-muted">{{__('cms.please_select')}} {{__('cms.work_to')}}</span>
                     </div>
                 </div>
@@ -221,20 +190,17 @@
     function performStore(id){
 let formData = new FormData();
 formData.append('language',document.getElementById('language').value);
-formData.append('city',document.getElementById('city').value);
-formData.append('country',document.getElementById('country').value);
 formData.append('name',document.getElementById('name').value);
 formData.append('email',document.getElementById('email').value);
 formData.append('address1',document.getElementById('address1').value);
 formData.append('address2',document.getElementById('address2').value);
-formData.append('work_from',days.input.checked);
+formData.append('work_from',document.getElementById('work_from').value);
 formData.append('work_to',document.getElementById('work_to').value);
 formData.append('mobile',document.getElementById('mobile').value);
 
-
-
-
 if(id == null) {
+    formData.append('city',document.getElementById('city').value);
+    formData.append('country',document.getElementById('country').value);
     store('/cms/admin/offices',formData);
     }else {
     store('/cms/admin/offices/'+id+'/translation',formData);

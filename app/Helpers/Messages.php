@@ -49,7 +49,8 @@ class Messages
         'NOT_VERIFIED' => 'يجب تفعيل الحساب لتتمكن من تنفيذ اي عملية عليه.',
         'SUCCESS_CHECKED' => 'تم التحقق بنجاح',
         'FAILD_CHECKED' => 'فشل التحقق',
-        'ERROR_PASSWORD' => 'كملة المرور غير صحيحى',
+        'ERROR_PASSWORD' => 'كملة المرور غير صحيحة',
+        'RECENT_DATA_ERROR' => 'البيانات القديمة غير صحيحة , تأكد من صحتها',
 
         //PASSWORD
         'FORGET_PASSWORD_SUCCESS' => 'تم إرسال رمز الإستعادة بنجاح',
@@ -62,6 +63,7 @@ class Messages
         'RESET_PASSWORD_SUCCESS' => 'تم إستعادة كلمة المرور بنجاح',
         'RESET_PASSWORD_FAILED' => 'فشلت إستعادة كلمة المرور!',
 
+        'CHANGE_SUCCESS' => 'تم التعديل بنجاح',
         'CHANGE_PASSWORD_SUCCESS' => 'تم تعديل كلمة المرور بنجاح',
         'CHANGE_PASSWORD_FAILED' => 'فشل تعديل كلمة المرور!',
 
@@ -75,7 +77,7 @@ class Messages
         'PASSWORD_SEND_FAILED' => 'فشل في إرسال كلمة المرور, حاول مرة أٌخرى',
         'PASSWORD_ALREADY_SET' => 'لقد تم تعيين كلمة المرور مسبقاً!',
         'PASSWORD_NOT_SET' => 'قم بطلب كلمة المرور لحسابك!',
-
+        'PASSWORD_RECENT_FAILD' => 'كلمة المرور الحالية غير صحيحة ',
         'MULTI_ACCESS_ERROR' => 'لا يمكن تسجيل الدخول إلى نفس الحساب من جهازين في نفس الوقت',
         'SECURITY_CHECK_SUCCESS' => 'تم إرسال حالتك بنجاح ، حافظ على سلامتك',
         'SECURITY_CHECK_DUPLICATE' => 'لقد قمت بإرسال حالتك سابقاً ، حافظ على سلامتك',
@@ -104,7 +106,8 @@ class Messages
 
         'ORDER_CREATED' => 'تم ارسال طلبك بنجاح، سيتم تنبيهك في كل تجديد في الحالة الخاصة به',
         'ORDER_FAILED' => 'حصل خلل في إنشاء الطلب، حاول مرة ثانية',
-        'ACCOUNT_NOT_EXISTS' => 'الحساب غير موجود'
+        'ACCOUNT_NOT_EXISTS' => 'الحساب غير موجود',
+        'SAME_ENTER_DATA' => 'عذراً ,البيانات المدخلة مشابهة للبيانات الجديدة'
 
     ];
 
@@ -202,7 +205,14 @@ class Messages
 
         'ORDER_CREATED' => 'Your request has been sent successfully, and you will be notified in every renewal in its own status',
         'ORDER_FAILED' => 'There was an error creating the request, try again',
-        'ACCOUNT_NOT_EXISTS' => 'Account not found'
+        'ACCOUNT_NOT_EXISTS' => 'Account not found',
+        'SAME_ENTER_DATA' => 'Sorry, the data entered is the same as the new data',
+        'CHANGE_SUCCESS' => 'Modified successfully',
+        'PASSWORD_RECENT_FAILD' => 'The current password is incorrect',
+        'RECENT_DATA_ERROR' => 'The old data is incorrect'
+
+
+        
     ];
 
     public static function getMessage($code)

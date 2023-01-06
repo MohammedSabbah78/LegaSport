@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('federations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('city_id')->nullable()->constrained();
+            $table->foreignId('country_id')->nullable()->constrained();
+            $table->foreignId('sport_id')->nullable()->constrained();
             $table->string('website');
             $table->string('mobile');
             $table->string('twitter');

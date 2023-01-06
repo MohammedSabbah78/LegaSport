@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('address1');
             $table->string('address2');
-            $table->foreignId('city_id')->constrained();
-            $table->foreignId('country_id')->constrained();
+            
             $table->foreignId('language_id')->constrained();
             $table->foreignId('office_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

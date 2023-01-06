@@ -47,7 +47,7 @@
 
 
 
-                    <div class="separator separator-dashed my-10"></div>
+                    {{-- <div class="separator separator-dashed my-10"></div>
 
                     <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.city')}}:<span
@@ -85,7 +85,7 @@
                         <span class="form-text text-muted">{{__('cms.please_select')}}
                             {{__('cms.type')}}</span>
                     </div>
-                </div>
+                </div> --}}
 
 
                 <div class="separator separator-dashed my-10"></div>

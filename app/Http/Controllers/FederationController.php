@@ -26,13 +26,11 @@ class FederationController extends Controller
      */
     public function index()
     {
-        //
-        if (auth('admin')->check()) {
-            $data = Federation::with(['translations'])->withCount(['translations'])->get();
-            return response()->view('cms.federation.index', ['data' => $data]);
-        } else {
-        }
-    }
+        if (!auth('admin')->check()) return abort(403);
+
+        $data = Federation::with('translations')->withCount('translations')->get();
+        return response()->view('cms.federation.index', ['data' => $data]);
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -81,13 +79,16 @@ class FederationController extends Controller
             $federation->website = $request->input('website');
             $federation->mobile = $request->input('mobile');
             $federation->twitter = $request->input('twitter');
+            $federation->sport_id = $request->input('sport');
+            $federation->country_id = $request->input('country');
+            $federation->city_id = $request->input('city');
             $isSaved = $federation->save();
             if ($isSaved) {
                 $translation = new FederationTranslation();
                 $translation->name = $request->input('name');
-                $translation->sport_id = $request->input('sport');
-                $translation->country_id = $request->input('country');
-                $translation->city_id = $request->input('city');
+                // $translation->sport_id = $request->input('sport');
+                // $translation->country_id = $request->input('country');
+                // $translation->city_id = $request->input('city');
                 $translation->language_id = $request->input('language');
                 $translation->federation_id = $federation->id;
                 $translation->save();
@@ -134,13 +135,16 @@ class FederationController extends Controller
             $federation->website = $request->input('website');
             $federation->mobile = $request->input('mobile');
             $federation->twitter = $request->input('twitter');
+            $federation->sport_id = $request->input('sport');
+            $federation->country_id = $request->input('country');
+            $federation->city_id = $request->input('city');
             $isSaved = $federation->save();
             if ($isSaved) {
                 $translation = new FederationTranslation();
                 $translation->name = $request->input('name');
-                $translation->sport_id = $request->input('sport');
-                $translation->country_id = $request->input('country');
-                $translation->city_id = $request->input('city');
+                // $translation->sport_id = $request->input('sport');
+                // $translation->country_id = $request->input('country');
+                // $translation->city_id = $request->input('city');
                 $translation->language_id = $request->input('language');
                 $translation->federation_id = $federation->id;
                 $translation->save();
