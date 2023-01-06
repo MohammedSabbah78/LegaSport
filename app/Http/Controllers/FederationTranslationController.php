@@ -58,20 +58,20 @@ class FederationTranslationController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:country_translations,id',
-            'sport' => 'required|numeric|exists:sports,id',
             'name' => 'required|string|min:3|max:30',
         ]);
         if (!$validator->fails()) {
+            
+
             $translation = new FederationTranslation();
             $translation->name = $request->input('name');
-            $translation->sport_id = $request->input('sport');
-            $translation->country_id = $request->input('country');
-            $translation->city_id = $request->input('city');
+            // $translation->sport_id = $request->input('sport');
+            // $translation->country_id = $request->input('country');
+            // $translation->city_id = $request->input('city');
             $translation->language_id = $request->input('language');
             $translation->federation_id = $federation->id;
             $isSaved = $translation->save();
+
             return ControllersService::generateProcessResponse($isSaved, 'CREATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
@@ -123,16 +123,10 @@ class FederationTranslationController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:country_translations,id',
-            'sport' => 'required|numeric|exists:sports,id',
             'name' => 'required|string|min:3|max:30',
         ]);
         if (!$validator->fails()) {
             $federationTranslation->name = $request->input('name');
-            $federationTranslation->city_id = $request->input('city');
-            $federationTranslation->country_id = $request->input('country');
-            $federationTranslation->sport_id = $request->input('sport');
             $federationTranslation->language_id = $request->input('language');
             $isSaved = $federationTranslation->save();
             return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
@@ -150,7 +144,6 @@ class FederationTranslationController extends Controller
      */
     public function destroy(FederationTranslation $federationTranslation)
     {
-        //
         $count = FederationTranslation::where('federation_id', $federationTranslation->federation_id)->count();
         if ($count != 1) {
             $deleted = $federationTranslation->delete();

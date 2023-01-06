@@ -14,6 +14,16 @@ class Policie extends Model
         return new Attribute(get: fn () => $this->translations->first()->title ?? '-');
     }
 
+    public function title(): Attribute
+    {
+        return new Attribute(get: fn () => $this->translations->first()->title ?? '-');
+    }
+
+    public function body(): Attribute
+    {
+        return new Attribute(get: fn () => $this->translations->first()->body ?? '-');
+    }
+
     public function translations()
     {
         return $this->hasMany(PolicieTranslation::class, 'policie_id', 'id');

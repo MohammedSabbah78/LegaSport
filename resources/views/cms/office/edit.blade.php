@@ -50,7 +50,7 @@
                     <div class="separator separator-dashed my-10"></div>
 
 
-                    <div class="form-group row mt-4">
+                    {{-- <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.city')}}:<span class="text-danger">*</span></label>
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">
@@ -86,7 +86,7 @@
                             <span class="form-text text-muted">{{__('cms.please_select')}}
                                 {{__('cms.type')}}</span>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <div class="separator separator-dashed my-10"></div>
@@ -157,8 +157,6 @@
     function performEdit(){
         let data = {
             language: document.getElementById('language').value,
-            city: document.getElementById('city').value,
-            country: document.getElementById('country').value,
             name: document.getElementById('name').value,
             address1: document.getElementById('address1').value,
             address2: document.getElementById('address2').value,

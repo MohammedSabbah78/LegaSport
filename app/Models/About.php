@@ -13,6 +13,22 @@ class About extends Model
     {
         return new Attribute(get: fn () => $this->translations->first()->name ?? '-');
     }
+    
+    public function vision(): Attribute
+    {
+        return new Attribute(get: fn () => $this->translations->first()->vision ?? '-');
+    }
+
+    public function mission(): Attribute
+    {
+        return new Attribute(get: fn () => $this->translations->first()->mission ?? '-');
+    }
+
+    public function message(): Attribute
+    {
+        return new Attribute(get: fn () => $this->translations->first()->message ?? '-');
+    }
+    
 
     public function translations()
     {

@@ -58,8 +58,6 @@ class OfficeTranslationController extends Controller
         //
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:countries,id',
             'name' => 'required|string|min:3|max:30',
             'address1' => 'required|string|min:3',
             'address2' => 'required|string|min:3',
@@ -70,8 +68,6 @@ class OfficeTranslationController extends Controller
             $OfficeTranslation->name = $request->input('name');
             $OfficeTranslation->address1 = $request->input('address1');
             $OfficeTranslation->address2 = $request->input('address2');
-            $OfficeTranslation->country_id = $request->input('country');
-            $OfficeTranslation->city_id = $request->input('city');
             $OfficeTranslation->language_id = $request->input('language');
             $OfficeTranslation->office_id = $office->id;
             $isSaved = $OfficeTranslation->save();
@@ -100,10 +96,7 @@ class OfficeTranslationController extends Controller
      */
     public function edit(OfficeTranslation $OfficeTranslation)
     {
-        //
-        $languages = Language::whereDoesntHave('OfficeTranslations', function ($query) use ($OfficeTranslation) {
-            $query->where('office_id', '=', $OfficeTranslation->id);
-        })->get();
+        $languages = Language::all();
         $citys = City::where('active', '=', true)->get();
         $countrys = Country::where('active', '=', true)->get();
 
@@ -129,8 +122,6 @@ class OfficeTranslationController extends Controller
 
         $validator = Validator($request->all(), [
             'language' => 'required|numeric|exists:languages,id',
-            'city' => 'required|numeric|exists:cities,id',
-            'country' => 'required|numeric|exists:countries,id',
             'name' => 'required|string|min:3|max:30',
             'address1' => 'required|string|min:3',
             'address2' => 'required|string|min:3',
@@ -140,11 +131,9 @@ class OfficeTranslationController extends Controller
             $OfficeTranslation->name = $request->input('name');
             $OfficeTranslation->address1 = $request->input('address1');
             $OfficeTranslation->address2 = $request->input('address2');
-            $OfficeTranslation->country_id = $request->input('country');
-            $OfficeTranslation->city_id = $request->input('city');
             $OfficeTranslation->language_id = $request->input('language');
             $isSaved = $OfficeTranslation->save();
-            return ControllersService::generateProcessResponse($isSaved, 'CREATE');
+            return ControllersService::generateProcessResponse($isSaved, 'UPDATE');
         } else {
             return ControllersService::generateValidationErrorMessage($validator->getMessageBag()->first());
         }

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\General;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Storage;
 
-class CountryResource extends JsonResource
+class PolicyResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +15,8 @@ class CountryResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'countryId' => $this->country->id,
-            'name' => $this->name,
-            'image' => Storage::url($this->country->image)
+            'title' => $this->title,
+            'body' => $this->body,
         ];
     }
 }

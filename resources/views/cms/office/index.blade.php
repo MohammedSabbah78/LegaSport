@@ -175,13 +175,13 @@
                         </td>
 
                         <td class="pl-0">
-                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->translations->first()?->city->name
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->city?->name
                                 ?? ''}}</a>
                         </td>
 
 
                         <td class="pl-0">
-                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->translations->first()?->country->name
+                            <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$office->country?->name
                                 ?? ''}}</a>
                         </td>
 

@@ -18,4 +18,20 @@ class Federation extends Model
     {
         return $this->hasMany(FederationTranslation::class, 'federation_id', 'id');
     }
+
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
+
+    public function sport()
+    {
+        return $this->belongsTo(Sport::class, 'sport_id', 'id');
+    }
 }

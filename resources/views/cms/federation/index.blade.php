@@ -60,7 +60,7 @@
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->translations->first()?->city->name
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->city?->name
                                 ?? ''}}</a>
                         </td>
 
@@ -170,13 +170,13 @@
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->translations->first()?->country->name
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->country?->name
                                 ?? ''}}</a>
                         </td>
 
                         <td class="pl-0">
                             <a href="#"
-                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->translations->first()?->sport->name
+                                class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">{{$federation->sport?->name
                                 ?? ''}}</a>
                         </td>
 

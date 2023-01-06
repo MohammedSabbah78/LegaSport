@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations .
      *
      * @return void
      */
@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('country_id')->constrained();
+            $table->foreignId('city_id')->constrained();
             $table->string('work_from');
             $table->string('work_to');
             $table->string('email')->unique();

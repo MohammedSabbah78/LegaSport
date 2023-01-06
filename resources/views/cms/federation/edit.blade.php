@@ -47,7 +47,7 @@
                     <div class="separator separator-dashed my-10"></div>
 
 
-                    <div class="form-group row mt-4">
+                    {{-- <div class="form-group row mt-4">
                         <label class="col-3 col-form-label">{{__('cms.country')}}:<span class="text-danger">*</span></label>
                         <div class="col-lg-4 col-md-9 col-sm-12">
                             <div class="dropdown bootstrap-select form-control dropup">
@@ -104,7 +104,7 @@
                             <span class="form-text text-muted">{{__('cms.please_select')}}
                                 {{__('cms.type')}}</span>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="separator separator-dashed my-10"></div>
 
@@ -143,9 +143,9 @@
     function performEdit(){
         let data = {
             language: document.getElementById('language').value,
-            country: document.getElementById('country').value,
-            city: document.getElementById('city').value,
-            sport: document.getElementById('sport').value,
+            // country: document.getElementById('country').value,
+            // city: document.getElementById('city').value,
+            // sport: document.getElementById('sport').value,
             name: document.getElementById('name').value,
         }
         update('/cms/admin/federations/translations/{{$federationTranslation->id}}', data, '/cms/admin/federations');

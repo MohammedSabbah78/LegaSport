@@ -80,14 +80,14 @@ class OfficeController extends Controller
             $office->work_to = $request->input('work_to');
             $office->email = $request->input('email');
             $office->mobile = $request->input('mobile');
+            $office->country_id = $request->input('country');
+                $office->city_id = $request->input('city');
             $isSaved = $office->save();
             if ($isSaved) {
                 $translation = new OfficeTranslation();
                 $translation->name = $request->input('name');
                 $translation->address1 = $request->input('address1');
                 $translation->address2 = $request->input('address2');
-                $translation->country_id = $request->input('country');
-                $translation->city_id = $request->input('city');
                 $translation->language_id = $request->input('language');
                 $translation->Office_id = $office->id;
                 $translation->save();
@@ -147,14 +147,15 @@ class OfficeController extends Controller
             $office->work_to = $request->input('work_to');
             $office->email = $request->input('email');
             $office->mobile = $request->input('mobile');
+            $office->country_id = $request->input('country');
+                $office->city_id = $request->input('city');
             $isSaved = $office->save();
             if ($isSaved) {
                 $translation = new OfficeTranslation();
                 $translation->name = $request->input('name');
                 $translation->address1 = $request->input('address1');
                 $translation->address2 = $request->input('address2');
-                $translation->country_id = $request->input('country');
-                $translation->city_id = $request->input('city');
+                
                 $translation->language_id = $request->input('language');
                 $translation->Office_id = $office->id;
                 $translation->save();
